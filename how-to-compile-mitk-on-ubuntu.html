@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Neurita</title>
+  <title>How to compile MITK on Ubuntu</title>
   <meta name="author" content="Luis J. Salvatierra">
 
 
@@ -47,9 +47,53 @@
 </ul></nav>
   <div id="main">
     <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">How to compile MITK on Ubuntu</h1>
+      <p class="meta"><time datetime="2015-09-01T00:00:00+02:00" pubdate>2015/09/01</time></p>
+</header>
+
+  <div class="entry-content"><h2>Prerequisites</h2>
 <ul>
-    <li><a href="/category/mitk.html">MITK</a></li>
+<li>GIT</li>
+<li>CMake (version 3.2 or higher. Current stable 3.3)</li>
+<li>Qt 5.x</li>
+<li>Make sure that you select a Qt version which provides the right <strong>OpenGL-enabled</strong> packages for your architecture and compiler</li>
 </ul>
+<h2>Building</h2>
+<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install qt5-default qtscript5-dev libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev qttools5-dev qttools5-dev-tools libtiff5-dev libwrap0-dev
+<span class="nv">$ </span>git clone http://git.mitk.org/MITK.git
+<span class="nv">$ </span>mkdir MITK-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>MITK-build
+<span class="nv">$ </span>cmake ../MITK
+<span class="nv">$ </span>make -j4
+
+Where *4 is the number of CPU Threads.
+The last <span class="nb">command </span>will take several minutes to complete.
+</pre></div>
+
+
+<h2>Testing</h2>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/Downloads <span class="o">&amp;&amp;</span> wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd
+<span class="nv">$ </span><span class="nb">cd</span> /path/to/MITK-build/MITK-build <span class="c">#Yes, It&#39;s repeated.</span>
+<span class="nv">$ </span>./bin/MitkWorkbench
+</pre></div>
+
+
+<p><img alt="MITK load image" src="images/mitk_load_image_001.png" /></p>
+<ul>
+<li>Open the downloaded imagen in <code>~/Downloads</code></li>
+</ul>
+<p><img alt="MITK load image" src="images/mitk_load_image_002.png" /></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Luis J. Salvatierra</span>
+  </span>
+<time datetime="2015-09-01T00:00:00+02:00" pubdate>2015/09/01</time></p>    </footer>
+  </article>
+
+</div>
 <aside class="sidebar">
     <section id="social-sidebar-top">
     </section>
