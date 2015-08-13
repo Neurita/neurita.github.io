@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = u'Luis J. Salvatierra'
 SITENAME = u'Neurita'
-SITEURL = ''
+SITEURL = 'https://neurita.github.io'
 THEME = 'pelican-themes/pelipress'
 DISPLAY_PAGES_ON_MENU = True
 
@@ -46,3 +46,5 @@ DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+MENUBRAND = [(u'Neurita','https://neurita.github.io'),]
