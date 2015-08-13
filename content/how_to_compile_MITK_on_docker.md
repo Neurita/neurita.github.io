@@ -63,7 +63,7 @@ root@XXXXX:$ apt-get update && apt-get install -y \
     bison build-essential curl git libarchive-dev libbz2-ocaml-dev libcurl4-openssl-dev \
     libexpat1-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev \
     libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev libtheora-dev libtiff5-dev \
-    libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python3-dev pkg-config \
+    libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python-dev pkg-config \
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm
 ```
 
