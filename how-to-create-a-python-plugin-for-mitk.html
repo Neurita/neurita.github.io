@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>How to create a Python plugin for MITK</title>
+  <meta name="author" content="Luis J. Salvatierra">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://neurita.github.io/favicon.png" rel="icon">
+  <link href="https://neurita.github.io/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="https://neurita.github.io/theme/js/modernizr-2.0.js"></script>
+  <script src="https://neurita.github.io/theme/js/ender.js"></script>
+  <script src="https://neurita.github.io/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+  rel="stylesheet" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Roboto:300,100' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+<!-- TODO: add search here
+<form action="" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:https://neurita.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+-->
+
+<ul class="main-navigation">
+        <li class="header-brand"><a href="https://neurita.github.io">Neurita</a></li>
+            <li><a href="https://neurita.github.io/pages/mitk.html">MITK</a></li>
+    <!-- TODO: add categories here? -->
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">How to create a Python plugin for MITK</h1>
+      <p class="meta"><time datetime="2015-08-20T00:00:00+02:00" pubdate>2015/08/20</time></p>
+</header>
+
+  <div class="entry-content"><h2>Prerequisites</h2>
+<ul>
+<li>Add libraries references to Python path.:</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/MITK-build/bin/MitkWorkbench <span class="c">#Yes, It&#39;s repeated.</span>
+</pre></div>
+
+
+<ul>
+<li>Open the Python console and save the <code>sys.path</code>.:</li>
+</ul>
+<div class="highlight"><pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; print<span class="o">(</span>sys.path<span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;...&#39;</span>,<span class="s1">&#39;...&#39;</span>,...<span class="o">]</span>
+&gt;&gt;&gt; <span class="nv">paths</span> <span class="o">=</span> sys.path
+&gt;&gt;&gt; <span class="nv">f</span> <span class="o">=</span> open<span class="o">(</span><span class="s1">&#39;/home/your-username/.bashrc&#39;</span>,<span class="s1">&#39;a&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; f.write<span class="o">(</span><span class="s1">&#39;export PYTHONPATH=$PYTHONPATH:</span>
+<span class="s1">&gt;&gt;&gt; [ f.write(path + &#39;</span>:<span class="s1">&#39;) for path in paths ]</span>
+<span class="s1">&gt;&gt;&gt; f.write(&#39;</span><span class="se">\n</span><span class="s1">&#39;)</span>
+<span class="s1">&gt;&gt;&gt; f.write(&#39;</span><span class="nb">export </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:/path/to/MITK-build/ep/lib<span class="err">&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; f.close<span class="o">()</span>
+</pre></div>
+
+
+<ul>
+<li>Test it.:</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>python2
+
+&gt;&gt;&gt; import vtk
+&gt;&gt;&gt; import SimpleITK as sitk
+&gt;&gt;&gt; import cv
+...
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Luis J. Salvatierra</span>
+  </span>
+<time datetime="2015-08-20T00:00:00+02:00" pubdate>2015/08/20</time>  <span class="categories">
+    <a class="category" href="https://neurita.github.io/tag/mitk.html">MITK</a>
+    <a class="category" href="https://neurita.github.io/tag/python.html">Python</a>
+  </span>
+</p>    </footer>
+  </article>
+
+</div>
+<aside class="sidebar">
+    <section id="social-sidebar-top">
+    </section>
+    <section>
+    <h1>Recent posts</h1>
+    <ul id="recent_posts">
+        <li class="post">
+        <a href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">How to create a Python plugin for MITK</a>
+        </li>
+        <li class="post">
+        <a href="https://neurita.github.io/how-to-compile-mitk-on-docker.html">How to compile MITK on Docker</a>
+        </li>
+        <li class="post">
+        <a href="https://neurita.github.io/how-to-compile-mitk-on-ubuntu.html">How to compile MITK on Ubuntu</a>
+        </li>
+    </ul>
+    </section>
+        <section>
+        <h1>Categories</h1>
+        <ul id="recent_posts">
+            <li><a href="https://neurita.github.io/category/mitk.html">MITK</a></li>
+        </ul>
+        </section>
+ 
+    <section>
+    <h1>Tags</h1>
+    <a href="https://neurita.github.io/tag/python.html">Python</a>,    <a href="https://neurita.github.io/tag/docker.html">Docker</a>,    <a href="https://neurita.github.io/tag/mitk.html">MITK</a>    </section>
+
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Luis J. Salvatierra -
+  <span class="credit">Powered by <a href="http://getpelican.com" target="_blank">Pelican</a></span> -
+  built with <a href="https://github.com/jjimenezlopez/pelipress" target="_blank">Pelipress Theme</a>
+</p></footer>
+</body>
+</html>
