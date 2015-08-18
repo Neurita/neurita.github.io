@@ -53,6 +53,36 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">How to create a Python plugin for MITK</a>
+      </h1>
+      <p class="meta"><time datetime="2015-08-20T00:00:00+02:00" pubdate>2015/08/20</time></p>
+</header>
+
+  <div class="entry-content"><h2>Prerequisites</h2>
+<ul>
+<li>Add libraries references to Python path.:</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/MITK-build/bin/MitkWorkbench <span class="c">#Yes, It&#39;s repeated.</span>
+</pre></div>
+
+
+<ul>
+<li>Open the Python console and save the <code>sys.path</code>.:</li>
+</ul>
+<div class="highlight"><pre>&gt;&gt;&gt; import sys
+&gt;&gt;&gt; print<span class="o">(</span>sys.path<span class="o">)</span>
+<span class="o">[</span><span class="s1">&#39;...&#39;</span>,<span class="s1">&#39;...&#39;</span>,...<span class="o">]</span>
+&gt;&gt;&gt; <span class="nv">paths</span> <span class="o">=</span> sys.path
+&gt;&gt;&gt; <span class="nv">f</span> <span class="o">=</span> open<span class="o">(</span><span class="s1">&#39;/home/your-username/.bashrc&#39;</span>,<span class="s1">&#39;a&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; f.write<span class="o">(</span><span class="s1">&#39;export PYTHONPATH=$PYTHONPATH:</span>
+<span class="s1">&gt;&gt;&gt; [ f.write(path + &#39;</span>:<span class="s1">&#39;) for path ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="https://neurita.github.io/how-to-compile-mitk-on-docker.html">How to compile MITK on Docker</a>
       </h1>
       <p class="meta"><time datetime="2015-08-13T00:00:00+02:00" pubdate>2015/08/13</time></p>
@@ -60,11 +90,15 @@
 
   <div class="entry-content"><h2>Prerequisites</h2>
 <ul>
-<li>Docker</li>
+<li>Docker<ul>
 <li>GIT</li>
 <li>CMake (version 3.2 or higher. Current stable 3.3)</li>
-<li>Qt 5.x</li>
+<li>Qt 5.x<ul>
 <li>Make sure that you select a Qt version which provides the right <strong>OpenGL-enabled</strong> packages for your architecture and compiler</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>Install dependencies.:</p>
 <ol>
@@ -89,8 +123,10 @@
 <ul>
 <li>GIT</li>
 <li>CMake (version 3.2 or higher. Current stable 3.3)</li>
-<li>Qt 5.x</li>
+<li>Qt 5.x<ul>
 <li>Make sure that you select a Qt version which provides the right <strong>OpenGL-enabled</strong> packages for your architecture and compiler</li>
+</ul>
+</li>
 </ul>
 <p>Install dependencies.:</p>
 <ul>
@@ -114,6 +150,9 @@
     <h1>Recent posts</h1>
     <ul id="recent_posts">
         <li class="post">
+        <a href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">How to create a Python plugin for MITK</a>
+        </li>
+        <li class="post">
         <a href="https://neurita.github.io/how-to-compile-mitk-on-docker.html">How to compile MITK on Docker</a>
         </li>
         <li class="post">
@@ -130,7 +169,7 @@
  
     <section>
     <h1>Tags</h1>
-    <a href="https://neurita.github.io/tag/docker.html">Docker</a>,    <a href="https://neurita.github.io/tag/mitk.html">MITK</a>    </section>
+    <a href="https://neurita.github.io/tag/python.html">Python</a>,    <a href="https://neurita.github.io/tag/docker.html">Docker</a>,    <a href="https://neurita.github.io/tag/mitk.html">MITK</a>    </section>
 
 
 </aside>    </div>

@@ -58,11 +58,15 @@
 
   <div class="entry-content"><h2>Prerequisites</h2>
 <ul>
-<li>Docker</li>
+<li>Docker<ul>
 <li>GIT</li>
 <li>CMake (version 3.2 or higher. Current stable 3.3)</li>
-<li>Qt 5.x</li>
+<li>Qt 5.x<ul>
 <li>Make sure that you select a Qt version which provides the right <strong>OpenGL-enabled</strong> packages for your architecture and compiler</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p>Install dependencies.:</p>
 <ol>
@@ -166,6 +170,11 @@ root@XXXXX:<span class="nv">$ </span>ccmake ../MITK
 <p><img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png" /></p>
 <ul>
 <li><strong>Note: in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt &gt;= 5.3</strong></li>
+<li><strong>Tips:</strong><ul>
+<li>For a complete installation, press 't' to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.</li>
+<li>Also, if you selected <code>MITK_USE_SYSTEM_PYTHON</code>, you may want to change <code>PYTHON_EXECUTABLE</code>,<code>PYTHON_INCLUDE_DIR</code> and <code>PYTHON_LIBRARY</code> to your respective installation. For now, It's not possible to use Python 3, so you'll have to use Python2.7.</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span class="c"># Press &#39;c&#39; to configure and &#39;g&#39; to generate and exit.</span>
 
@@ -241,6 +250,9 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
     <h1>Recent posts</h1>
     <ul id="recent_posts">
         <li class="post">
+        <a href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">How to create a Python plugin for MITK</a>
+        </li>
+        <li class="post">
         <a href="https://neurita.github.io/how-to-compile-mitk-on-docker.html">How to compile MITK on Docker</a>
         </li>
         <li class="post">
@@ -257,7 +269,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
  
     <section>
     <h1>Tags</h1>
-    <a href="https://neurita.github.io/tag/docker.html">Docker</a>,    <a href="https://neurita.github.io/tag/mitk.html">MITK</a>    </section>
+    <a href="https://neurita.github.io/tag/python.html">Python</a>,    <a href="https://neurita.github.io/tag/docker.html">Docker</a>,    <a href="https://neurita.github.io/tag/mitk.html">MITK</a>    </section>
 
 
 </aside>    </div>
