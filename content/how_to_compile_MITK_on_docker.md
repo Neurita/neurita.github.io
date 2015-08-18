@@ -6,10 +6,10 @@ Tags: MITK, Docker
 ##Prerequisites
 
 - Docker
- - GIT
- - CMake (version 3.2 or higher. Current stable 3.3)
- - Qt 5.x
-  - Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler
+    - GIT
+    - CMake (version 3.2 or higher. Current stable 3.3)
+    - Qt 5.x
+        - Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler
 
 Install dependencies.:
 
@@ -112,6 +112,9 @@ root@XXXXX:$ ccmake ../MITK
 ![MITK ccmake image](images/Docker_Ubuntu_15.04_ccmake_MITK_002.png)
 
 * **Note: in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt >= 5.3**
+* **Tips:**
+    - For a complete installation, press 't' to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.
+    - Also, if you selected `MITK_USE_SYSTEM_PYTHON`, you may want to change `PYTHON_EXECUTABLE`,`PYTHON_INCLUDE_DIR` and `PYTHON_LIBRARY` to your respective installation. For now, It's not possible to use Python 3, so you'll have to use Python2.7.
 
 ```bash
 # Press 'c' to configure and 'g' to generate and exit.
