@@ -183,8 +183,8 @@ $ cd ~/Downloads && wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd
 $ /path/to/MITK-build/bin/MitkWorkbench
 ```
 
-![MITK load image](images/MITK_Ubuntu_15_001.png)
+![MITK load image](images/MitkWorkbench_001.png)
 
 * Open the downloaded image in `~/Downloads`
 
-![MITK load image](images/MITK_Ubuntu_15_002.png)
+![MITK load image](images/MitkWorkbench_002.png)

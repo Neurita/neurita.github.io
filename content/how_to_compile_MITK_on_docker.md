@@ -165,5 +165,5 @@ $ xhost +local:`docker inspect --format='{{ .Config.Hostname }}' <CONTAINER_ID>`
 $ docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix mitk:15.04
 ```
 
-![MITK load image](images/MITK_Ubuntu_15_001.png)
+![MITK load image](images/MitkWorkbench_002.png)
 
