@@ -24,7 +24,7 @@ $ sudo apt-get update && sudo apt-get install -y \
     libexpat-ocaml-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev \
     libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev libtheora-dev libtiff5-dev \
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev pkg-config qt5-default \
-    qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm
+    qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
 * **Ubuntu:15.04.:**
@@ -39,7 +39,7 @@ $ sudo apt-get update && sudo apt-get install -y \
     libexpat1-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev \
     libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev libtheora-dev libtiff5-dev \
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python-dev pkg-config \
-    qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm
+    qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
 * **Ubuntu:14.04 and Ubuntu:15.04.:**
