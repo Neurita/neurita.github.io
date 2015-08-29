@@ -58,24 +58,17 @@
       <p class="meta"><time datetime="2015-08-20T00:00:00+02:00" pubdate>2015/08/20</time></p>
 </header>
 
-  <div class="entry-content"><h2>Prerequisites</h2>
+  <div class="entry-content"><h2>Create the plugin</h2>
 <ul>
-<li>Add libraries references to Python path.:</li>
+<li>First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">Mitk Plugin Generator </a>.:</li>
 </ul>
-<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/MITK-build/bin/MitkWorkbench <span class="c">#Yes, It&#39;s repeated.</span>
-</pre></div>
-
-
-<ul>
-<li>Open the Python console and save the <code>sys.path</code>.:</li>
-</ul>
-<div class="highlight"><pre>&gt;&gt;&gt; import sys
-&gt;&gt;&gt; print<span class="o">(</span>sys.path<span class="o">)</span>
-<span class="o">[</span><span class="s1">&#39;...&#39;</span>,<span class="s1">&#39;...&#39;</span>,...<span class="o">]</span>
-&gt;&gt;&gt; <span class="nv">paths</span> <span class="o">=</span> sys.path
-&gt;&gt;&gt; <span class="nv">f</span> <span class="o">=</span> open<span class="o">(</span><span class="s1">&#39;/home/your-username/.bashrc&#39;</span>,<span class="s1">&#39;a&#39;</span><span class="o">)</span>
-&gt;&gt;&gt; f.write<span class="o">(</span><span class="s1">&#39;export PYTHONPATH=$PYTHONPATH:</span>
-<span class="s1">&gt;&gt;&gt; [ f.write(path + &#39;</span>:<span class="s1">&#39;) for path ...</span></pre></div></div>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator -h
+<span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator --out-dir /output/directory <span class="se">\</span>
+  --vendor Plugin_vendor_name --view-name <span class="s2">&quot;My View&quot;</span> --plugin-symbolic-name org.mycompany.myplugin
+<span class="nv">$ </span><span class="nb">cd</span> /output/directory <span class="o">&amp;&amp;</span> ls
+org.mycompany.myplugin
+<span class="nv">$ </span><span class="nb">cd </span>org.mycompany.myplugin <span class="o">&amp;&amp;</span> ls
+CMakeLists.txt  documentation  files.cmake ...</pre></div></div>
   <footer>
     <a rel="full-article" href="https://neurita.github.io/how-to-create-a-python-plugin-for-mitk.html">Read On &crarr;</a>
   </footer>
