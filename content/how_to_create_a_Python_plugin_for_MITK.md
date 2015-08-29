@@ -74,7 +74,9 @@ mitk_create_plugin(
 ```
 
 * Embed Python in the new plugin.:
-  * Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.
+    * Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.
+
+When we create a plugin with `MitkPluginGenerator` the default view contains a button `Do something`. Each time we press that button, it calls the function `DoImageProcessing()` that prints a message in the console/terminal.
 
 ```cpp
 // MyView.cpp
@@ -106,11 +108,12 @@ void MyView::DoImageProcessing()
 ...
 ```
 
-* Add this two line example.:
+* Add this two line example to the end of the function `DoImageProcessing()`.:
 
 ```cpp
 
-      // actually do something here...
+      // Each time we press that button will print `Hello World!` in the console/terminal
+      // First we interact with mitkPythonService and execute a simple Python function.
       itk::SmartPointer<mitk::PythonService> _PythonService(new mitk::PythonService());
       std::string result = _PythonService->Execute( "print ('Hello World!')", mitk::IPythonService::SINGLE_LINE_COMMAND );
 
