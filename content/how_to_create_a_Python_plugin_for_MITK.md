@@ -3,6 +3,10 @@ Date: 2015-08-20
 Category: MITK
 Tags: MITK, Python
 
+##Examples
+
+You can find some examples in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.
+
 ##Create the plugin
 
 * First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">Mitk Plugin Generator </a>.:
