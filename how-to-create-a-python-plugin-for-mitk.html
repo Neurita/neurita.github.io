@@ -56,7 +56,9 @@
       <p class="meta"><time datetime="2015-08-20T00:00:00+02:00" pubdate>2015/08/20</time></p>
 </header>
 
-  <div class="entry-content"><h2>Create the plugin</h2>
+  <div class="entry-content"><h2>Examples</h2>
+<p>You can find some examples in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.</p>
+<h2>Create the plugin</h2>
 <ul>
 <li>First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">Mitk Plugin Generator </a>.:</li>
 </ul>
@@ -166,10 +168,9 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
 
 <ul>
-<li>Add this two line example to the default function <code>DoImageProcessing()</code>.:</li>
+<li>Add this two line example to the end of the function <code>DoImageProcessing()</code>.:</li>
 </ul>
-<div class="highlight"><pre>      <span class="c1">// Each time we press the button will print `Hello World!`</span>
-      <span class="c1">// in the console/terminal</span>
+<div class="highlight"><pre>      <span class="c1">// Each time we press that button will print `Hello World!` in the console/terminal</span>
       <span class="c1">// First we interact with mitkPythonService and execute a simple Python function.</span>
       <span class="n">itk</span><span class="o">::</span><span class="n">SmartPointer</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="o">&gt;</span> <span class="n">_PythonService</span><span class="p">(</span><span class="k">new</span> <span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="p">());</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_PythonService</span><span class="o">-&gt;</span><span class="n">Execute</span><span class="p">(</span> <span class="s">&quot;print (&#39;Hello World!&#39;)&quot;</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">IPythonService</span><span class="o">::</span><span class="n">SINGLE_LINE_COMMAND</span> <span class="p">);</span>
