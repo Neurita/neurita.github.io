@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Luis J. Salvatierra'
+AUTHOR = u'Neurita developers'
 SITENAME = u'Neurita'
 SITEURL = 'https://neurita.github.io'
 THEME = 'pelican-themes/pelipress'
