@@ -1,3 +1,9 @@
+Clone this repository
+====
+git clone git@github.com:Neurita/neurita.github.io.git
+git pull && git submodule update --init --recursive
+
+
 Publish a Pelican site in the form of User Pages to Github
 ====
 
