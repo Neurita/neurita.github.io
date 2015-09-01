@@ -1,18 +1,24 @@
 Title: How to compile MITK on Ubuntu
 Date: 2015-08-13
-Category: MITK
-Tags: MITK
+Category: MITK, build
+Tags: MITK, build, Ubuntu
+Author: Luis Javier Salvatierra
+Email: ljsalvat@gmail.com
+Summary: A short manual on how to compile MITK on Ubuntu with all options enabled.
 
-##Prerequisites
+
+## Prerequisites
 
 - GIT
 - CMake (version 3.2 or higher. Current stable 3.3)
 - Qt 5.x
     - Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler
 
-Install dependencies.:
+### Install dependencies.:
 
-* **Ubuntu:14.04.:**
+#### From the Ubuntu packages:
+
+##### Option 1: Ubuntu 14.04:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y \
@@ -27,7 +33,7 @@ $ sudo apt-get update && sudo apt-get install -y \
     qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-* **Ubuntu:15.04.:**
+##### Option 2: Ubuntu 15.04:
 
 ```bash
 $ sudo apt-get update && sudo apt-get install -y \
@@ -42,7 +48,7 @@ $ sudo apt-get update && sudo apt-get install -y \
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-* **Ubuntu:14.04 and Ubuntu:15.04.:**
+#### Install OpenCL:
 
 ```bash
 # OpenCL for Intel/AMD:
@@ -53,7 +59,7 @@ $ sudo apt-get update && sudo apt-get install -y \
 	# Where XXX is the version. Current 346
 ```
 
-Build Cmake 3.3.0.:
+#### Build Cmake 3.3.0:
 
 ```bash
 $ wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
@@ -63,18 +69,18 @@ $ ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncp
 $ make && sudo make install
 ```
 
-Build FFmpeg, we need it for OpenCV.:
+#### Build FFmpeg, we need it for OpenCV:
 
 ```bash
 $ git clone https://github.com/FFmpeg/FFmpeg.git
 $ cd FFmpeg
-$ ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \ 
+$ ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx \
     --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
 $ make && sudo make install
 ```
 
-Build MITK.:
+#### Build MITK:
 
 ```bash
 $ git clone http://git.mitk.org/MITK.git
@@ -86,7 +92,7 @@ $ ccmake ../MITK
 
 ![MITK ccmake image](images/Docker_Ubuntu_15.04_ccmake_MITK_002.png)
 
-* **Note: in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt >= 5.3**
+* **Note:** in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt >= 5.3
 * **Tips:**
     - For a complete installation, press 't' to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.
     - Also, if you selected `MITK_USE_SYSTEM_PYTHON`, you may want to change `PYTHON_EXECUTABLE`,`PYTHON_INCLUDE_DIR` and `PYTHON_LIBRARY` to your respective installation. For now, It's not possible to use Python 3, so you'll have to use Python2.7.
@@ -101,7 +107,7 @@ $ make
 
 If you encounter any problems building MITK, try building your self some of Its dependencies.:
 
-Build Boost if needed.:
+#### Build Boost if needed:
 
 - Download Boost from the official webpage <a href="http://www.boost.org/" target="_blank">Boost C++ Libraries</a>.
 
@@ -112,7 +118,7 @@ $ mkdir ../boost-build
 $ sudo ./b2 -q --build-dir=../boost-build variant=release install
 ```
 
-Build OpenCV if needed.:
+#### Build OpenCV if needed:
 
 ```bash
 $ sudo apt-get install build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev \
@@ -131,7 +137,7 @@ $ make -j4
 $ sudo make install
 ```
 
-Build VTK if needed.:
+#### Build VTK if needed:
 
 ```bash
 $ sudo apt-get install tk-dev
@@ -150,7 +156,7 @@ $ make -j4
 $ sudo make install
 ```
 
-Build SOFA if needed.:
+#### Build SOFA if needed:
 
 ```bash
 $ git clone git://scm.gforge.inria.fr/sofa/sofa.git
@@ -163,7 +169,7 @@ $ cmake .
 $ make -j4
 ```
 
-Build GDCM if needed.:
+#### Build GDCM if needed:
 
 ```bash
 $ sudo apt-get install swig
@@ -176,7 +182,7 @@ $ make
 $ sudo make install
 ```
 
-##Using MITK
+## Run MITK
 
 ```bash
 $ cd ~/Downloads && wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd

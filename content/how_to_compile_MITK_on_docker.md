@@ -1,9 +1,13 @@
 Title: How to compile MITK on Docker
 Date: 2015-08-13
-Category: MITK
-Tags: MITK, Docker
+Category: MITK, build
+Tags: MITK, build, docker
+Author: Luis Javier Salvatierra
+Email: ljsalvat@gmail.com
+Summary: A short manual on how to compile MITK using Docker with all options enabled.
 
-##Prerequisites
+
+## Prerequisites
 
 - Docker
     - GIT
@@ -11,9 +15,9 @@ Tags: MITK, Docker
     - Qt 5.x
         - Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler
 
-Install dependencies.:
+### Install dependencies.:
 
-1. Install Docker.:
+#### Install Docker:
 
 ```bash
 $ sudo apt-get update
@@ -21,7 +25,9 @@ $ sudo apt-get install curl
 $ curl -sSL https://get.docker.com/ | sh
 ```
 
-* **Docker - Ubuntu:14.04.:**
+##### **Option 1:** Ubuntu 14.04
+
+Pull a Docker container with Ubuntu:14.04 and run it:
 
 ```bash
 $ docker pull ubuntu:14.04
@@ -29,7 +35,7 @@ $ docker images
 $ docker run -i -t <IMAGE_ID> /bin/bash
 ```
 
-* Inside Docker.:
+Once inside the Ubuntu 14.04 container, install MITK dependencies:
 
 ```bash
 root@XXXXX:$ apt-get update && apt-get install -y \
@@ -44,7 +50,9 @@ root@XXXXX:$ apt-get update && apt-get install -y \
     qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-* **Docker - Ubuntu:15.04.:**
+##### **Option 2:** Ubuntu 15.04
+
+Pull a Docker container with Ubuntu 15.04 and run it:
 
 ```bash
 $ docker pull ubuntu:15.04
@@ -52,7 +60,7 @@ $ docker images
 $ docker run -i -t <IMAGE_ID> /bin/bash
 ```
 
-* Inside Docker.:
+Once inside the container:
 
 ```bash
 root@XXXXX:$ apt-get update && apt-get install -y \
@@ -67,7 +75,9 @@ root@XXXXX:$ apt-get update && apt-get install -y \
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-* **Docker - Ubuntu:14.04 and Ubuntu:15.04.:**
+#### From now on, you must run everything inside the container:
+
+#### Install OpenCL:
 
 ```bash
 # OpenCL for Intel/AMD:
@@ -78,7 +88,7 @@ root@XXXXX:$ apt-get update && apt-get install -y \
         	   # Where XXX is the version. Current 346
 ```
 
-Docker - Build Cmake 3.3.0.:
+#### Build Cmake 3.3.0:
 
 ```bash
 root@XXXXX:$ wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
@@ -88,7 +98,7 @@ root@XXXXX:$ ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-sy
 root@XXXXX:$ make && make install
 ```
 
-Docker - Build FFmpeg, we need it for OpenCV.:
+#### Build FFmpeg, a dependecy of OpenCV:
 
 ```bash
 root@XXXXX:$ git clone https://github.com/FFmpeg/FFmpeg.git
@@ -99,7 +109,7 @@ root@XXXXX:$ ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --ena
 root@XXXXX:$ make && make install
 ```
 
-Docker - Build MITK.:
+#### Build MITK:
 
 ```bash
 root@XXXXX:$ git clone http://git.mitk.org/MITK.git
@@ -111,7 +121,7 @@ root@XXXXX:$ ccmake ../MITK
 
 ![MITK ccmake image](images/Docker_Ubuntu_15.04_ccmake_MITK_002.png)
 
-* **Note: in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt >= 5.3**
+* **Note:** in Ubuntu:14.04 you CAN'T select the option 'MITK_USE_Python', because It needs Qt >= 5.3
 * **Tips:**
     - For a complete installation, press 't' to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.
     - Also, if you selected `MITK_USE_SYSTEM_PYTHON`, you may want to change `PYTHON_EXECUTABLE`,`PYTHON_INCLUDE_DIR` and `PYTHON_LIBRARY` to your respective installation. For now, It's not possible to use Python 3, so you'll have to use Python2.7.
@@ -132,7 +142,7 @@ $ docker commit <CONTAINER_NAME> ubuntu15/mitk:latest
 # See the CONTAINER_NAME on the right of `docker ps -l`
 ```
 
-Docker - Running MITK.:
+#### Running MITK:
 
 1. Create a <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a>.:
 
@@ -166,4 +176,3 @@ $ docker run -ti --rm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix mitk:
 ```
 
 ![MITK load image](images/MitkWorkbench_002.png)
-

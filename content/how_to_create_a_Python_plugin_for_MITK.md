@@ -1,15 +1,20 @@
 Title: How to create a Python plugin for MITK
 Date: 2015-08-20
-Category: MITK
-Tags: MITK, Python
+Category: MITK, python
+Tags: MITK, python
+Author: Luis Javier Salvatierra
+Email: ljsalvat@gmail.com
+Summary: A manual on how to create a simple Python plugin for MITK.
 
-##Examples
 
-You can find some examples in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.
+## Plugins examples
 
-##Create the plugin
+You can find some examples of MITK plugins in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.
 
-* First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">Mitk Plugin Generator </a>.:
+
+## Create a MITK plugin
+
+* First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">`MitkPluginGenerator`</a>.:
 
 ```bash
 $ /path/to/MITK-build/bin/MitkPluginGenerator -h
@@ -61,10 +66,10 @@ $ vim CMakeLists.txt
   endmacro()
 ```
 
-`set(re_ctkplugin_`**`mycompany "^org_mycompany_[a-zA-Z0-9_]+$"`**`)`
-`ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE ${varname})`
+    `set(re_ctkplugin_`**`mycompany "^org_mycompany_[a-zA-Z0-9_]+$"`**`)`
+    `ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE ${varname})`
 
-##Modify your plugin
+## Modify your plugin
 
 * Add Python module dependency to the plugin `CMakeLists.txt`.
 
@@ -77,8 +82,9 @@ mitk_create_plugin(
 
 ```
 
-* Embed Python in the new plugin.:
-    * Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.
+### Embed Python in the new plugin:
+
+#### Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.
 
 When we create a plugin with `MitkPluginGenerator` the default view contains a button `Do something`. Each time we press that button, it calls the function `DoImageProcessing()` that prints a message in the console/terminal.
 
@@ -128,7 +134,7 @@ void MyView::DoImageProcessing()
 ...
 ```
 
-##Build MITK with your new plugin
+#### Build MITK with your new plugin
 
 ```bash
 $ cd /path/to/MITK-build #Clean directory
@@ -143,22 +149,22 @@ $ make
 # The last command will take several hours.
 ```
 
-##Test it!
+## Test it!
 
-* Open the `MitkWorkbench`.:
+* Open the `MitkWorkbench`:
 
 ```bash
 $ /path/to/MITK-build/bin/MitkWorkbench
 ```
 
-* Open your plugin view.:
+* Open your plugin view:
 
 ![Mitk Plugin](images/MITK_plugin_001.png)
 
-* Open a new image to be able to press the button `Do something`.:
+* Open a new image to be able to press the button `Do something`:
 
 ![Mitk Plugin](images/MITK_plugin_002.png)
 
-* You should see this when pressing the button `Do something`.:
+* You should see this when pressing the button `Do something`:
 
 ![Mitk Plugin](images/MITK_plugin_003.png)
