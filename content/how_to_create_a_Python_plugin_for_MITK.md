@@ -1,5 +1,6 @@
 Title: How to create a Python plugin for MITK
 Date: 2015-08-20
+modified: 2015-09-02
 Category: MITK, python
 Tags: MITK, python
 Author: Luis Javier Salvatierra
