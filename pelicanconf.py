@@ -6,7 +6,7 @@ DEBUG = False
 
 AUTHOR = u'Neurita developers'
 SITENAME = u'<span style="color:blue;">Neurita</span>'
-SITEURL = 'https://neurita.github.io'
+SITEURL = 'http://localhost:8000'
 THEME = 'pelican-themes/pelican-elegant'
 DISPLAY_PAGES_ON_MENU = True
 
@@ -99,7 +99,7 @@ OUTPUT_SOURCES = 'True'
 OUTPUT_SOURCES_EXTENSION = '.txt'
 
 # Elegant Labels
-DISQUS_SITENAME      = 'neurita.disqus.com'
+DISQUS_SITENAME      = 'Neurita.disqus.com'
 ABOUT_ME_LABEL       = u'About us' #u'We are <span itemprop="name"> Neurita</span>.'
 MY_PROJECTS_LABEL    = u'Projects'
 SOCIAL_PROFILE_LABEL = u'Stay in Touch'
@@ -182,17 +182,12 @@ PROJECTS = [
 LANDING_PAGE_ABOUT = {'title': 'We develop medical research and data analytics tools.',
         'details': """<div itemscope itemtype="http://schema.org/Person">
 
-       <p>We are on <a href="https://github.com/neurita/" title="Github
-       profile" itemprop="url">Github</a> and on Twitter <a
-       href="https://twitter.com/neuritabcc/" title="Twitter
-       profile" itemprop="url">@neuritabcc</a>. You can also reach us via <a
-       href="mailto:info@neurita.com" title="Email
-       address" itemprop="email">email</a>.
-       Our origin is the <a href='http://www.ehu.eus/ccwintco'>Computational
+       <p>
+       Our origin is the <a href='http://www.ehu.eus/ccwintco' target="_blank">Computational
        Intelligence Group (GIC)</a> and we are also founders of the
-       <a href='http://pyss.org/'>Python San Sebastián Society (ACPySS)</a>.</p>
-
-       <p>We work on software solutions for
+       <a href='http://pyss.org/' target="_blank">Python San Sebastián Society (ACPySS)</a>.</p>
+       <p>
+       We work on software solutions for
        medical imaging, clinical data and data analytics. We collaborate with
        local and European research medical groups to offer solutions to help in
        their research. We program mostly on Python and C++11, but sometimes we
@@ -201,5 +196,11 @@ LANDING_PAGE_ABOUT = {'title': 'We develop medical research and data analytics t
        and leverage the free software movement. We develop and contribute to open source projects.
        We believe that software still has many slots to fill in the medical field
        and machine learning will play a very disruptive role.
-       We are actively looking for new collaborations and opportunities as well as
-       startup and research fundings.</p></div>"""}
+       We are actively looking for new collaborations and opportunities as well as startup and research fundings.</p>
+       <p>
+       <a href="mailto:info@neurita.com" title="Email address" itemprop="email"><i class="fa fa-envelope share-post-links"></i></a>
+       <a href="https://twitter.com/neuritabcc" class="twitter-follow-button" data-show-count="true">Follow @neuritabcc</a>
+       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+       <iframe src="http://ghbtns.com/github-btn.html?user=neurita&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
+       </p>
+       </div>"""}
