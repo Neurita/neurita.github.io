@@ -5,6 +5,6 @@
 	path = pelican-themes/pelican-elegant
 	url = https://github.com/neurita/pelican-elegant.git
 [submodule "output"]
-    path = output
-    url = git@github.com:Neurita/neurita.github.io.git
-    branch = master
+	path = output
+	url = https://github.com/neurita/neurita.github.io.git
+	branch = master
