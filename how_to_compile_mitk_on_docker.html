@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Luis Javier Salvatierra" />
+        <meta name="copyright" content="Luis Javier Salvatierra" />
+
+        <meta name="description" content="A short manual on how to compile MITK using Docker with all options enabled.
+" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
+
+<meta name="keywords" content="MITK, build, docker, MITK, build, " />
+
+<meta property="og:title" content="How to compile MITK on Docker "/>
+<meta property="og:url" content="https://neurita.github.io/how_to_compile_mitk_on_docker" />
+<meta property="og:description" content="A short manual on how to compile MITK using Docker with all options enabled." />
+<meta property="og:site_name" content="Neurita" />
+<meta property="og:article:author" content="Luis Javier Salvatierra" />
+<meta property="og:article:published_time" content="2015-08-13T00:00:00+02:00" />
+<meta property="" content="2015-09-02T00:00:00+02:00" />
+<meta name="twitter:title" content="How to compile MITK on Docker ">
+<meta name="twitter:description" content="A short manual on how to compile MITK using Docker with all options enabled.">
+
+        <title>How to compile MITK on Docker  · Neurita
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://neurita.github.io/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://neurita.github.io/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://neurita.github.io/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="https://neurita.github.io/theme/css/custom.css" media="screen">
+        <link rel="shortcut icon" href="https://neurita.github.io/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
+        <link rel="icon" href="https://neurita.github.io/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link rel="apple-touch-icon" href="https://neurita.github.io/theme/images/apple-touch-icon.png"  type="image/png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="https://neurita.github.io/theme/images/apple-touch-icon-57x57.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="https://neurita.github.io/theme/images/apple-touch-icon-72x72.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="https://neurita.github.io/theme/images/apple-touch-icon-76x76.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://neurita.github.io/theme/images/apple-touch-icon-114x114.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="https://neurita.github.io/theme/images/apple-touch-icon-120x120.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="https://neurita.github.io/theme/images/apple-touch-icon-144x144.png" type="image/png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="https://neurita.github.io/theme/images/apple-touch-icon-152x152.png" type="image/png" />
+        <link href="https://neurita.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Neurita - Full Atom Feed" />
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="https://neurita.github.io/"><span class=site-name><span style="color:blue;">Neurita</span></span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="https://neurita.github.io">Home</a></li>
+                            <li ><a href="https://neurita.github.io/categories.html">Categories</a></li>
+                            <li ><a href="https://neurita.github.io/tags.html">Tags</a></li>
+                            <li ><a href="https://neurita.github.io/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="https://neurita.github.io/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="https://neurita.github.io/how_to_compile_mitk_on_docker"> How to compile <span class="caps">MITK</span> on&nbsp;Docker  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Docker<ul>
+<li><span class="caps">GIT</span></li>
+<li>CMake (version 3.2 or higher. Current stable&nbsp;3.3)</li>
+<li>Qt 5.x<ul>
+<li>Make sure that you select a Qt version which provides the right <strong>OpenGL-enabled</strong> packages for your architecture and&nbsp;compiler</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="install-dependencies">Install dependencies.:<a class="headerlink" href="#install-dependencies" title="Permanent link">&para;</a></h3>
+<h4 id="install-docker">Install Docker:<a class="headerlink" href="#install-docker" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install curl
+<span class="nv">$ </span>curl -sSL https://get.docker.com/ <span class="p">|</span> sh
+</pre></div>
+
+
+<h5 id="option-1-ubuntu-1404"><strong>Option 1:</strong> Ubuntu 14.04<a class="headerlink" href="#option-1-ubuntu-1404" title="Permanent link">&para;</a></h5>
+<p>Pull a Docker container with Ubuntu:14.04 and run&nbsp;it:</p>
+<div class="highlight"><pre><span class="nv">$ </span>docker pull ubuntu:14.04
+<span class="nv">$ </span>docker images
+<span class="nv">$ </span>docker run -i -t &lt;IMAGE_ID&gt; /bin/bash
+</pre></div>
+
+
+<p>Once inside the Ubuntu 14.04 container, install <span class="caps">MITK</span>&nbsp;dependencies:</p>
+<div class="highlight"><pre>root@XXXXX:<span class="nv">$ </span>apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+    software-properties-common <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-add-repository multiverse <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-get update <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+    bison build-essential curl git libarchive-dev libbz2-ocaml-dev libcurl4-openssl-dev <span class="se">\</span>
+    libexpat-ocaml-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev <span class="se">\</span>
+    libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev libtheora-dev libtiff5-dev <span class="se">\</span>
+    libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev pkg-config qt5-default <span class="se">\</span>
+    qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
+</pre></div>
+
+
+<h5 id="option-2-ubuntu-1504"><strong>Option 2:</strong> Ubuntu 15.04<a class="headerlink" href="#option-2-ubuntu-1504" title="Permanent link">&para;</a></h5>
+<p>Pull a Docker container with Ubuntu 15.04 and run&nbsp;it:</p>
+<div class="highlight"><pre><span class="nv">$ </span>docker pull ubuntu:15.04
+<span class="nv">$ </span>docker images
+<span class="nv">$ </span>docker run -i -t &lt;IMAGE_ID&gt; /bin/bash
+</pre></div>
+
+
+<p>Once inside the&nbsp;container:</p>
+<div class="highlight"><pre>root@XXXXX:<span class="nv">$ </span>apt-get update <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+    software-properties-common <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-add-repository multiverse <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-get update <span class="se">\</span>
+    <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+    bison build-essential curl git libarchive-dev libbz2-ocaml-dev libcurl4-openssl-dev <span class="se">\</span>
+    libexpat1-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev <span class="se">\</span>
+    libqt5svg5-dev libqt5webkit5-dev libqt5xmlpatterns5-dev libtheora-dev libtiff5-dev <span class="se">\</span>
+    libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python-dev pkg-config <span class="se">\</span>
+    qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
+</pre></div>
+
+
+<h4 id="from-now-on-you-must-run-everything-inside-the-container">From now on, you must run everything inside the container:<a class="headerlink" href="#from-now-on-you-must-run-everything-inside-the-container" title="Permanent link">&para;</a></h4>
+<h4 id="install-opencl">Install OpenCL:<a class="headerlink" href="#install-opencl" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre><span class="c"># OpenCL for Intel/AMD:</span>
+        root@XXXXX:<span class="nv">$ </span>apt-get install ocl-icd-opencl-dev
+
+<span class="c"># OpenCL for Nvidia:</span>
+        root@XXXXX:<span class="nv">$ </span>apt-get install nvidia-opencl-icd-XXX
+               <span class="c"># Where XXX is the version. Current 346</span>
+</pre></div>
+
+
+<h4 id="build-cmake-330">Build Cmake 3.3.0:<a class="headerlink" href="#build-cmake-330" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre>root@XXXXX:<span class="nv">$ </span>wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
+root@XXXXX:<span class="nv">$ </span>tar xvzf cmake-3.3.0.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">cd </span>cmake-3.3.0
+root@XXXXX:<span class="nv">$ </span>./bootstrap --prefix<span class="o">=</span>/usr --system-libs --mandir<span class="o">=</span>/share/man --no-system-jsoncpp <span class="se">\</span>
+  --docdir<span class="o">=</span>/share/doc/cmake-3.3.0 --qt-gui
+root@XXXXX:<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+
+
+<h4 id="build-ffmpeg-a-dependecy-of-opencv">Build FFmpeg, a dependecy of OpenCV:<a class="headerlink" href="#build-ffmpeg-a-dependecy-of-opencv" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre>root@XXXXX:<span class="nv">$ </span>git clone https://github.com/FFmpeg/FFmpeg.git
+root@XXXXX:<span class="nv">$ </span><span class="nb">cd </span>FFmpeg
+root@XXXXX:<span class="nv">$ </span>./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb <span class="se">\</span>
+    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx <span class="se">\</span>
+    --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
+root@XXXXX:<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> make install
+</pre></div>
+
+
+<h4 id="build-mitk">Build <span class="caps">MITK</span>:<a class="headerlink" href="#build-mitk" title="Permanent link">&para;</a></h4>
+<div class="highlight"><pre>root@XXXXX:<span class="nv">$ </span>git clone http://git.mitk.org/MITK.git
+root@XXXXX:<span class="nv">$ </span>mkdir MITK-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>MITK-build
+root@XXXXX:<span class="nv">$ </span>ccmake ../MITK
+</pre></div>
+
+
+<p><img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png" /></p>
+<p><img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png" /></p>
+<ul>
+<li><strong>Note:</strong> in Ubuntu:14.04 you <span class="caps">CAN</span>&#8217;T select the option &#8216;MITK_USE_Python&#8217;, because It needs Qt &gt;=&nbsp;5.3</li>
+<li><strong>Tips:</strong><ul>
+<li>For a complete installation, press &#8216;t&#8217; to toggle the advance view. You may select all the options you desire, like compile with all applications and&nbsp;plugins.</li>
+<li>Also, if you selected <code>MITK_USE_SYSTEM_PYTHON</code>, you may want to change <code>PYTHON_EXECUTABLE</code>,<code>PYTHON_INCLUDE_DIR</code> and <code>PYTHON_LIBRARY</code> to your respective installation. For now, It&#8217;s not possible to use Python 3, so you&#8217;ll have to use&nbsp;Python2.7.</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span class="c"># Press &#39;c&#39; to configure and &#39;g&#39; to generate and exit.</span>
+
+root@XXXXX:<span class="nv">$ </span>make
+<span class="c"># I do NOT recommend running `make` with the option `-j4`. You&#39;ll get dependency related errors during the build.</span>
+<span class="c"># This last command will take several hours, so go and take a walk (in another city) :)</span>
+
+root@XXXXX:<span class="nv">$ </span><span class="nb">exit</span>
+<span class="nv">$ </span>docker ps -l
+CONTAINER ID        IMAGE                  COMMAND             CREATED             STATUS                     PORTS               NAMES
+b378149da6c6        ubuntu:15.04           <span class="s2">&quot;/bin/bash&quot;</span>         <span class="m">8</span> hours ago         Exited <span class="o">(</span>0<span class="o">)</span> <span class="m">10</span> seconds ago                      focused_newton
+
+<span class="nv">$ </span>docker commit &lt;CONTAINER_NAME&gt; ubuntu15/mitk:latest
+<span class="c"># See the CONTAINER_NAME on the right of `docker ps -l`</span>
+</pre></div>
+
+
+<h4 id="running-mitk">Running <span class="caps">MITK</span>:<a class="headerlink" href="#running-mitk" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Create a <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a>.:</li>
+</ol>
+<div class="highlight"><pre>FROM &lt;IMAGE&gt;
+MAINTAINER &lt;YOUR_NAME&gt;
+
+ENV MITK_WORKBENCH /path/to/MITK-build/bin/MitkWorkbench
+CMD <span class="nv">$MITK_WORKBENCH</span>
+</pre></div>
+
+
+<ul>
+<li>Where <code>&lt;IMAGE&gt;</code> is the name of the image where we have installed <span class="caps">MITK</span>.</li>
+<li>e.g.: <span class="caps">FROM</span>&nbsp;ubuntu15/mitk:latest</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+ubuntu15/mitk       latest              19af721ab6a3        <span class="m">11</span> hours ago        13.2 GB
+</pre></div>
+
+
+<ol>
+<li>Build a new image with the&nbsp;Dockerfile.:</li>
+</ol>
+<div class="highlight"><pre><span class="nv">$ </span>docker build --rm -t mitk:15.04 .
+<span class="nv">$ </span>docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+mitk                15.04               bdcce6cafa44        <span class="m">26</span> minutes ago      13.2 GB
+<span class="nv">$ </span>docker ps -l
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
+2f140ab82356        mitk:15.04          <span class="s2">&quot;/bin/bash&quot;</span>         <span class="m">42</span> minutes ago      Exited <span class="o">(</span>0<span class="o">)</span> <span class="m">41</span> minutes ago                       silly_galileo
+<span class="nv">$ </span>xhost +local:<span class="sb">`</span>docker inspect --format<span class="o">=</span><span class="s1">&#39;{{ .Config.Hostname }}&#39;</span> &lt;CONTAINER_ID&gt;<span class="sb">`</span>
+<span class="nv">$ </span>docker run -ti --rm -e <span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span> -v /tmp/.X11-unix:/tmp/.X11-unix mitk:15.04
+</pre></div>
+
+
+<p><img alt="MITK load image" src="images/MitkWorkbench_002.png" /></p>
+            
+            <section>
+<p id="comment-message">So what do you think? Did I miss something? Is any part unclear? Leave your comments below. </p>
+<div class="accordion" id="accordion2">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle disqus-comment-count" data-toggle="collapse" data-parent="#accordion2"
+                href="https://neurita.github.io/how_to_compile_mitk_on_docker#disqus_thread">
+                Comments
+            </a>
+        </div>
+        <div id="disqus_thread" class="accordion-body collapse">
+            <div class="accordion-inner">
+                <div class="comments">
+                    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'neurita.disqus.com';
+        var disqus_identifier = 'https://neurita.github.io/how_to_compile_mitk_on_docker';
+    var disqus_url = 'https://neurita.github.io/how_to_compile_mitk_on_docker';
+
+    (function() {
+         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+
+
+<h4>Author</h4>
+<div class="last-updated">Luis Javier Salvatierra</div>            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2015-08-13T00:00:00+02:00">Aug 13, 2015</time>
+
+<h4>Last Updated</h4>
+<time datetime="2015-09-02T00:00:00+02:00">Sep 2, 2015</time>
+
+            <h4>Category</h4>
+            <a class="category-link" href="https://neurita.github.io/categories.html#mitk-build-ref">MITK, build</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="https://neurita.github.io/tags.html#build-ref">build
+                    <span>2</span>
+</a></li>
+                <li><a href="https://neurita.github.io/tags.html#docker-ref">docker
+                    <span>1</span>
+</a></li>
+                <li><a href="https://neurita.github.io/tags.html#mitk-ref">MITK
+                    <span>3</span>
+</a></li>
+            </ul>
+<h4>Stay in Touch</h4>
+    <a href="http://twitter.com/neuritabcc" title="My Twitter Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-twitter sidebar-social-links"></i></a>
+    <a href="http://github.com/neurita" title="My Github Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-github sidebar-social-links"></i></a>
+    <a href="mailto:info@neurita.com" title="My Email Address" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-envelope sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-license"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This blog</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neurita.com" property="cc:attributionName" rel="cc:attributionURL">Neurita developers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+            <script type="text/javascript">
+var disqus_shortname = 'neurita.disqus.com';
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+<script  language="javascript" type="text/javascript">
+function uncollapse() {
+    if (window.location.hash.match(/^#comment-\d+$/)) {
+        $('#disqus_thread').collapse('show');
+    }
+}
+</script>
+<script type="text/javascript" language="JavaScript">
+uncollapse();
+window.onhashchange=function(){
+    if (window.location.hash.match(/^#comment-\d+$/))
+        window.location.reload(true);
+}
+</script>
+<script>
+$('#disqus_thread').on('shown', function () {
+    var link = document.getElementsByClassName('accordion-toggle');
+    var old_innerHTML = link[0].innerHTML;
+    $(link[0]).fadeOut(500, function() {
+        $(this).text('Click here to hide comments').fadeIn(500);
+    });
+    $('#disqus_thread').on('hidden', function () {
+        $(link[0]).fadeOut(500, function() {
+            $(this).text(old_innerHTML).fadeIn(500);
+        });
+    })
+})
+</script>
+
+
+    </body>
+    <!-- Theme: Elegant built for Pelican
+    License : http://oncrashreboot.com/pelican-elegant -->
+</html>
