@@ -6,4 +6,8 @@
 	url = https://github.com/talha131/pelican-elegant.git
 [submodule "pelican-plugins/pelican-ipynb"]
 	path = pelican-plugins/pelican-ipynb
-	url = https://github.com/danielfrg/pelican-ipynb.git
+    url = https://github.com/danielfrg/pelican-ipynb.git
+[submodule "output"]
+    path = output
+    url = git@github.com:Neurita/neurita.github.io.git
+    branch = master
