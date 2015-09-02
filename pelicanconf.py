@@ -99,7 +99,7 @@ OUTPUT_SOURCES = 'True'
 OUTPUT_SOURCES_EXTENSION = '.txt'
 
 # Elegant Labels
-DISQUS_SITENAME      = 'Neurita.disqus.com'
+DISQUS_SITENAME      = 'neurita'
 ABOUT_ME_LABEL       = u'About us' #u'We are <span itemprop="name"> Neurita</span>.'
 MY_PROJECTS_LABEL    = u'Projects'
 SOCIAL_PROFILE_LABEL = u'Stay in Touch'
@@ -122,8 +122,8 @@ SOCIAL = (
 # SOCIAL = (('Twitter', 'twitter-square', 'https://twitter.com/neuritabcc'),
 #           ('GitHub', 'github', 'https://github.com/neurita'))
 #
-# TWITTER_USERNAME = 'neuritabcc'
-GITHUB_URL = 'http://github.com/neurita'
+TWITTER_USERNAME = 'neuritabcc'
+GITHUB_URL = 'https://github.com/neurita'
 GITHUB_ACTIVITY_FEED = 'https://github.com/neurita.atom'
 GITHUB_ACTIVITY_MAX_ENTRIES = 5
 
@@ -201,6 +201,6 @@ LANDING_PAGE_ABOUT = {'title': 'We develop medical research and data analytics t
        <a href="mailto:info@neurita.com" title="Email address" itemprop="email"><i class="fa fa-envelope share-post-links"></i></a>
        <a href="https://twitter.com/neuritabcc" class="twitter-follow-button" data-show-count="true">Follow @neuritabcc</a>
        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-       <iframe src="http://ghbtns.com/github-btn.html?user=neurita&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
+       <iframe src="https://ghbtns.com/github-btn.html?user=neurita&type=follow&count=true" allowtransparency="true" frameborder="0" scrolling="0" width="165" height="20"></iframe>
        </p>
        </div>"""}
