@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-DEBUG = True
+DEBUG = False
 
 AUTHOR = u'Neurita developers'
 SITENAME = u'<span style="color:blue;">Neurita</span>'
@@ -100,7 +100,7 @@ OUTPUT_SOURCES_EXTENSION = '.txt'
 
 # Elegant Labels
 DISQUS_SITENAME      = 'neurita.disqus.com'
-ABOUT_ME_LABEL       = u'We are <span itemprop="name"> Neurita</span>.'
+ABOUT_ME_LABEL       = u'About us' #u'We are <span itemprop="name"> Neurita</span>.'
 MY_PROJECTS_LABEL    = u'Projects'
 SOCIAL_PROFILE_LABEL = u'Stay in Touch'
 RELATED_POSTS_LABEL  = 'Keep Reading'
