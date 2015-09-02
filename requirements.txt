@@ -22,3 +22,6 @@ six
 Unidecode
 Werkzeug
 wheel
+nbconvert
+traitlets
+ipython
