@@ -1,161 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Neurita</title><link>https://neurita.github.io/</link><description></description><atom:link href="https://neurita.github.io/feeds/mitk-python.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Sep 2015 00:00:00 +0200</lastBuildDate><item><title>How to create a Python plugin for MITK</title><link>https://neurita.github.io/how_to_create_a_python_plugin_for_mitk</link><description>&lt;h2 id="plugins-examples"&gt;Plugins examples&lt;a class="headerlink" href="#plugins-examples" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Neurita</title><link>http://localhost:8000/</link><description></description><atom:link href="http://localhost:8000/feeds/mitk-python.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Sep 2015 00:00:00 +0200</lastBuildDate><item><title>How to create a Python plugin for MITK</title><link>http://localhost:8000/how_to_create_a_python_plugin_for_mitk</link><description>&lt;p&gt;[&lt;span class="caps"&gt;TOC&lt;/span&gt;]&lt;/p&gt;
+&lt;h2 id="plugins-examples"&gt;Plugins&amp;nbsp;examples&lt;/h2&gt;
 &lt;p&gt;You can find some examples of &lt;span class="caps"&gt;MITK&lt;/span&gt; plugins in &lt;a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins"&gt;my Github repository&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id="create-a-mitk-plugin"&gt;Create a &lt;span class="caps"&gt;MITK&lt;/span&gt; plugin&lt;a class="headerlink" href="#create-a-mitk-plugin" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="create-a-mitk-plugin"&gt;Create a &lt;span class="caps"&gt;MITK&lt;/span&gt;&amp;nbsp;plugin&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;First, we use the &lt;a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html"&gt;&lt;code&gt;MitkPluginGenerator&lt;/code&gt;&lt;/a&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkPluginGenerator -h
-&lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkPluginGenerator --out-dir /output/directory &lt;span class="se"&gt;\&lt;/span&gt;
-  --vendor Plugin_vendor_name --view-name &lt;span class="s2"&gt;&amp;quot;My View&amp;quot;&lt;/span&gt; --plugin-symbolic-name org.mycompany.myplugin
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /output/directory &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ls
-org.mycompany.myplugin
-&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;org.mycompany.myplugin &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ls
-CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  resources  src
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;/path/to/MITK-build/bin/MitkPluginGenerator&lt;/span&gt; -h
+$ &lt;span class="kw"&gt;/path/to/MITK-build/bin/MitkPluginGenerator&lt;/span&gt; --out-dir /output/directory \
+  --vendor Plugin_vendor_name --view-name &lt;span class="st"&gt;&amp;quot;My View&amp;quot;&lt;/span&gt; --plugin-symbolic-name org.mycompany.myplugin
+$ &lt;span class="kw"&gt;cd&lt;/span&gt; /output/directory &lt;span class="kw"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="kw"&gt;ls&lt;/span&gt;
+&lt;span class="kw"&gt;org.mycompany.myplugin&lt;/span&gt;
+$ &lt;span class="kw"&gt;cd&lt;/span&gt; org.mycompany.myplugin &lt;span class="kw"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="kw"&gt;ls&lt;/span&gt;
+&lt;span class="kw"&gt;CMakeLists.txt&lt;/span&gt;  documentation  files.cmake  manifest_headers.cmake  plugin.xml  resources  src&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Modify &lt;span class="caps"&gt;MITK&lt;/span&gt; to build with the new&amp;nbsp;plugin.:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cp -r ../org.mycompany.myplugin /path/to/MITK/Plugins &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK/Plugins
-&lt;span class="nv"&gt;$ &lt;/span&gt;vim PluginList.cmake
-&lt;span class="c"&gt;# Add your plugin with the flag &amp;#39;ON&amp;#39;.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;cp&lt;/span&gt; -r ../org.mycompany.myplugin /path/to/MITK/Plugins &lt;span class="kw"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="kw"&gt;cd&lt;/span&gt; /path/to/MITK/Plugins
+$ &lt;span class="kw"&gt;vim&lt;/span&gt; PluginList.cmake
+&lt;span class="co"&gt;# Add your plugin with the flag &amp;#39;ON&amp;#39;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode cmake"&gt;&lt;code class="sourceCode cmake"&gt;&lt;span class="kw"&gt;set&lt;/span&gt;(MITK_PLUGINS
 
+  org.mycompany.myplugin:ON  
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;MITK_PLUGINS&lt;/span&gt;
+  org.blueberry.core.runtime:ON
 
-  &lt;span class="s"&gt;org.mycompany.myplugin:ON&lt;/span&gt;  
-
-  &lt;span class="s"&gt;org.blueberry.core.runtime:ON&lt;/span&gt;
-
-  &lt;span class="s"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+  ...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Set a new &lt;span class="caps"&gt;CTK&lt;/span&gt; Plugin in &lt;code&gt;CMakeLists.txt&lt;/code&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK
-&lt;span class="nv"&gt;$ &lt;/span&gt;vim CMakeLists.txt
-&lt;span class="c"&gt;# Search the string &amp;#39;set(re_ctkplugin&amp;#39;&lt;/span&gt;
-/set&lt;span class="o"&gt;(&lt;/span&gt;re_ctkplugin
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;cd&lt;/span&gt; /path/to/MITK
+$ &lt;span class="kw"&gt;vim&lt;/span&gt; CMakeLists.txt
+&lt;span class="co"&gt;# Search the string &amp;#39;set(re_ctkplugin&amp;#39;&lt;/span&gt;
+/&lt;span class="kw"&gt;set&lt;/span&gt;(re_ctkplugin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Modify it to look like&amp;nbsp;this.:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Specify which plug-ins belong to this project&lt;/span&gt;
-  &lt;span class="nb"&gt;macro&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;GetMyTargetLibraries&lt;/span&gt; &lt;span class="s"&gt;all_target_libraries&lt;/span&gt; &lt;span class="s"&gt;varname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mitk&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_mitk_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_bb&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_blueberry_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mycompany&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;_tmp_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;APPEND&lt;/span&gt; &lt;span class="s"&gt;_tmp_list&lt;/span&gt; &lt;span class="o"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;all_target_libraries&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;ctkMacroListFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;_tmp_list&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_mitk&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_bb&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_mycompany&lt;/span&gt; &lt;span class="s"&gt;OUTPUT_VARIABLE&lt;/span&gt; &lt;span class="o"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;varname&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="nb"&gt;endmacro&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;`set(re_ctkplugin_`**`mycompany &amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;`**`)`
-`ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;varname&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;)`
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id="modify-your-plugin"&gt;Modify your plugin&lt;a class="headerlink" href="#modify-your-plugin" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode cmake"&gt;&lt;code class="sourceCode cmake"&gt;&lt;span class="co"&gt;# Specify which plug-ins belong to this project&lt;/span&gt;
+  &lt;span class="kw"&gt;macro&lt;/span&gt;(GetMyTargetLibraries all_target_libraries varname)
+    &lt;span class="kw"&gt;set&lt;/span&gt;(re_ctkplugin_mitk &lt;span class="st"&gt;&amp;quot;^org_mitk_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;)
+    &lt;span class="kw"&gt;set&lt;/span&gt;(re_ctkplugin_bb &lt;span class="st"&gt;&amp;quot;^org_blueberry_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;)
+    &lt;span class="kw"&gt;set&lt;/span&gt;(re_ctkplugin_mycompany &lt;span class="st"&gt;&amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;)
+    &lt;span class="kw"&gt;set&lt;/span&gt;(_tmp_list)
+    &lt;span class="kw"&gt;list&lt;/span&gt;(&lt;span class="ot"&gt;APPEND&lt;/span&gt; _tmp_list &lt;span class="dv"&gt;${all_target_libraries}&lt;/span&gt;)
+    &lt;span class="fu"&gt;ctkMacroListFilter&lt;/span&gt;(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb re_ctkplugin_mycompany OUTPUT_VARIABLE &lt;span class="dv"&gt;${varname}&lt;/span&gt;)
+  &lt;span class="kw"&gt;endmacro&lt;/span&gt;()&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;pre&gt;&lt;code&gt;`set(re_ctkplugin_`**`mycompany &amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;`**`)`
+`ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE ${varname})`&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="modify-your-plugin"&gt;Modify your&amp;nbsp;plugin&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Add Python module dependency to the plugin &lt;code&gt;CMakeLists.txt&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;mitk_create_plugin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
-  &lt;span class="s"&gt;EXPORT_DIRECTIVE&lt;/span&gt; &lt;span class="s"&gt;EXAMPLE_EXPORT&lt;/span&gt;
-  &lt;span class="s"&gt;EXPORTED_INCLUDE_SUFFIXES&lt;/span&gt; &lt;span class="s"&gt;src&lt;/span&gt;
-  &lt;span class="s"&gt;MODULE_DEPENDS&lt;/span&gt; &lt;span class="s"&gt;MitkQtWidgetsExt&lt;/span&gt; &lt;span class="s"&gt;MitkPython&lt;/span&gt;
-&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h3 id="embed-python-in-the-new-plugin"&gt;Embed Python in the new plugin:&lt;a class="headerlink" href="#embed-python-in-the-new-plugin" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id="interact-with-mitk-python-service"&gt;Interact with &lt;a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html"&gt;Mitk Python Service&lt;/a&gt;.&lt;a class="headerlink" href="#interact-with-mitk-python-service" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode cmake"&gt;&lt;code class="sourceCode cmake"&gt;&lt;span class="fu"&gt;mitk_create_plugin&lt;/span&gt;(
+  EXPORT_DIRECTIVE EXAMPLE_EXPORT
+  EXPORTED_INCLUDE_SUFFIXES src
+  MODULE_DEPENDS MitkQtWidgetsExt MitkPython
+)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id="embed-python-in-the-new-plugin"&gt;Embed Python in the new&amp;nbsp;plugin:&lt;/h3&gt;
+&lt;h4 id="interact-with-mitk-python-service."&gt;Interact with &lt;a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html"&gt;Mitk Python Service&lt;/a&gt;.&lt;/h4&gt;
 &lt;p&gt;When we create a plugin with &lt;code&gt;MitkPluginGenerator&lt;/code&gt; the default view contains a button &lt;code&gt;Do something&lt;/code&gt;. Each time we press that button, it calls the function &lt;code&gt;DoImageProcessing()&lt;/code&gt; that prints a message in the&amp;nbsp;console/terminal.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// MyView.cpp&lt;/span&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode cpp"&gt;&lt;code class="sourceCode cpp"&gt;&lt;span class="co"&gt;// MyView.cpp&lt;/span&gt;
 
-&lt;span class="p"&gt;...&lt;/span&gt;
+...
 
-&lt;span class="c1"&gt;// Add the Python Service header&lt;/span&gt;
-&lt;span class="cp"&gt;#include &amp;lt;mitkPythonService.h&amp;gt;&lt;/span&gt;
+&lt;span class="co"&gt;// Add the Python Service header&lt;/span&gt;
+&lt;span class="ot"&gt;#include &amp;lt;mitkPythonService.h&amp;gt;&lt;/span&gt;
 
-&lt;span class="p"&gt;...&lt;/span&gt;
+...
 
-&lt;span class="c1"&gt;// If you followed the instructions then you have the default plugin&lt;/span&gt;
-&lt;span class="c1"&gt;// with this function&lt;/span&gt;
+&lt;span class="co"&gt;// If you followed the instructions then you have the default plugin&lt;/span&gt;
+&lt;span class="co"&gt;// with this function&lt;/span&gt;
 
-&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;MyView&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;DoImageProcessing&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="n"&gt;QList&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;DataNode&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Pointer&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;GetDataManagerSelection&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;empty&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="dt"&gt;void&lt;/span&gt; MyView::DoImageProcessing()
+{
+  &lt;span class="ot"&gt;QList&lt;/span&gt;&amp;lt;mitk::DataNode::Pointer&amp;gt; nodes = &lt;span class="kw"&gt;this&lt;/span&gt;-&amp;gt;GetDataManagerSelection();
+  &lt;span class="kw"&gt;if&lt;/span&gt; (nodes.empty()) &lt;span class="kw"&gt;return&lt;/span&gt;;
 
-  &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;DataNode&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;front&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  mitk::DataNode* node = nodes.front();
 
-  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-  &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="c1"&gt;// Nothing selected. Inform the user and return&lt;/span&gt;
-    &lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Template&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Please load and select an image before starting image processing.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="kw"&gt;if&lt;/span&gt; (!node)
+  {
+    &lt;span class="co"&gt;// Nothing selected. Inform the user and return&lt;/span&gt;
+    &lt;span class="ot"&gt;QMessageBox::&lt;/span&gt;information( NULL, &lt;span class="st"&gt;&amp;quot;Template&amp;quot;&lt;/span&gt;, &lt;span class="st"&gt;&amp;quot;Please load and select an image before starting image processing.&amp;quot;&lt;/span&gt;);
+    &lt;span class="kw"&gt;return&lt;/span&gt;;
+  }
 
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Add this two line example to the end of the function &lt;code&gt;DoImageProcessing()&lt;/code&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;      &lt;span class="c1"&gt;// Each time we press that button will print `Hello World!` in the console/terminal&lt;/span&gt;
-      &lt;span class="c1"&gt;// First we interact with mitkPythonService and execute a simple Python function.&lt;/span&gt;
-      &lt;span class="n"&gt;itk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SmartPointer&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PythonService&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;_PythonService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PythonService&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-      &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_PythonService&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;print (&amp;#39;Hello World!&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;IPythonService&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SINGLE_LINE_COMMAND&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode cpp"&gt;&lt;code class="sourceCode cpp"&gt;
+      &lt;span class="co"&gt;// Each time we press that button will print `Hello World!` in the console/terminal&lt;/span&gt;
+      &lt;span class="co"&gt;// First we interact with mitkPythonService and execute a simple Python function.&lt;/span&gt;
+      itk::SmartPointer&amp;lt;mitk::PythonService&amp;gt; _PythonService(&lt;span class="kw"&gt;new&lt;/span&gt; mitk::PythonService());
+      std::string result = _PythonService-&amp;gt;Execute( &lt;span class="st"&gt;&amp;quot;print (&amp;#39;Hello World!&amp;#39;)&amp;quot;&lt;/span&gt;, mitk::IPythonService::SINGLE_LINE_COMMAND );
 
-      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;MITK_INFO&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+      message &amp;lt;&amp;lt; &lt;span class="st"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ch"&gt;\n&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;;
+      message &amp;lt;&amp;lt; result &amp;lt;&amp;lt; &lt;span class="st"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ch"&gt;\n&lt;/span&gt;&lt;span class="st"&gt;&amp;quot;&lt;/span&gt;;
+      MITK_INFO &amp;lt;&amp;lt; message.str();
 
-&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+...&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h4 id="build-mitk-with-your-new-plugin"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt; with your new&amp;nbsp;plugin&lt;/h4&gt;
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;cd&lt;/span&gt; /path/to/MITK-build &lt;span class="co"&gt;#Clean directory&lt;/span&gt;
+$ &lt;span class="kw"&gt;ccmake&lt;/span&gt; ../MITK
+&lt;span class="co"&gt;# Build with the option MITK_USE_PYTHON enabled.&lt;/span&gt;
+&lt;span class="co"&gt;# Configure and enable the option MITK_USE_SYSTEM_PYTHON&lt;/span&gt;
+&lt;span class="co"&gt;# Configure and toggle the advance view.&lt;/span&gt;
+&lt;span class="co"&gt;# Modify the Python path, library path and debug path, to use Python2.7 instead of Python3.4 or Python3.4m.&lt;/span&gt;
+&lt;span class="co"&gt;# Configure again and generate.&lt;/span&gt;
+$ &lt;span class="kw"&gt;make&lt;/span&gt;
 
-
-&lt;h4 id="build-mitk-with-your-new-plugin"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt; with your new plugin&lt;a class="headerlink" href="#build-mitk-with-your-new-plugin" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK-build &lt;span class="c"&gt;#Clean directory&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../MITK
-&lt;span class="c"&gt;# Build with the option MITK_USE_PYTHON enabled.&lt;/span&gt;
-&lt;span class="c"&gt;# Configure and enable the option MITK_USE_SYSTEM_PYTHON&lt;/span&gt;
-&lt;span class="c"&gt;# Configure and toggle the advance view.&lt;/span&gt;
-&lt;span class="c"&gt;# Modify the Python path, library path and debug path, to use Python2.7 instead of Python3.4 or Python3.4m.&lt;/span&gt;
-&lt;span class="c"&gt;# Configure again and generate.&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;make
-
-&lt;span class="c"&gt;# The last command will take several hours.&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id="test-it"&gt;Test it!&lt;a class="headerlink" href="#test-it" title="Permanent link"&gt;&amp;para;&lt;/a&gt;&lt;/h2&gt;
+&lt;span class="co"&gt;# The last command will take several hours.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id="test-it"&gt;Test&amp;nbsp;it!&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Open the &lt;code&gt;MitkWorkbench&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkWorkbench
-&lt;/pre&gt;&lt;/div&gt;
-
-
+&lt;div class="sourceCode"&gt;&lt;pre class="sourceCode bash"&gt;&lt;code class="sourceCode bash"&gt;$ &lt;span class="kw"&gt;/path/to/MITK-build/bin/MitkWorkbench&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Open your plugin&amp;nbsp;view:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_001.png" /&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="images/MITK_plugin_001.png" alt="Mitk Plugin" /&gt;&lt;figcaption&gt;Mitk Plugin&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;Open a new image to be able to press the button &lt;code&gt;Do something&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_002.png" /&gt;&lt;/p&gt;
+&lt;figure&gt;
+&lt;img src="images/MITK_plugin_002.png" alt="Mitk Plugin" /&gt;&lt;figcaption&gt;Mitk Plugin&lt;/figcaption&gt;
+&lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;You should see this when pressing the button &lt;code&gt;Do something&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_003.png" /&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:neurita.github.io,2015-08-20:how_to_create_a_python_plugin_for_mitk</guid><category>MITK</category><category>python</category></item></channel></rss>
+&lt;figure&gt;
+&lt;img src="images/MITK_plugin_003.png" alt="Mitk Plugin" /&gt;&lt;figcaption&gt;Mitk Plugin&lt;/figcaption&gt;
+&lt;/figure&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:localhost:8000,2015-08-20:how_to_create_a_python_plugin_for_mitk</guid><category>MITK</category><category>python</category></item></channel></rss>
