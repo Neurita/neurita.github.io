@@ -61,8 +61,10 @@ help:
 	@echo 'Set the RELATIVE variable to 1 to enable relative urls                    '
 	@echo '                                                                          '
 
+
 html:
 	$(PELICAN) "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+	if test -d $(BASEDIR)/extra; then cp -rvf $(BASEDIR)/extra/* $(OUTPUTDIR)/; fi
 
 clean:
 	[ ! -d "$(OUTPUTDIR)" ] || rm -rf "$(OUTPUTDIR)"
@@ -80,8 +82,8 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pychache__' -exec rm -rf {} +
 
-regenerate:
-	$(PELICAN) -r "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(CONFFILE)" $(PELICANOPTS)
+regenerate: html
+
 
 serve:
 ifdef PORT
@@ -109,8 +111,8 @@ stopserver:
 	"$(BASEDIR)/develop_server.sh" stop
 	@echo 'Stopped Pelican and SimpleHTTPServer processes running in background.'
 
-publish:
-	$(PELICAN) "$(INPUTDIR)" -o "$(OUTPUTDIR)" -s "$(PUBLISHCONF)" $(PELICANOPTS)
+publish: html
+
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r "$(OUTPUTDIR)/*" $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
@@ -125,7 +127,7 @@ ftp_upload: publish
 	lftp ftp://$(FTP_USER)@$(FTP_HOST) -e "mirror -R "$(OUTPUTDIR)" $(FTP_TARGET_DIR) ; quit"
 
 s3_upload: publish
-        s3cmd sync "$(OUTPUTDIR)/" s3://$(S3_BUCKET) --acl-public --delete-removed --guess-mime-type
+	s3cmd sync "$(OUTPUTDIR)/" s3://$(S3_BUCKET) --acl-public --delete-removed --guess-mime-type
 
 cf_upload: publish
 	cd "$(OUTPUTDIR)" && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .

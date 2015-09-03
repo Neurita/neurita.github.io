@@ -3,7 +3,8 @@
 	url = https://github.com/neurita/pelican-plugins.git
 [submodule "pelican-themes/pelican-elegant"]
 	path = pelican-themes/pelican-elegant
-	url = https://github.com/neurita/pelican-elegant.git
+    url = https://github.com/neurita/pelican-elegant.git
+    branch = neurita
 [submodule "output"]
 	path = output
 	url = https://github.com/neurita/neurita.github.io.git

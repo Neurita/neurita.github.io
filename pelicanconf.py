@@ -4,9 +4,9 @@ from __future__ import unicode_literals
 
 DEBUG = False
 
+SITEURL = 'https://neurita.github.io'
 AUTHOR = u'Neurita developers'
 SITENAME = u'<span style="color:blue;">Neurita</span>'
-SITEURL = 'http://localhost:8000'
 THEME = 'pelican-themes/pelican-elegant'
 DISPLAY_PAGES_ON_MENU = True
 
@@ -26,6 +26,7 @@ DEFAULT_DATE_FORMAT = '%b %d, %Y' #'%Y/%m/%d'
 
 # Feed generation is usually not desired when developing
 if DEBUG:
+    SITEURL = 'http://localhost:8000'
     FEED_ALL_ATOM = None
     CATEGORY_FEED_ATOM = None
     TRANSLATION_FEED_ATOM = None
@@ -62,13 +63,21 @@ USE_FOLDER_AS_CATEGORY = False
 ARTICLE_URL = u'{slug}'
 PAGE_URL = u'{slug}'
 PAGE_SAVE_AS = u'{slug}.html'
+SITEMAP_SAVE_AS = 'sitemap.xml'
 USE_SHORTCUT_ICONS = True
 
 TAG_SAVE_AS      = ''
 AUTHOR_SAVE_AS   = ''
 CATEGORY_SAVE_AS = ''
 
-STATIC_PATHS     = ['theme/images', 'images']
+STATIC_PATHS     = ['theme/images', 'images', 'extra/*']
+FEATURED_IMAGE   = './theme/images/neurita_logo.png'
+# EXTRA_PATH_METADATA = {
+#      'extra/robots.txt': {'path': 'robots.txt'},
+#      'extra/favicon.ico': {'path': 'favicon.ico'},
+#      'extra/htaccess': {'path': '.htaccess'}
+# }
+
 PLUGIN_PATHS     = [op.join(op.dirname(op.realpath(__file__)), 'pelican-plugins')]
 PLUGINS          = ['optimize_images',
                     'thumbnailer',
@@ -84,16 +93,27 @@ PLUGINS          = ['optimize_images',
                     'latex',
                     'summary',
                     'liquid_tags.img',
-                    'series',]
+                    'series',
+                    'render_math',
+                    ]
 
+# from markdown.extensions.codehilite import CodeHiliteExtension
+# from markdown.extensions.toc import TocExtension
+# MD_EXTENSIONS = [
+#     CodeHiliteExtension(css_class='highlight'),
+#     TocExtension(permalink=True),
+#     'markdown.extensions.extra',
+#     'headerid'
+# ]
 MD_EXTENSIONS    = ['codehilite(css_class=highlight)',
                     'extra',
+                    'smarty',
                     'headerid',
                     'toc(permalink=true)']
 
 MARKUP = ('rst', 'md', 'ipynb')
 
-DIRECT_TEMPLATES = (('index', 'tags', 'categories','archives', 'search', '404'))
+DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404', 'sitemap'))
 
 OUTPUT_SOURCES = 'True'
 OUTPUT_SOURCES_EXTENSION = '.txt'
