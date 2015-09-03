@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Neurita</title><link>http://localhost:8000/</link><description></description><atom:link href="http://localhost:8000/feeds/mitk-build.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Sep 2015 00:00:00 +0200</lastBuildDate><item><title>How to compile MITK on Docker</title><link>http://localhost:8000/how_to_compile_mitk_on_docker</link><description>&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Neurita</title><link>https://neurita.github.io/</link><description></description><atom:link href="https://neurita.github.io/feeds/mitk-build.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Sep 2015 00:00:00 +0200</lastBuildDate><item><title>How to compile MITK on Docker</title><link>https://neurita.github.io/how_to_compile_mitk_on_docker</link><description>&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Docker
 &lt;ul&gt;
@@ -131,7 +131,7 @@ $ &lt;span class="kw"&gt;docker&lt;/span&gt; run -ti --rm -e DISPLAY=&lt;span cl
 &lt;figure&gt;
 &lt;img src="images/MitkWorkbench_002.png" alt="MITK load image" /&gt;&lt;figcaption&gt;&lt;span class="caps"&gt;MITK&lt;/span&gt; load image&lt;/figcaption&gt;
 &lt;/figure&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:localhost:8000,2015-08-13:how_to_compile_mitk_on_docker</guid><category>MITK</category><category>build</category><category>docker</category></item><item><title>How to compile MITK on Ubuntu</title><link>http://localhost:8000/how_to_compile_mitk_on_ubuntu</link><description>&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_docker</guid><category>MITK</category><category>build</category><category>docker</category></item><item><title>How to compile MITK on Ubuntu</title><link>https://neurita.github.io/how_to_compile_mitk_on_ubuntu</link><description>&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="caps"&gt;GIT&lt;/span&gt;&lt;/li&gt;
 &lt;li&gt;CMake (version 3.2 or higher. Current stable&amp;nbsp;3.3)&lt;/li&gt;
@@ -276,4 +276,4 @@ $ &lt;span class="kw"&gt;/path/to/MITK-build/bin/MitkWorkbench&lt;/span&gt;&lt;/
 &lt;figure&gt;
 &lt;img src="images/MitkWorkbench_002.png" alt="MITK load image" /&gt;&lt;figcaption&gt;&lt;span class="caps"&gt;MITK&lt;/span&gt; load image&lt;/figcaption&gt;
 &lt;/figure&gt;
-</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:localhost:8000,2015-08-13:how_to_compile_mitk_on_ubuntu</guid><category>MITK</category><category>build</category><category>Ubuntu</category></item></channel></rss>
+</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Luis Javier Salvatierra</dc:creator><pubDate>Wed, 02 Sep 2015 00:00:00 +0200</pubDate><guid>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_ubuntu</guid><category>MITK</category><category>build</category><category>Ubuntu</category></item></channel></rss>
