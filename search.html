@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Neurita developers" />
-<meta name="copyright" content="Neurita developers" />
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Neurita developers" />
+        <meta name="copyright" content="Neurita developers" />
 
-<meta name="description" content="Search results for Neurita blog.
+        <meta name="description" content="Search results for Neurita blog.
 " />
-<meta name="twitter:creator" content="@neuritabcc">
-<meta property="og:type" content="article" />
-<meta name="twitter:card" content="summary">
+        <meta name="twitter:creator" content="@neuritabcc">
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary">
 
 <meta property="og:title" content="Search · Neurita"/>
 <meta name="twitter:title" content="Search · Neurita">
@@ -20,17 +20,16 @@
 <meta name="twitter:description" content="Search results for Neurita blog">
 <meta property="og:site_name" content="Neurita" />
 <meta property="og:article:author" content="Neurita developers" />
-<meta property="og:image" content="./theme/images/logo_neurita.png" />
-<meta name="twitter:image" content="./theme/images/logo_neurita.png" >
-<title>Search · Neurita
+<meta property="og:image" content="./theme/images/neurita_logo.png" />
+<meta name="twitter:image" content="./theme/images/neurita_logo.png" >
+        <title>Search · Neurita
 </title>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./theme/css/bootstrap-theme.css" media="screen">
-<link rel="stylesheet" type="text/css" href="./theme/css/pygments.css" media="screen">
-<link rel="stylesheet" type="text/css" href="./theme/tipuesearch/tipuesearch.css" media="screen">
-<link rel="stylesheet" type="text/css" href="./theme/css/elegant.css" media="screen">
-<link rel="stylesheet" type="text/css" href="./theme/css/custom.css" media="screen">
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="./theme/webassets-external/5e7810e354cf6b24dc655912ee97234a_pygments.css">
+<link rel="stylesheet" href="./theme/webassets-external/db629c7bcb0ce9f928df0c03b5e70004_tipuesearch.css">
+<link rel="stylesheet" href="./theme/webassets-external/81b9dd4fc2ddc8a2759606d9a6c57700_elegant.css">
+<link rel="stylesheet" href="./theme/webassets-external/0982fbba3d7ada5e4c3c516ed6ef7424_custom.css">
         <link rel="shortcut icon" href="./theme/images/favicon.ico" type="image/x-icon" type="image/png" />
         <link rel="icon" href="./theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png"  type="image/png" />
@@ -43,69 +42,55 @@
         <link rel="apple-touch-icon" sizes="152x152" href="./theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link href="https://neurita.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Neurita - Full Atom Feed" />
         <link href="https://neurita.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Neurita - Full RSS Feed" />
-</head>
-<body>
-
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="./"><span class=site-name><span style="color:blue;">Neurita</span></span></a>
+    </head>
+    <body>
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="./"><span class=site-name><span style="color:blue;">Neurita</span></span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href=".">Home</a></li>
+                            <li ><a href="./categories.html">Categories</a></li>
+                            <li ><a href="./tags.html">Tags</a></li>
+                            <li ><a href="./archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="./search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li ><a href=".">Home</a></li>
-                    <li ><a href="./categories.html">Categories</a></li>
-                    <li ><a href="./tags.html">Tags</a></li>
-                    <li ><a href="./archives.html">Archives</a></li>
-                    <li>
-                    <form class="navbar-form" role="search" action="./search.html" onsubmit="return validateForm(this.elements['q'].value);">
-                        <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input">
-                    </form>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container -->
-    </nav>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12">
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
 <article>
-    <div class="col-md-8 col-md-offset-2">
+    <div class="span8 offset2">
         <div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
     </div>
 </article>
+                </div>
+                <div class="span1"></div>
             </div>
         </div>
+        <div id="push"></div>
     </div>
 <footer>
-    <div class="container">
-    
-
-
-        <div class=col-md-6>
-            <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This blog</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neurita.com" property="cc:attributionName" rel="cc:attributionURL">Neurita developers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
-        </div>
-
-        <div class=col-md-6>
-            Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a>
-        </div>
-
-    </div>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-license"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This blog</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neurita.com" property="cc:attributionName" rel="cc:attributionURL">Neurita developers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</li>
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
 </footer><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript" src="./theme/tipuesearch/tipuesearch_set.js"></script>
-<script type="text/javascript" src="./theme/tipuesearch/tipuesearch.min.js"></script>
+<script type="text/javascript" src="./theme/webassets-external/6e0471db7654438358f57e2f0f9db131_tipuesearch_set.js"></script>
+<script type="text/javascript" src="./theme/webassets-external/830a14a44e1a779be2dc6291e10fe9fd_tipuesearch.js"></script>
 <script>
 $(document).ready(function() {
      $('#tipue_search_input').tipuesearch({
@@ -116,7 +101,7 @@ $(document).ready(function() {
      });
 });
 </script>
-</body>
-<!-- Theme: Elegant built for Pelican
+    </body>
+    <!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->
 </html>

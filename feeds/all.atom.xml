@@ -1,45 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Neurita</title><link href="https://neurita.github.io/" rel="alternate"></link><link href="https://neurita.github.io/feeds/all.atom.xml" rel="self"></link><id>https://neurita.github.io/</id><updated>2015-09-02T00:00:00+02:00</updated><entry><title>How to create a Python plugin for MITK</title><link href="https://neurita.github.io/how_to_create_a_python_plugin_for_mitk" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-20:how_to_create_a_python_plugin_for_mitk</id><summary type="html">&lt;p&gt;&lt;strong&gt;Table of&amp;nbsp;contents&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="toc"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Neurita</title><link href="https://neurita.github.io/" rel="alternate"></link><link href="https://neurita.github.io/feeds/all.atom.xml" rel="self"></link><id>https://neurita.github.io/</id><updated>2015-09-02T00:00:00+02:00</updated><entry><title>How to create a Python plugin for MITK</title><link href="https://neurita.github.io/how_to_create_a_python_plugin_for_mitk" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-20:how_to_create_a_python_plugin_for_mitk</id><summary type="html">
+&lt;h2 id="plugins-examples"&gt;Plugins examples&lt;a class="headerlink" href="#plugins-examples" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;You can find some examples of &lt;span class="caps"&gt;MITK&lt;/span&gt; plugins in &lt;a href="https://github.com/ljsalvatierra/mitk-plugins" target="_blank"&gt;my Github repository&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="create-a-mitk-plugin"&gt;Create a &lt;span class="caps"&gt;MITK&lt;/span&gt; plugin&lt;a class="headerlink" href="#create-a-mitk-plugin" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href="#plugins-examples"&gt;Plugins&amp;nbsp;examples&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#create-a-mitk-plugin"&gt;Create a &lt;span class="caps"&gt;MITK&lt;/span&gt;&amp;nbsp;plugin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#modify-your-plugin"&gt;Modify your plugin&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#embed-python-in-the-new-plugin"&gt;Embed Python in the new plugin:&lt;/a&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href="#interact-with-mitk-python-service"&gt;Interact with &lt;a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html"&gt;Mitk Python Service&lt;/a&gt;.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="#build-mitk-with-your-new-plugin"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt; with your new&amp;nbsp;plugin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;a href="#test-it"&gt;Test&amp;nbsp;it!&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;h4 id="plugins-examples"&gt;Plugins&amp;nbsp;examples&lt;/h4&gt;
-&lt;p&gt;You can find some examples of &lt;span class="caps"&gt;MITK&lt;/span&gt; plugins in &lt;a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins"&gt;my Github repository&lt;/a&gt;.&lt;/p&gt;
-&lt;h4 id="create-a-mitk-plugin"&gt;Create a &lt;span class="caps"&gt;MITK&lt;/span&gt;&amp;nbsp;plugin&lt;/h4&gt;
-&lt;ul&gt;
-&lt;li&gt;First, we use the &lt;a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html"&gt;&lt;code&gt;MitkPluginGenerator&lt;/code&gt;&lt;/a&gt;.:&lt;/li&gt;
+&lt;li&gt;First, we use the &lt;a href="http://docs.mitk.org/2015.05/NewPluginPage.html" target="_blank"&gt;&lt;code&gt;MitkPluginGenerator&lt;/code&gt;&lt;/a&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkPluginGenerator -h
 &lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkPluginGenerator --out-dir /output/directory &lt;span class="se"&gt;\&lt;/span&gt;
-  --vendor Plugin_vendor_name --view-name &lt;span class="s2"&gt;&amp;quot;My View&amp;quot;&lt;/span&gt; --plugin-symbolic-name org.mycompany.myplugin
+  --vendor Plugin_vendor_name --view-name &lt;span class="s2"&gt;"My View"&lt;/span&gt; --plugin-symbolic-name org.mycompany.myplugin
 &lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /output/directory &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ls
 org.mycompany.myplugin
 &lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;org.mycompany.myplugin &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; ls
 CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  resources  src
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
-&lt;li&gt;Modify &lt;span class="caps"&gt;MITK&lt;/span&gt; to build with the new&amp;nbsp;plugin.:&lt;/li&gt;
+&lt;li&gt;Modify &lt;span class="caps"&gt;MITK&lt;/span&gt; to build with the new plugin.:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;cp -r ../org.mycompany.myplugin /path/to/MITK/Plugins &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK/Plugins
 &lt;span class="nv"&gt;$ &lt;/span&gt;vim PluginList.cmake
-&lt;span class="c"&gt;# Add your plugin with the flag &amp;#39;ON&amp;#39;.&lt;/span&gt;
+&lt;span class="c"&gt;# Add your plugin with the flag 'ON'.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;MITK_PLUGINS&lt;/span&gt;
 
   &lt;span class="s"&gt;org.mycompany.myplugin:ON&lt;/span&gt;  
@@ -48,39 +29,31 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
   &lt;span class="s"&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
 &lt;li&gt;Set a new &lt;span class="caps"&gt;CTK&lt;/span&gt; Plugin in &lt;code&gt;CMakeLists.txt&lt;/code&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK
 &lt;span class="nv"&gt;$ &lt;/span&gt;vim CMakeLists.txt
-&lt;span class="c"&gt;# Search the string &amp;#39;set(re_ctkplugin&amp;#39;&lt;/span&gt;
+&lt;span class="c"&gt;# Search the string 'set(re_ctkplugin'&lt;/span&gt;
 /set&lt;span class="o"&gt;(&lt;/span&gt;re_ctkplugin
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
-&lt;li&gt;Modify it to look like&amp;nbsp;this.:&lt;/li&gt;
+&lt;li&gt;Modify it to look like this.:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Specify which plug-ins belong to this project&lt;/span&gt;
   &lt;span class="nb"&gt;macro&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;GetMyTargetLibraries&lt;/span&gt; &lt;span class="s"&gt;all_target_libraries&lt;/span&gt; &lt;span class="s"&gt;varname&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mitk&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_mitk_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_bb&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_blueberry_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mycompany&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mitk&lt;/span&gt; &lt;span class="s2"&gt;"^org_mitk_[a-zA-Z0-9_]+$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_bb&lt;/span&gt; &lt;span class="s2"&gt;"^org_blueberry_[a-zA-Z0-9_]+$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;re_ctkplugin_mycompany&lt;/span&gt; &lt;span class="s2"&gt;"^org_mycompany_[a-zA-Z0-9_]+$"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="nb"&gt;set&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;_tmp_list&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="nb"&gt;list&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;APPEND&lt;/span&gt; &lt;span class="s"&gt;_tmp_list&lt;/span&gt; &lt;span class="o"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;all_target_libraries&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
     &lt;span class="nb"&gt;ctkMacroListFilter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;_tmp_list&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_mitk&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_bb&lt;/span&gt; &lt;span class="s"&gt;re_ctkplugin_mycompany&lt;/span&gt; &lt;span class="s"&gt;OUTPUT_VARIABLE&lt;/span&gt; &lt;span class="o"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;varname&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="nb"&gt;endmacro&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;div class="highlight"&gt;&lt;pre&gt;`set(re_ctkplugin_`**`mycompany &amp;quot;^org_mycompany_[a-zA-Z0-9_]+$&amp;quot;`**`)`
+&lt;div class="highlight"&gt;&lt;pre&gt;`set(re_ctkplugin_`**`mycompany "^org_mycompany_[a-zA-Z0-9_]+$"`**`)`
 `ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE &lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;varname&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;)`
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4 id="modify-your-plugin"&gt;Modify your&amp;nbsp;plugin&lt;/h4&gt;
+&lt;h2 id="modify-your-plugin"&gt;Modify your plugin&lt;a class="headerlink" href="#modify-your-plugin" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Add Python module dependency to the plugin &lt;code&gt;CMakeLists.txt&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -90,11 +63,9 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
   &lt;span class="s"&gt;MODULE_DEPENDS&lt;/span&gt; &lt;span class="s"&gt;MitkQtWidgetsExt&lt;/span&gt; &lt;span class="s"&gt;MitkPython&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h5 id="embed-python-in-the-new-plugin"&gt;Embed Python in the new&amp;nbsp;plugin:&lt;/h5&gt;
-&lt;h6 id="interact-with-mitk-python-service"&gt;Interact with &lt;a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html"&gt;Mitk Python Service&lt;/a&gt;.&lt;/h6&gt;
-&lt;p&gt;When we create a plugin with &lt;code&gt;MitkPluginGenerator&lt;/code&gt; the default view contains a button &lt;code&gt;Do something&lt;/code&gt;. Each time we press that button, it calls the function &lt;code&gt;DoImageProcessing()&lt;/code&gt; that prints a message in the&amp;nbsp;console/terminal.&lt;/p&gt;
+&lt;h3 id="embed-python-in-the-new-plugin"&gt;Embed Python in the new plugin:&lt;a class="headerlink" href="#embed-python-in-the-new-plugin" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;h4 id="interact-with-mitk-python-service"&gt;Interact with &lt;a href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html" target="_blank"&gt;Mitk Python Service&lt;/a&gt;.&lt;a class="headerlink" href="#interact-with-mitk-python-service" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;When we create a plugin with &lt;code&gt;MitkPluginGenerator&lt;/code&gt; the default view contains a button &lt;code&gt;Do something&lt;/code&gt;. Each time we press that button, it calls the function &lt;code&gt;DoImageProcessing()&lt;/code&gt; that prints a message in the console/terminal.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;// MyView.cpp&lt;/span&gt;
 
 &lt;span class="p"&gt;...&lt;/span&gt;
@@ -117,31 +88,27 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
   &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
   &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="c1"&gt;// Nothing selected. Inform the user and return&lt;/span&gt;
-    &lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Template&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Please load and select an image before starting image processing.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;QMessageBox&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;information&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Template"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;"Please load and select an image before starting image processing."&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
   &lt;span class="p"&gt;}&lt;/span&gt;
 
 &lt;span class="p"&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
 &lt;li&gt;Add this two line example to the end of the function &lt;code&gt;DoImageProcessing()&lt;/code&gt;.:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;      &lt;span class="c1"&gt;// Each time we press that button will print `Hello World!` in the console/terminal&lt;/span&gt;
       &lt;span class="c1"&gt;// First we interact with mitkPythonService and execute a simple Python function.&lt;/span&gt;
       &lt;span class="n"&gt;itk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SmartPointer&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PythonService&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;_PythonService&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;PythonService&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-      &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_PythonService&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;print (&amp;#39;Hello World!&amp;#39;)&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;IPythonService&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SINGLE_LINE_COMMAND&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="n"&gt;std&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_PythonService&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Execute&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="s"&gt;"print ('Hello World!')"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;mitk&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;IPythonService&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;SINGLE_LINE_COMMAND&lt;/span&gt; &lt;span class="p"&gt;);&lt;/span&gt;
 
-      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+      &lt;span class="n"&gt;message&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;"&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
       &lt;span class="n"&gt;MITK_INFO&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
 &lt;span class="p"&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-mitk-with-your-new-plugin"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt; with your new&amp;nbsp;plugin&lt;/h6&gt;
+&lt;h4 id="build-mitk-with-your-new-plugin"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt; with your new plugin&lt;a class="headerlink" href="#build-mitk-with-your-new-plugin" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h4&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /path/to/MITK-build &lt;span class="c"&gt;#Clean directory&lt;/span&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../MITK
 &lt;span class="c"&gt;# Build with the option MITK_USE_PYTHON enabled.&lt;/span&gt;
@@ -153,56 +120,47 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
 &lt;span class="c"&gt;# The last command will take several hours.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4 id="test-it"&gt;Test&amp;nbsp;it!&lt;/h4&gt;
+&lt;h2 id="test-it"&gt;Test it!&lt;a class="headerlink" href="#test-it" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Open the &lt;code&gt;MitkWorkbench&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkWorkbench
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
-&lt;li&gt;Open your plugin&amp;nbsp;view:&lt;/li&gt;
+&lt;li&gt;Open your plugin view:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_001.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_001.png"/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Open a new image to be able to press the button &lt;code&gt;Do something&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_002.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_002.png"/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;You should see this when pressing the button &lt;code&gt;Do something&lt;/code&gt;:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_003.png" /&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="python"></category></entry><entry><title>How to compile MITK on Docker</title><link href="https://neurita.github.io/how_to_compile_mitk_on_docker" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_docker</id><summary type="html">&lt;h4 id="prerequisites"&gt;Prerequisites&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Mitk Plugin" src="images/MITK_plugin_003.png"/&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="python"></category></entry><entry><title>How to compile MITK on Docker</title><link href="https://neurita.github.io/how_to_compile_mitk_on_docker" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_docker</id><summary type="html">
+&lt;h1 id="required-packages"&gt;Required packages&lt;a class="headerlink" href="#required-packages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;Docker&lt;ul&gt;
+&lt;li&gt;Docker&lt;/li&gt;
 &lt;li&gt;&lt;span class="caps"&gt;GIT&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;CMake (version 3.2 or higher. Current stable&amp;nbsp;3.3)&lt;/li&gt;
-&lt;li&gt;Qt 5.x&lt;ul&gt;
-&lt;li&gt;Make sure that you select a Qt version which provides the right &lt;strong&gt;OpenGL-enabled&lt;/strong&gt; packages for your architecture and&amp;nbsp;compiler&lt;/li&gt;
+&lt;li&gt;CMake (version 3.2 or higher. Current stable 3.3)&lt;/li&gt;
+&lt;li&gt;Qt 5.x&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h5 id="install-dependencies"&gt;Install&amp;nbsp;dependencies.:&lt;/h5&gt;
-&lt;h6 id="install-docker"&gt;Install&amp;nbsp;Docker:&lt;/h6&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Make sure that you select a Qt version which provides the right &lt;strong&gt;OpenGL-enabled&lt;/strong&gt; packages for your architecture and compiler.&lt;/p&gt;
+&lt;h1 id="install-dependencies"&gt;Install dependencies&lt;a class="headerlink" href="#install-dependencies" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="install-docker"&gt;Install Docker&lt;a class="headerlink" href="#install-docker" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install curl
 &lt;span class="nv"&gt;$ &lt;/span&gt;curl -sSL https://get.docker.com/ &lt;span class="p"&gt;|&lt;/span&gt; sh
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="option-1-ubuntu-1404"&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; Ubuntu&amp;nbsp;14.04&lt;/h6&gt;
-&lt;p&gt;Pull a Docker container with Ubuntu:14.04 and run&amp;nbsp;it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; Ubuntu 14.04&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pull a Docker container with Ubuntu:14.04 and run it:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker pull ubuntu:14.04
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker images
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker run -i -t &amp;lt;IMAGE_ID&amp;gt; /bin/bash
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Once inside the Ubuntu 14.04 container, install &lt;span class="caps"&gt;MITK&lt;/span&gt;&amp;nbsp;dependencies:&lt;/p&gt;
+&lt;p&gt;Once inside the Ubuntu 14.04 container, install &lt;span class="caps"&gt;MITK&lt;/span&gt; dependencies:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
     software-properties-common &lt;span class="se"&gt;\&lt;/span&gt;
     &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-add-repository multiverse &lt;span class="se"&gt;\&lt;/span&gt;
@@ -214,17 +172,15 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev pkg-config qt5-default &lt;span class="se"&gt;\&lt;/span&gt;
     qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="option-2-ubuntu-1504"&gt;&lt;strong&gt;Option 2:&lt;/strong&gt; Ubuntu&amp;nbsp;15.04&lt;/h6&gt;
-&lt;p&gt;Pull a Docker container with Ubuntu 15.04 and run&amp;nbsp;it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Option 2:&lt;/strong&gt; Ubuntu 15.04&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Pull a Docker container with Ubuntu 15.04 and run it:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker pull ubuntu:15.04
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker images
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker run -i -t &amp;lt;IMAGE_ID&amp;gt; /bin/bash
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;Once inside the&amp;nbsp;container:&lt;/p&gt;
+&lt;p&gt;Once inside the container:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
     software-properties-common &lt;span class="se"&gt;\&lt;/span&gt;
     &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-add-repository multiverse &lt;span class="se"&gt;\&lt;/span&gt;
@@ -236,72 +192,38 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python-dev pkg-config &lt;span class="se"&gt;\&lt;/span&gt;
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="from-now-on-you-must-run-everything-inside-the-container"&gt;From now on, you must run everything inside the&amp;nbsp;container:&lt;/h6&gt;
-&lt;h6 id="install-opencl"&gt;Install&amp;nbsp;OpenCL:&lt;/h6&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# OpenCL for Intel/AMD:&lt;/span&gt;
-        root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;apt-get install ocl-icd-opencl-dev
-
-&lt;span class="c"&gt;# OpenCL for Nvidia:&lt;/span&gt;
-        root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;apt-get install nvidia-opencl-icd-XXX
-               &lt;span class="c"&gt;# Where XXX is the version. Current 346&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-cmake-330"&gt;Build Cmake&amp;nbsp;3.3.0:&lt;/h6&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;tar xvzf cmake-3.3.0.tar.gz &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;cmake-3.3.0
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;./bootstrap --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr --system-libs --mandir&lt;span class="o"&gt;=&lt;/span&gt;/share/man --no-system-jsoncpp &lt;span class="se"&gt;\&lt;/span&gt;
-  --docdir&lt;span class="o"&gt;=&lt;/span&gt;/share/doc/cmake-3.3.0 --qt-gui
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make install
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-ffmpeg-a-dependecy-of-opencv"&gt;Build FFmpeg, a dependecy of&amp;nbsp;OpenCV:&lt;/h6&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;git clone https://github.com/FFmpeg/FFmpeg.git
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;FFmpeg
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb &lt;span class="se"&gt;\&lt;/span&gt;
-    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx &lt;span class="se"&gt;\&lt;/span&gt;
-    --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
-root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; make install
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-mitk"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt;:&lt;/h6&gt;
+&lt;h2 id="install-mitk-in-the-container"&gt;Install &lt;span class="caps"&gt;MITK&lt;/span&gt; in the container&lt;a class="headerlink" href="#install-mitk-in-the-container" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Now on follow the installation instructions &lt;a href="how_to_compile_mitk_on_ubuntu#other-dependencies"&gt;in this post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="build-mitk"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt;&lt;a class="headerlink" href="#build-mitk" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;git clone http://git.mitk.org/MITK.git
 root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;mkdir MITK-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;MITK-build
 root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../MITK
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png"/&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Note:&lt;/strong&gt; in Ubuntu:14.04 you &lt;span class="caps"&gt;CAN&lt;/span&gt;&amp;rsquo;T select the option &amp;lsquo;MITK_USE_Python&amp;rsquo;, because It needs Qt &amp;gt;=&amp;nbsp;5.3&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Note:&lt;/strong&gt; in Ubuntu:14.04 you &lt;span class="caps"&gt;CAN&lt;/span&gt;’T select the option ‘MITK_USE_Python’, because It needs Qt &amp;gt;= 5.3&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Tips:&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;For a complete installation, press &amp;lsquo;t&amp;rsquo; to toggle the advance view. You may select all the options you desire, like compile with all applications and&amp;nbsp;plugins.&lt;/li&gt;
-&lt;li&gt;Also, if you selected &lt;code&gt;MITK_USE_SYSTEM_PYTHON&lt;/code&gt;, you may want to change &lt;code&gt;PYTHON_EXECUTABLE&lt;/code&gt;,&lt;code&gt;PYTHON_INCLUDE_DIR&lt;/code&gt; and &lt;code&gt;PYTHON_LIBRARY&lt;/code&gt; to your respective installation. For now, It&amp;rsquo;s not possible to use Python 3, so you&amp;rsquo;ll have to use&amp;nbsp;Python2.7.&lt;/li&gt;
+&lt;li&gt;For a complete installation, press ‘t’ to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.&lt;/li&gt;
+&lt;li&gt;Also, if you selected &lt;code&gt;MITK_USE_SYSTEM_PYTHON&lt;/code&gt;, you may want to change &lt;code&gt;PYTHON_EXECUTABLE&lt;/code&gt;,&lt;code&gt;PYTHON_INCLUDE_DIR&lt;/code&gt; and &lt;code&gt;PYTHON_LIBRARY&lt;/code&gt; to your respective installation. For now, It’s not possible to use Python 3, so you’ll have to use Python2.7.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Press &amp;#39;c&amp;#39; to configure and &amp;#39;g&amp;#39; to generate and exit.&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Press 'c' to configure and 'g' to generate and exit.&lt;/span&gt;
 
 root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;make
-&lt;span class="c"&gt;# I do NOT recommend running `make` with the option `-j4`. You&amp;#39;ll get dependency related errors during the build.&lt;/span&gt;
+&lt;span class="c"&gt;# I do NOT recommend running `make` with the option `-j4`. You'll get dependency related errors during the build.&lt;/span&gt;
 &lt;span class="c"&gt;# This last command will take several hours, so go and take a walk (in another city) :)&lt;/span&gt;
 
 root@XXXXX:&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker ps -l
 CONTAINER ID        IMAGE                  COMMAND             CREATED             STATUS                     PORTS               NAMES
-b378149da6c6        ubuntu:15.04           &lt;span class="s2"&gt;&amp;quot;/bin/bash&amp;quot;&lt;/span&gt;         &lt;span class="m"&gt;8&lt;/span&gt; hours ago         Exited &lt;span class="o"&gt;(&lt;/span&gt;0&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; seconds ago                      focused_newton
+b378149da6c6        ubuntu:15.04           &lt;span class="s2"&gt;"/bin/bash"&lt;/span&gt;         &lt;span class="m"&gt;8&lt;/span&gt; hours ago         Exited &lt;span class="o"&gt;(&lt;/span&gt;0&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;10&lt;/span&gt; seconds ago                      focused_newton
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker commit &amp;lt;CONTAINER_NAME&amp;gt; ubuntu15/mitk:latest
 &lt;span class="c"&gt;# See the CONTAINER_NAME on the right of `docker ps -l`&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="running-mitk"&gt;Running &lt;span class="caps"&gt;MITK&lt;/span&gt;:&lt;/h6&gt;
+&lt;h1 id="running-mitk"&gt;Running &lt;span class="caps"&gt;MITK&lt;/span&gt;&lt;a class="headerlink" href="#running-mitk" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;Create a &lt;a href="https://docs.docker.com/reference/builder/" target="_blank"&gt;Dockerfile&lt;/a&gt;.:&lt;/li&gt;
 &lt;/ol&gt;
@@ -311,20 +233,16 @@ MAINTAINER &amp;lt;YOUR_NAME&amp;gt;
 ENV MITK_WORKBENCH /path/to/MITK-build/bin/MitkWorkbench
 CMD &lt;span class="nv"&gt;$MITK_WORKBENCH&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ul&gt;
 &lt;li&gt;Where &lt;code&gt;&amp;lt;IMAGE&amp;gt;&lt;/code&gt; is the name of the image where we have installed &lt;span class="caps"&gt;MITK&lt;/span&gt;.&lt;/li&gt;
-&lt;li&gt;e.g.: &lt;span class="caps"&gt;FROM&lt;/span&gt;&amp;nbsp;ubuntu15/mitk:latest&lt;/li&gt;
+&lt;li&gt;e.g.: &lt;span class="caps"&gt;FROM&lt;/span&gt; ubuntu15/mitk:latest&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker images
 REPOSITORY          TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
 ubuntu15/mitk       latest              19af721ab6a3        &lt;span class="m"&gt;11&lt;/span&gt; hours ago        13.2 GB
 &lt;/pre&gt;&lt;/div&gt;
-
-
 &lt;ol&gt;
-&lt;li&gt;Build a new image with the&amp;nbsp;Dockerfile.:&lt;/li&gt;
+&lt;li&gt;Build a new image with the Dockerfile.:&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;docker build --rm -t mitk:15.04 .
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker images
@@ -332,24 +250,22 @@ REPOSITORY          TAG                 IMAGE ID            CREATED             
 mitk                15.04               bdcce6cafa44        &lt;span class="m"&gt;26&lt;/span&gt; minutes ago      13.2 GB
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker ps -l
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS                      PORTS               NAMES
-2f140ab82356        mitk:15.04          &lt;span class="s2"&gt;&amp;quot;/bin/bash&amp;quot;&lt;/span&gt;         &lt;span class="m"&gt;42&lt;/span&gt; minutes ago      Exited &lt;span class="o"&gt;(&lt;/span&gt;0&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;41&lt;/span&gt; minutes ago                       silly_galileo
-&lt;span class="nv"&gt;$ &lt;/span&gt;xhost +local:&lt;span class="sb"&gt;`&lt;/span&gt;docker inspect --format&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;{{ .Config.Hostname }}&amp;#39;&lt;/span&gt; &amp;lt;CONTAINER_ID&amp;gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+2f140ab82356        mitk:15.04          &lt;span class="s2"&gt;"/bin/bash"&lt;/span&gt;         &lt;span class="m"&gt;42&lt;/span&gt; minutes ago      Exited &lt;span class="o"&gt;(&lt;/span&gt;0&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;41&lt;/span&gt; minutes ago                       silly_galileo
+&lt;span class="nv"&gt;$ &lt;/span&gt;xhost +local:&lt;span class="sb"&gt;`&lt;/span&gt;docker inspect --format&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'{{ .Config.Hostname }}'&lt;/span&gt; &amp;lt;CONTAINER_ID&amp;gt;&lt;span class="sb"&gt;`&lt;/span&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;docker run -ti --rm -e &lt;span class="nv"&gt;DISPLAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$DISPLAY&lt;/span&gt; -v /tmp/.X11-unix:/tmp/.X11-unix mitk:15.04
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_002.png" /&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="build"></category><category term="docker"></category></entry><entry><title>How to compile MITK on Ubuntu</title><link href="https://neurita.github.io/how_to_compile_mitk_on_ubuntu" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_ubuntu</id><summary type="html">&lt;h4 id="prerequisites"&gt;Prerequisites&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_002.png"/&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="build"></category><category term="docker"></category></entry><entry><title>How to compile MITK on Ubuntu</title><link href="https://neurita.github.io/how_to_compile_mitk_on_ubuntu" rel="alternate"></link><updated>2015-09-02T00:00:00+02:00</updated><author><name>Luis Javier Salvatierra</name></author><id>tag:neurita.github.io,2015-08-13:how_to_compile_mitk_on_ubuntu</id><summary type="html">
+&lt;h1 id="required-packages"&gt;Required packages&lt;a class="headerlink" href="#required-packages" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;span class="caps"&gt;GIT&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;CMake (version 3.2 or higher. Current stable&amp;nbsp;3.3)&lt;/li&gt;
-&lt;li&gt;Qt 5.x&lt;ul&gt;
-&lt;li&gt;Make sure that you select a Qt version which provides the right &lt;strong&gt;OpenGL-enabled&lt;/strong&gt; packages for your architecture and&amp;nbsp;compiler&lt;/li&gt;
+&lt;li&gt;CMake (version 3.2 or higher. Current stable 3.3)&lt;/li&gt;
+&lt;li&gt;Qt 5.x&lt;/li&gt;
 &lt;/ul&gt;
-&lt;/li&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Make sure that you select a Qt version which provides the right &lt;strong&gt;OpenGL-enabled&lt;/strong&gt; packages for your architecture and compiler.&lt;/p&gt;
+&lt;h1 id="install-dependencies"&gt;Install dependencies&lt;a class="headerlink" href="#install-dependencies" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Option 1:&lt;/strong&gt; Ubuntu 14.04&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id="install-dependencies"&gt;Install&amp;nbsp;dependencies.:&lt;/h5&gt;
-&lt;h6 id="from-the-ubuntu-packages"&gt;From the Ubuntu&amp;nbsp;packages:&lt;/h6&gt;
-&lt;h6 id="option-1-ubuntu-1404"&gt;Option 1: Ubuntu&amp;nbsp;14.04:&lt;/h6&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
     software-properties-common &lt;span class="se"&gt;\&lt;/span&gt;
     &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-add-repository multiverse &lt;span class="se"&gt;\&lt;/span&gt;
@@ -361,9 +277,9 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev pkg-config qt5-default &lt;span class="se"&gt;\&lt;/span&gt;
     qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="option-2-ubuntu-1504"&gt;Option 2: Ubuntu&amp;nbsp;15.04:&lt;/h6&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Option 2:&lt;/strong&gt; Ubuntu 15.04&lt;/li&gt;
+&lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-get install -y &lt;span class="se"&gt;\&lt;/span&gt;
     software-properties-common &lt;span class="se"&gt;\&lt;/span&gt;
     &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo apt-add-repository multiverse &lt;span class="se"&gt;\&lt;/span&gt;
@@ -375,9 +291,8 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
     libvorbis-dev libvpx-dev libwrap0-dev libxi-dev libxmu-dev python-dev pkg-config &lt;span class="se"&gt;\&lt;/span&gt;
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="install-opencl"&gt;Install&amp;nbsp;OpenCL:&lt;/h6&gt;
+&lt;h1 id="other-dependencies"&gt;Other dependencies&lt;a class="headerlink" href="#other-dependencies" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="install-opencl"&gt;Install OpenCL&lt;a class="headerlink" href="#install-opencl" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# OpenCL for Intel/AMD:&lt;/span&gt;
     &lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install ocl-icd-opencl-dev
 
@@ -385,18 +300,15 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
     &lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install nvidia-opencl-icd-XXX
     &lt;span class="c"&gt;# Where XXX is the version. Current 346&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-cmake-330"&gt;Build Cmake&amp;nbsp;3.3.0:&lt;/h6&gt;
+&lt;h2 id="build-cmake-330"&gt;Build Cmake 3.3.0&lt;a class="headerlink" href="#build-cmake-330" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
 &lt;span class="nv"&gt;$ &lt;/span&gt;tar xvzf cmake-3.3.0.tar.gz &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;cmake-3.3.0
 &lt;span class="nv"&gt;$ &lt;/span&gt;./bootstrap --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr --system-libs --mandir&lt;span class="o"&gt;=&lt;/span&gt;/share/man --no-system-jsoncpp &lt;span class="se"&gt;\&lt;/span&gt;
   --docdir&lt;span class="o"&gt;=&lt;/span&gt;/share/doc/cmake-3.3.0 --qt-gui
 &lt;span class="nv"&gt;$ &lt;/span&gt;make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-ffmpeg-we-need-it-for-opencv"&gt;Build FFmpeg, we need it for&amp;nbsp;OpenCV:&lt;/h6&gt;
+&lt;h2 id="build-ffmpeg"&gt;Build FFmpeg&lt;a class="headerlink" href="#build-ffmpeg" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;FFmpeg is required for OpenCV.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone https://github.com/FFmpeg/FFmpeg.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;FFmpeg
 &lt;span class="nv"&gt;$ &lt;/span&gt;./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb &lt;span class="se"&gt;\&lt;/span&gt;
@@ -404,53 +316,45 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
     --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
 &lt;span class="nv"&gt;$ &lt;/span&gt;make &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-mitk"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt;:&lt;/h6&gt;
+&lt;h2 id="build-mitk"&gt;Build &lt;span class="caps"&gt;MITK&lt;/span&gt;&lt;a class="headerlink" href="#build-mitk" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone http://git.mitk.org/MITK.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkdir MITK-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;MITK-build
 &lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../MITK
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png"/&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png"/&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Note:&lt;/strong&gt; in Ubuntu:14.04 you &lt;span class="caps"&gt;CAN&lt;/span&gt;&amp;rsquo;T select the option &amp;lsquo;MITK_USE_Python&amp;rsquo;, because It needs Qt &amp;gt;=&amp;nbsp;5.3&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Note:&lt;/strong&gt; in Ubuntu:14.04 you &lt;span class="caps"&gt;CAN&lt;/span&gt;’T select the option ‘MITK_USE_Python’, because It needs Qt &amp;gt;= 5.3&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Tips:&lt;/strong&gt;&lt;ul&gt;
-&lt;li&gt;For a complete installation, press &amp;lsquo;t&amp;rsquo; to toggle the advance view. You may select all the options you desire, like compile with all applications and&amp;nbsp;plugins.&lt;/li&gt;
-&lt;li&gt;Also, if you selected &lt;code&gt;MITK_USE_SYSTEM_PYTHON&lt;/code&gt;, you may want to change &lt;code&gt;PYTHON_EXECUTABLE&lt;/code&gt;,&lt;code&gt;PYTHON_INCLUDE_DIR&lt;/code&gt; and &lt;code&gt;PYTHON_LIBRARY&lt;/code&gt; to your respective installation. For now, It&amp;rsquo;s not possible to use Python 3, so you&amp;rsquo;ll have to use&amp;nbsp;Python2.7.&lt;/li&gt;
+&lt;li&gt;For a complete installation, press ‘t’ to toggle the advance view. You may select all the options you desire, like compile with all applications and plugins.&lt;/li&gt;
+&lt;li&gt;Also, if you selected &lt;code&gt;MITK_USE_SYSTEM_PYTHON&lt;/code&gt;, you may want to change &lt;code&gt;PYTHON_EXECUTABLE&lt;/code&gt;,&lt;code&gt;PYTHON_INCLUDE_DIR&lt;/code&gt; and &lt;code&gt;PYTHON_LIBRARY&lt;/code&gt; to your respective installation. For now, It’s not possible to use Python 3, so you’ll have to use Python2.7.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Press &amp;#39;c&amp;#39; to configure and &amp;#39;g&amp;#39; to generate and exit.&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# Press 'c' to configure and 'g' to generate and exit.&lt;/span&gt;
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;make
-&lt;span class="c"&gt;# I do NOT recommend running `make` with the option `-j4`. You&amp;#39;ll get dependency related errors during the build.&lt;/span&gt;
+&lt;span class="c"&gt;# I do NOT recommend running `make` with the option `-j4`. You'll get dependency related errors during the build.&lt;/span&gt;
 &lt;span class="c"&gt;# This last command will take several hours, so go and take a walk (in another city) :)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;If you encounter any problems building &lt;span class="caps"&gt;MITK&lt;/span&gt;, try building your self some of Its&amp;nbsp;dependencies.:&lt;/p&gt;
-&lt;h6 id="build-boost-if-needed"&gt;Build Boost if&amp;nbsp;needed:&lt;/h6&gt;
+&lt;p&gt;If you encounter any problems building &lt;span class="caps"&gt;MITK&lt;/span&gt;, try building your self some of Its dependencies.:&lt;/p&gt;
+&lt;h2 id="build-boost-if-needed"&gt;Build Boost if needed&lt;a class="headerlink" href="#build-boost-if-needed" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Download Boost from the official webpage &lt;a href="http://www.boost.org/" target="_blank"&gt;Boost C++ Libraries&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;tar --bzip2 -xf /path/to/boost_1_XX_X.tar.bz2 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;boost_1_XX_X &lt;span class="c"&gt;#Current `boost_1_58_0`&lt;/span&gt;
-&lt;span class="nv"&gt;$ &lt;/span&gt;./bootstrap.sh --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr/local --with-python&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/python2 &lt;span class="c"&gt;#It doesn&amp;#39;t work with Python3&lt;/span&gt;
+&lt;span class="nv"&gt;$ &lt;/span&gt;./bootstrap.sh --prefix&lt;span class="o"&gt;=&lt;/span&gt;/usr/local --with-python&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/python2 &lt;span class="c"&gt;#It doesn't work with Python3&lt;/span&gt;
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkdir ../boost-build
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo ./b2 -q --build-dir&lt;span class="o"&gt;=&lt;/span&gt;../boost-build &lt;span class="nv"&gt;variant&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;release install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-opencv-if-needed"&gt;Build OpenCV if&amp;nbsp;needed:&lt;/h6&gt;
+&lt;h2 id="build-opencv-if-needed"&gt;Build OpenCV if needed&lt;a class="headerlink" href="#build-opencv-if-needed" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev &lt;span class="se"&gt;\&lt;/span&gt;
   libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev &lt;span class="se"&gt;\&lt;/span&gt;
   libjasper-dev libdc1394-22-dev
 &lt;span class="nv"&gt;$ &lt;/span&gt;git clone git@github.com:Itseez/opencv.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkdir opencv-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;opencv-build
 &lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../opencv
-&lt;span class="c"&gt;# Press &amp;#39;c&amp;#39; to configure and &amp;#39;g&amp;#39; to generate and exit.&lt;/span&gt;
+&lt;span class="c"&gt;# Press 'c' to configure and 'g' to generate and exit.&lt;/span&gt;
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;make -j4
 
@@ -459,58 +363,48 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-vtk-if-needed"&gt;Build &lt;span class="caps"&gt;VTK&lt;/span&gt; if&amp;nbsp;needed:&lt;/h6&gt;
+&lt;h2 id="build-vtk-if-needed"&gt;Build &lt;span class="caps"&gt;VTK&lt;/span&gt; if needed&lt;a class="headerlink" href="#build-vtk-if-needed" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install tk-dev
 &lt;span class="nv"&gt;$ &lt;/span&gt;git clone git://vtk.org/VTK.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkdir VTK-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;VTK-build
 &lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../VTK
-&lt;span class="c"&gt;# Press &amp;#39;c&amp;#39; to configure and &amp;#39;e&amp;#39; to continue.&lt;/span&gt;
+&lt;span class="c"&gt;# Press 'c' to configure and 'e' to continue.&lt;/span&gt;
 &lt;span class="c"&gt;# Select desired options.&lt;/span&gt;
 &lt;span class="c"&gt;# VTK_WRAP_PYTHON ON&lt;/span&gt;
 &lt;span class="c"&gt;# VTK_QT_VERSION 5&lt;/span&gt;
 &lt;span class="c"&gt;# ...&lt;/span&gt;
-&lt;span class="c"&gt;# Press again &amp;#39;c&amp;#39; to configure and &amp;#39;e&amp;#39; to continue.&lt;/span&gt;
-&lt;span class="c"&gt;# Press &amp;#39;g&amp;#39; to generate and exit.&lt;/span&gt;
+&lt;span class="c"&gt;# Press again 'c' to configure and 'e' to continue.&lt;/span&gt;
+&lt;span class="c"&gt;# Press 'g' to generate and exit.&lt;/span&gt;
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;make -j4
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-sofa-if-needed"&gt;Build &lt;span class="caps"&gt;SOFA&lt;/span&gt; if&amp;nbsp;needed:&lt;/h6&gt;
+&lt;h2 id="build-sofa-if-needed"&gt;Build &lt;span class="caps"&gt;SOFA&lt;/span&gt; if needed&lt;a class="headerlink" href="#build-sofa-if-needed" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;git clone git://scm.gforge.inria.fr/sofa/sofa.git
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install build-essential libqt4-dev libqt4-opengl-dev libglew-dev freeglut3-dev &lt;span class="se"&gt;\&lt;/span&gt;
   libpng-dev ccache zlib1g-dev python2.7-dev libxml2-dev libcgal-dev libblas-dev liblapack-dev &lt;span class="se"&gt;\&lt;/span&gt;
   libsuitesparse-dev libboost-all-dev libassimp-dev liboce-foundation-dev
 &lt;span class="nv"&gt;$ &lt;/span&gt;mkdir sofa-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;sofa-build
-&lt;span class="nv"&gt;$ CC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;gcc&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;CXX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;g++&amp;quot;&lt;/span&gt; cmake -DCMAKE_BUILD_TYPE&lt;span class="o"&gt;=&lt;/span&gt;Release  ../sofa
+&lt;span class="nv"&gt;$ CC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"gcc"&lt;/span&gt; &lt;span class="nv"&gt;CXX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"g++"&lt;/span&gt; cmake -DCMAKE_BUILD_TYPE&lt;span class="o"&gt;=&lt;/span&gt;Release  ../sofa
 &lt;span class="nv"&gt;$ &lt;/span&gt;cmake .
 &lt;span class="nv"&gt;$ &lt;/span&gt;make -j4
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h6 id="build-gdcm-if-needed"&gt;Build &lt;span class="caps"&gt;GDCM&lt;/span&gt; if&amp;nbsp;needed:&lt;/h6&gt;
+&lt;h2 id="build-gdcm-if-needed"&gt;Build &lt;span class="caps"&gt;GDCM&lt;/span&gt; if needed&lt;a class="headerlink" href="#build-gdcm-if-needed" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;sudo apt-get install swig
 &lt;span class="nv"&gt;$ &lt;/span&gt;git clone --branch release git://git.code.sf.net/p/gdcm/gdcm
 &lt;span class="nv"&gt;$ &lt;/span&gt;mdkir gdcm-build &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;gdcm-build
 &lt;span class="nv"&gt;$ &lt;/span&gt;ccmake ../gdcm
-&lt;span class="c"&gt;# Press &amp;#39;c&amp;#39; to configure and &amp;#39;g&amp;#39; to generate and exit.&lt;/span&gt;
+&lt;span class="c"&gt;# Press 'c' to configure and 'g' to generate and exit.&lt;/span&gt;
 
 &lt;span class="nv"&gt;$ &lt;/span&gt;make
 &lt;span class="nv"&gt;$ &lt;/span&gt;sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h4 id="run-mitk"&gt;Run &lt;span class="caps"&gt;MITK&lt;/span&gt;&lt;/h4&gt;
+&lt;h1 id="run-mitk"&gt;Run &lt;span class="caps"&gt;MITK&lt;/span&gt;&lt;a class="headerlink" href="#run-mitk" title="Permanent link"&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;$ &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/Downloads &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd
 &lt;span class="nv"&gt;$ &lt;/span&gt;/path/to/MITK-build/bin/MitkWorkbench
 &lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_001.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_001.png"/&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Open the downloaded image in &lt;code&gt;~/Downloads&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_002.png" /&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="build"></category><category term="Ubuntu"></category></entry></feed>
+&lt;p&gt;&lt;img alt="MITK load image" src="images/MitkWorkbench_002.png"/&gt;&lt;/p&gt;</summary><category term="MITK"></category><category term="build"></category><category term="Ubuntu"></category></entry></feed>

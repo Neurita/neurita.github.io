@@ -7,18 +7,20 @@ Author: Luis Javier Salvatierra
 Email: ljsalvat@gmail.com
 Summary: A short manual on how to compile MITK using Docker with all options enabled.
 
+[TOC]
 
-## Prerequisites
+# Required packages
 
 - Docker
-    - GIT
-    - CMake (version 3.2 or higher. Current stable 3.3)
-    - Qt 5.x
-        - Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler
+- GIT
+- CMake (version 3.2 or higher. Current stable 3.3)
+- Qt 5.x
 
-### Install dependencies.:
+**Note:** Make sure that you select a Qt version which provides the right **OpenGL-enabled** packages for your architecture and compiler.
 
-#### Install Docker:
+# Install dependencies
+
+## Install Docker
 
 ```bash
 $ sudo apt-get update
@@ -26,7 +28,7 @@ $ sudo apt-get install curl
 $ curl -sSL https://get.docker.com/ | sh
 ```
 
-##### **Option 1:** Ubuntu 14.04
+* **Option 1:** Ubuntu 14.04
 
 Pull a Docker container with Ubuntu:14.04 and run it:
 
@@ -51,7 +53,7 @@ root@XXXXX:$ apt-get update && apt-get install -y \
     qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-##### **Option 2:** Ubuntu 15.04
+* **Option 2:** Ubuntu 15.04
 
 Pull a Docker container with Ubuntu 15.04 and run it:
 
@@ -76,41 +78,11 @@ root@XXXXX:$ apt-get update && apt-get install -y \
     qt5-default qtscript5-dev qttools5-dev qttools5-dev-tools vim wget yasm libgtk2.0-dev
 ```
 
-#### From now on, you must run everything inside the container:
+## Install MITK in the container
 
-#### Install OpenCL:
+Now on follow the installation instructions [in this post](how_to_compile_mitk_on_ubuntu#other-dependencies).
 
-```bash
-# OpenCL for Intel/AMD:
-        root@XXXXX:$ apt-get install ocl-icd-opencl-dev
-
-# OpenCL for Nvidia:
-        root@XXXXX:$ apt-get install nvidia-opencl-icd-XXX
-        	   # Where XXX is the version. Current 346
-```
-
-#### Build Cmake 3.3.0:
-
-```bash
-root@XXXXX:$ wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
-root@XXXXX:$ tar xvzf cmake-3.3.0.tar.gz && cd cmake-3.3.0
-root@XXXXX:$ ./bootstrap --prefix=/usr --system-libs --mandir=/share/man --no-system-jsoncpp \
-  --docdir=/share/doc/cmake-3.3.0 --qt-gui
-root@XXXXX:$ make && make install
-```
-
-#### Build FFmpeg, a dependecy of OpenCV:
-
-```bash
-root@XXXXX:$ git clone https://github.com/FFmpeg/FFmpeg.git
-root@XXXXX:$ cd FFmpeg
-root@XXXXX:$ ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb \
-    --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx \
-    --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
-root@XXXXX:$ make && make install
-```
-
-#### Build MITK:
+## Build MITK
 
 ```bash
 root@XXXXX:$ git clone http://git.mitk.org/MITK.git
@@ -143,7 +115,7 @@ $ docker commit <CONTAINER_NAME> ubuntu15/mitk:latest
 # See the CONTAINER_NAME on the right of `docker ps -l`
 ```
 
-#### Running MITK:
+# Running MITK
 
 1. Create a <a href="https://docs.docker.com/reference/builder/" target="_blank">Dockerfile</a>.:
 

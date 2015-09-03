@@ -7,8 +7,6 @@ Author: Luis Javier Salvatierra
 Email: ljsalvat@gmail.com
 Summary: A manual on how to create a simple Python plugin for MITK.
 
-**Table of contents**
-
 [TOC]
 
 ## Plugins examples
