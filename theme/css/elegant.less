@@ -1,0 +1,174 @@
+@import "../bootstrap/less/bootstrap.less";
+@import "../bootstrap/less/utilities.less";
+@import "custom-variables.less";
+@import "custom-classes.less";
+
+.mixin-no-color-no-decoration() {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    .mixin-no-color-no-decoration;
+    small {
+        .mixin-no-color-no-decoration;
+    }
+    a {
+        .mixin-no-color-no-decoration;
+        &:hover {
+            .mixin-no-color-no-decoration;
+        }
+        &:focus {
+            .mixin-no-color-no-decoration;
+        }
+        &.headerlink { // a.headerlink
+            color: @gray-light;
+            padding-left: .5em;
+            visibility: hidden;
+            &:hover {
+                color: inherit;
+            }
+        }
+    }
+    &:hover > a.headerlink {
+        visibility: visible;
+    }
+}
+
+.form-control {
+    &:extend(.form-control);
+    border-radius: 15px;
+}
+
+.navbar-form {
+    &:extend(.navbar-form);
+    @media (max-width: @grid-float-breakpoint) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    @media (min-width: @screen-sm-min) {
+        .form-control {
+            width: 100%;
+        }
+    }
+}
+
+.navbar-default {
+    &:extend(.navbar-default);
+    background-color: @el-navbar-top-background-color;
+    background-image: @el-navbar-top-background-image;
+    background-repeat: repeat-x;
+    border: @el-navbar-top-border;
+    box-shadow: @el-navbar-top-box-shadow;
+}
+
+.list-of-tags {
+    font-family: @font-family-sans-serif;
+    ul& {
+        list-style: none outside none;
+        margin: 20px 0 0;
+        overflow: hidden;
+        padding: 0;
+        li {
+            float: left;
+            line-height: 2em;
+            margin: 0;
+        }
+        a {
+            background: @gray-lighter;
+            border-radius: 3px;
+            color: #222;
+            font-size: 1em;
+            margin: 2px;
+            padding: 3px 6px;
+            text-decoration: none;
+            span {
+                font-size: .8em;
+                vertical-align: super;
+            }
+        }
+    }
+}
+
+.articles-in-tag {
+     font-family: @font-family-sans-serif;
+    ul& {
+        list-style: none outside none;
+        margin: 0 0 0 5px;
+        li {
+            font-size: 1.1em;
+            line-height: 1.6em;
+            time {
+                color: @gray-light;
+                display: inline-block;
+                font-family: @font-family-monospace;
+                font-size: .9em;
+                width: 7em;
+            }
+        }
+    }
+}
+
+.page-header {
+    &:extend(.page-header);
+    color: @el-page-header-color;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+
+// footer code is taken from http://getbootstrap.com/examples/sticky-footer-navbar/
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    margin-bottom: @el-page-footer-height;
+    @media (max-width: @screen-md) {
+        margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 1;
+    }
+    @media (max-width: @screen-sm) {
+        margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 2;
+    }
+    @media (max-width: @screen-xs) {
+        margin-bottom: @el-page-footer-height + @el-page-footer-height-subset * 3;
+    }
+}
+
+footer {
+    align-items: center;
+    background-color: @el-page-footer-color;
+    border-top: @el-page-footer-border-top;
+    bottom: 0;
+    display: flex;
+    height: @el-page-footer-height;
+    @media (max-width: @screen-md) {
+        height: @el-page-footer-height + @el-page-footer-height-subset * 1;
+    }
+    @media (max-width: @screen-sm) {
+        height: @el-page-footer-height + @el-page-footer-height-subset * 2;
+    }
+    @media (max-width: @screen-xs) {
+        height: @el-page-footer-height + @el-page-footer-height-subset * 3;
+    }
+    position: absolute;
+    width: 100%;
+    div {
+        font-family: @font-family-sans-serif;
+        font-size: 0.8em;
+        text-align: left;
+        &:only-child {
+            text-align: right; // if only elegant license is present
+        }
+        @media (min-width: @screen-md) {
+            &:last-child {
+                    text-align: right;
+            }
+        }
+        @media (max-width: @screen-md) {
+             &:nth-last-child(2), &:nth-last-child(3) {
+                margin-bottom: 4px;
+            }
+        }
+    }
+}

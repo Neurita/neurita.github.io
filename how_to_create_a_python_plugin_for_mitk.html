@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en-US">
-    <head>
-        <meta charset="utf-8"> 
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Luis Javier Salvatierra" />
-        <meta name="copyright" content="Luis Javier Salvatierra" />
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Luis Javier Salvatierra" />
+<meta name="copyright" content="Luis Javier Salvatierra" />
 
-        <meta name="description" content="A manual on how to create a simple Python plugin for MITK.
+<meta name="description" content="A manual on how to create a simple Python plugin for MITK.
 " />
-        <meta name="twitter:creator" content="@neuritabcc">
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@neuritabcc">
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary">
 
 <meta name="keywords" content="MITK, python, MITK, python, " />
 
@@ -24,17 +24,18 @@
 <meta property="" content="2015-09-02T00:00:00+02:00" />
 <meta name="twitter:title" content="How to create a Python plugin for MITK ">
 <meta name="twitter:description" content="A manual on how to create a simple Python plugin for MITK.">
-<meta property="og:image" content="./theme/images/neurita_logo.png" />
-<meta name="twitter:image" content="./theme/images/neurita_logo.png" >
+<meta property="og:image" content="./theme/images/logo_neurita.png" />
+<meta name="twitter:image" content="./theme/images/logo_neurita.png" >
 
-        <title>How to create a Python plugin for MITK  · Neurita
+<title>How to create a Python plugin for MITK  · Neurita
 </title>
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="./theme/webassets-external/5e7810e354cf6b24dc655912ee97234a_pygments.css">
-<link rel="stylesheet" href="./theme/webassets-external/db629c7bcb0ce9f928df0c03b5e70004_tipuesearch.css">
-<link rel="stylesheet" href="./theme/webassets-external/81b9dd4fc2ddc8a2759606d9a6c57700_elegant.css">
-<link rel="stylesheet" href="./theme/webassets-external/0982fbba3d7ada5e4c3c516ed6ef7424_custom.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./theme/css/bootstrap-theme.css" media="screen">
+<link rel="stylesheet" type="text/css" href="./theme/css/pygments.css" media="screen">
+<link rel="stylesheet" type="text/css" href="./theme/tipuesearch/tipuesearch.css" media="screen">
+<link rel="stylesheet" type="text/css" href="./theme/css/elegant.css" media="screen">
+<link rel="stylesheet" type="text/css" href="./theme/css/custom.css" media="screen">
         <link rel="shortcut icon" href="./theme/images/favicon.ico" type="image/x-icon" type="image/png" />
         <link rel="icon" href="./theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png"  type="image/png" />
@@ -47,181 +48,231 @@
         <link rel="apple-touch-icon" sizes="152x152" href="./theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link href="https://neurita.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Neurita - Full Atom Feed" />
         <link href="https://neurita.github.io/feeds/all.rss.xml" type="application/rss+xml" rel="alternate" title="Neurita - Full RSS Feed" />
-    </head>
-    <body>
-        <div id="content-sans-footer">
-        <div class="navbar navbar-static-top">
-            <div class="navbar-inner">
-                <div class="container-fluid">
-                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </a>
-                    <a class="brand" href="./"><span class=site-name><span style="color:blue;">Neurita</span></span></a>
-                    <div class="nav-collapse collapse">
-                        <ul class="nav pull-right top-menu">
-                            <li ><a href=".">Home</a></li>
-                            <li ><a href="./categories.html">Categories</a></li>
-                            <li ><a href="./tags.html">Tags</a></li>
-                            <li ><a href="./archives.html">Archives</a></li>
-                            <li><form class="navbar-search" action="./search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
-                        </ul>
-                    </div>
-                </div>
+</head>
+<body>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="./"><span class=site-name><span style="color:blue;">Neurita</span></span></a>
             </div>
-        </div>
-        <div class="container-fluid">
-            <div class="row-fluid">
-                <div class="span1"></div>
-                <div class="span10">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li ><a href=".">Home</a></li>
+                    <li ><a href="./categories.html">Categories</a></li>
+                    <li ><a href="./tags.html">Tags</a></li>
+                    <li ><a href="./archives.html">Archives</a></li>
+                    <li>
+                    <form class="navbar-form" role="search" action="./search.html" onsubmit="return validateForm(this.elements['q'].value);">
+                        <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input">
+                    </form>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container -->
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
 <article>
-<div class="row-fluid">
-    <header class="page-header span10 offset2">
+<div class="row">
+    <header class="page-header col-md-10 col-md-offset-2">
     <h1><a href="./how_to_create_a_python_plugin_for_mitk"> How to create a Python plugin for <span class="caps">MITK</span>  </a></h1>
     </header>
 </div>
 
-<div class="row-fluid">
-        <div class="span8 offset2 article-content">
+<div class="row">
+        <div class="col-md-8 col-md-offset-2 el-article-content">
 
             
-            <p>[<span class="caps">TOC</span>]</p>
-<h2 id="plugins-examples">Plugins&nbsp;examples</h2>
+            <p><strong>Table of&nbsp;contents</strong></p>
+<div class="toc">
+<ul>
+<li><a href="#plugins-examples">Plugins&nbsp;examples</a></li>
+<li><a href="#create-a-mitk-plugin">Create a <span class="caps">MITK</span>&nbsp;plugin</a></li>
+<li><a href="#modify-your-plugin">Modify your plugin</a><ul>
+<li><a href="#embed-python-in-the-new-plugin">Embed Python in the new plugin:</a><ul>
+<li><a href="#interact-with-mitk-python-service">Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.</a></li>
+<li><a href="#build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new&nbsp;plugin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#test-it">Test&nbsp;it!</a></li>
+</ul>
+</div>
+<h4 id="plugins-examples">Plugins&nbsp;examples</h4>
 <p>You can find some examples of <span class="caps">MITK</span> plugins in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.</p>
-<h2 id="create-a-mitk-plugin">Create a <span class="caps">MITK</span>&nbsp;plugin</h2>
+<h4 id="create-a-mitk-plugin">Create a <span class="caps">MITK</span>&nbsp;plugin</h4>
 <ul>
 <li>First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html"><code>MitkPluginGenerator</code></a>.:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">/path/to/MITK-build/bin/MitkPluginGenerator</span> -h
-$ <span class="kw">/path/to/MITK-build/bin/MitkPluginGenerator</span> --out-dir /output/directory \
-  --vendor Plugin_vendor_name --view-name <span class="st">&quot;My View&quot;</span> --plugin-symbolic-name org.mycompany.myplugin
-$ <span class="kw">cd</span> /output/directory <span class="kw">&amp;&amp;</span> <span class="kw">ls</span>
-<span class="kw">org.mycompany.myplugin</span>
-$ <span class="kw">cd</span> org.mycompany.myplugin <span class="kw">&amp;&amp;</span> <span class="kw">ls</span>
-<span class="kw">CMakeLists.txt</span>  documentation  files.cmake  manifest_headers.cmake  plugin.xml  resources  src</code></pre></div>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator -h
+<span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator --out-dir /output/directory <span class="se">\</span>
+  --vendor Plugin_vendor_name --view-name <span class="s2">&quot;My View&quot;</span> --plugin-symbolic-name org.mycompany.myplugin
+<span class="nv">$ </span><span class="nb">cd</span> /output/directory <span class="o">&amp;&amp;</span> ls
+org.mycompany.myplugin
+<span class="nv">$ </span><span class="nb">cd </span>org.mycompany.myplugin <span class="o">&amp;&amp;</span> ls
+CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  resources  src
+</pre></div>
+
+
 <ul>
 <li>Modify <span class="caps">MITK</span> to build with the new&nbsp;plugin.:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cp</span> -r ../org.mycompany.myplugin /path/to/MITK/Plugins <span class="kw">&amp;&amp;</span> <span class="kw">cd</span> /path/to/MITK/Plugins
-$ <span class="kw">vim</span> PluginList.cmake
-<span class="co"># Add your plugin with the flag &#39;ON&#39;.</span></code></pre></div>
-<div class="sourceCode"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span class="kw">set</span>(MITK_PLUGINS
+<div class="highlight"><pre><span class="nv">$ </span>cp -r ../org.mycompany.myplugin /path/to/MITK/Plugins <span class="o">&amp;&amp;</span> <span class="nb">cd</span> /path/to/MITK/Plugins
+<span class="nv">$ </span>vim PluginList.cmake
+<span class="c"># Add your plugin with the flag &#39;ON&#39;.</span>
+</pre></div>
 
-  org.mycompany.myplugin:ON  
 
-  org.blueberry.core.runtime:ON
+<div class="highlight"><pre><span class="nb">set</span><span class="p">(</span><span class="s">MITK_PLUGINS</span>
 
-  ...</code></pre></div>
+  <span class="s">org.mycompany.myplugin:ON</span>  
+
+  <span class="s">org.blueberry.core.runtime:ON</span>
+
+  <span class="s">...</span>
+</pre></div>
+
+
 <ul>
 <li>Set a new <span class="caps">CTK</span> Plugin in <code>CMakeLists.txt</code>.:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /path/to/MITK
-$ <span class="kw">vim</span> CMakeLists.txt
-<span class="co"># Search the string &#39;set(re_ctkplugin&#39;</span>
-/<span class="kw">set</span>(re_ctkplugin</code></pre></div>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/MITK
+<span class="nv">$ </span>vim CMakeLists.txt
+<span class="c"># Search the string &#39;set(re_ctkplugin&#39;</span>
+/set<span class="o">(</span>re_ctkplugin
+</pre></div>
+
+
 <ul>
 <li>Modify it to look like&nbsp;this.:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span class="co"># Specify which plug-ins belong to this project</span>
-  <span class="kw">macro</span>(GetMyTargetLibraries all_target_libraries varname)
-    <span class="kw">set</span>(re_ctkplugin_mitk <span class="st">&quot;^org_mitk_[a-zA-Z0-9_]+$&quot;</span>)
-    <span class="kw">set</span>(re_ctkplugin_bb <span class="st">&quot;^org_blueberry_[a-zA-Z0-9_]+$&quot;</span>)
-    <span class="kw">set</span>(re_ctkplugin_mycompany <span class="st">&quot;^org_mycompany_[a-zA-Z0-9_]+$&quot;</span>)
-    <span class="kw">set</span>(_tmp_list)
-    <span class="kw">list</span>(<span class="ot">APPEND</span> _tmp_list <span class="dv">${all_target_libraries}</span>)
-    <span class="fu">ctkMacroListFilter</span>(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb re_ctkplugin_mycompany OUTPUT_VARIABLE <span class="dv">${varname}</span>)
-  <span class="kw">endmacro</span>()</code></pre></div>
-<pre><code>`set(re_ctkplugin_`**`mycompany &quot;^org_mycompany_[a-zA-Z0-9_]+$&quot;`**`)`
-`ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE ${varname})`</code></pre>
-<h2 id="modify-your-plugin">Modify your&nbsp;plugin</h2>
+<div class="highlight"><pre><span class="c"># Specify which plug-ins belong to this project</span>
+  <span class="nb">macro</span><span class="p">(</span><span class="s">GetMyTargetLibraries</span> <span class="s">all_target_libraries</span> <span class="s">varname</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="s">re_ctkplugin_mitk</span> <span class="s2">&quot;^org_mitk_[a-zA-Z0-9_]+$&quot;</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="s">re_ctkplugin_bb</span> <span class="s2">&quot;^org_blueberry_[a-zA-Z0-9_]+$&quot;</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="s">re_ctkplugin_mycompany</span> <span class="s2">&quot;^org_mycompany_[a-zA-Z0-9_]+$&quot;</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="s">_tmp_list</span><span class="p">)</span>
+    <span class="nb">list</span><span class="p">(</span><span class="s">APPEND</span> <span class="s">_tmp_list</span> <span class="o">${</span><span class="nv">all_target_libraries</span><span class="o">}</span><span class="p">)</span>
+    <span class="nb">ctkMacroListFilter</span><span class="p">(</span><span class="s">_tmp_list</span> <span class="s">re_ctkplugin_mitk</span> <span class="s">re_ctkplugin_bb</span> <span class="s">re_ctkplugin_mycompany</span> <span class="s">OUTPUT_VARIABLE</span> <span class="o">${</span><span class="nv">varname</span><span class="o">}</span><span class="p">)</span>
+  <span class="nb">endmacro</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="highlight"><pre>`set(re_ctkplugin_`**`mycompany &quot;^org_mycompany_[a-zA-Z0-9_]+$&quot;`**`)`
+`ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE <span class="cp">${</span><span class="n">varname</span><span class="cp">}</span>)`
+</pre></div>
+
+
+<h4 id="modify-your-plugin">Modify your&nbsp;plugin</h4>
 <ul>
 <li>Add Python module dependency to the plugin <code>CMakeLists.txt</code>.</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span class="fu">mitk_create_plugin</span>(
-  EXPORT_DIRECTIVE EXAMPLE_EXPORT
-  EXPORTED_INCLUDE_SUFFIXES src
-  MODULE_DEPENDS MitkQtWidgetsExt MitkPython
-)</code></pre></div>
-<h3 id="embed-python-in-the-new-plugin">Embed Python in the new&nbsp;plugin:</h3>
-<h4 id="interact-with-mitk-python-service.">Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.</h4>
+<div class="highlight"><pre><span class="nb">mitk_create_plugin</span><span class="p">(</span>
+  <span class="s">EXPORT_DIRECTIVE</span> <span class="s">EXAMPLE_EXPORT</span>
+  <span class="s">EXPORTED_INCLUDE_SUFFIXES</span> <span class="s">src</span>
+  <span class="s">MODULE_DEPENDS</span> <span class="s">MitkQtWidgetsExt</span> <span class="s">MitkPython</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h5 id="embed-python-in-the-new-plugin">Embed Python in the new&nbsp;plugin:</h5>
+<h6 id="interact-with-mitk-python-service">Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.</h6>
 <p>When we create a plugin with <code>MitkPluginGenerator</code> the default view contains a button <code>Do something</code>. Each time we press that button, it calls the function <code>DoImageProcessing()</code> that prints a message in the&nbsp;console/terminal.</p>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span class="co">// MyView.cpp</span>
+<div class="highlight"><pre><span class="c1">// MyView.cpp</span>
 
-...
+<span class="p">...</span>
 
-<span class="co">// Add the Python Service header</span>
-<span class="ot">#include &lt;mitkPythonService.h&gt;</span>
+<span class="c1">// Add the Python Service header</span>
+<span class="cp">#include &lt;mitkPythonService.h&gt;</span>
 
-...
+<span class="p">...</span>
 
-<span class="co">// If you followed the instructions then you have the default plugin</span>
-<span class="co">// with this function</span>
+<span class="c1">// If you followed the instructions then you have the default plugin</span>
+<span class="c1">// with this function</span>
 
-<span class="dt">void</span> MyView::DoImageProcessing()
-{
-  <span class="ot">QList</span>&lt;mitk::DataNode::Pointer&gt; nodes = <span class="kw">this</span>-&gt;GetDataManagerSelection();
-  <span class="kw">if</span> (nodes.empty()) <span class="kw">return</span>;
+<span class="kt">void</span> <span class="n">MyView</span><span class="o">::</span><span class="n">DoImageProcessing</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">QList</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">Pointer</span><span class="o">&gt;</span> <span class="n">nodes</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataManagerSelection</span><span class="p">();</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">nodes</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span> <span class="k">return</span><span class="p">;</span>
 
-  mitk::DataNode* node = nodes.front();
+  <span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">*</span> <span class="n">node</span> <span class="o">=</span> <span class="n">nodes</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
 
-  <span class="kw">if</span> (!node)
-  {
-    <span class="co">// Nothing selected. Inform the user and return</span>
-    <span class="ot">QMessageBox::</span>information( NULL, <span class="st">&quot;Template&quot;</span>, <span class="st">&quot;Please load and select an image before starting image processing.&quot;</span>);
-    <span class="kw">return</span>;
-  }
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">node</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="c1">// Nothing selected. Inform the user and return</span>
+    <span class="n">QMessageBox</span><span class="o">::</span><span class="n">information</span><span class="p">(</span> <span class="nb">NULL</span><span class="p">,</span> <span class="s">&quot;Template&quot;</span><span class="p">,</span> <span class="s">&quot;Please load and select an image before starting image processing.&quot;</span><span class="p">);</span>
+    <span class="k">return</span><span class="p">;</span>
+  <span class="p">}</span>
 
-...</code></pre></div>
+<span class="p">...</span>
+</pre></div>
+
+
 <ul>
 <li>Add this two line example to the end of the function <code>DoImageProcessing()</code>.:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode cpp"><code class="sourceCode cpp">
-      <span class="co">// Each time we press that button will print `Hello World!` in the console/terminal</span>
-      <span class="co">// First we interact with mitkPythonService and execute a simple Python function.</span>
-      itk::SmartPointer&lt;mitk::PythonService&gt; _PythonService(<span class="kw">new</span> mitk::PythonService());
-      std::string result = _PythonService-&gt;Execute( <span class="st">&quot;print (&#39;Hello World!&#39;)&quot;</span>, mitk::IPythonService::SINGLE_LINE_COMMAND );
+<div class="highlight"><pre>      <span class="c1">// Each time we press that button will print `Hello World!` in the console/terminal</span>
+      <span class="c1">// First we interact with mitkPythonService and execute a simple Python function.</span>
+      <span class="n">itk</span><span class="o">::</span><span class="n">SmartPointer</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="o">&gt;</span> <span class="n">_PythonService</span><span class="p">(</span><span class="k">new</span> <span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="p">());</span>
+      <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_PythonService</span><span class="o">-&gt;</span><span class="n">Execute</span><span class="p">(</span> <span class="s">&quot;print (&#39;Hello World!&#39;)&quot;</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">IPythonService</span><span class="o">::</span><span class="n">SINGLE_LINE_COMMAND</span> <span class="p">);</span>
 
-      message &lt;&lt; <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>;
-      message &lt;&lt; result &lt;&lt; <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>;
-      MITK_INFO &lt;&lt; message.str();
+      <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+      <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+      <span class="n">MITK_INFO</span> <span class="o">&lt;&lt;</span> <span class="n">message</span><span class="p">.</span><span class="n">str</span><span class="p">();</span>
 
-...</code></pre></div>
-<h4 id="build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new&nbsp;plugin</h4>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">cd</span> /path/to/MITK-build <span class="co">#Clean directory</span>
-$ <span class="kw">ccmake</span> ../MITK
-<span class="co"># Build with the option MITK_USE_PYTHON enabled.</span>
-<span class="co"># Configure and enable the option MITK_USE_SYSTEM_PYTHON</span>
-<span class="co"># Configure and toggle the advance view.</span>
-<span class="co"># Modify the Python path, library path and debug path, to use Python2.7 instead of Python3.4 or Python3.4m.</span>
-<span class="co"># Configure again and generate.</span>
-$ <span class="kw">make</span>
+<span class="p">...</span>
+</pre></div>
 
-<span class="co"># The last command will take several hours.</span></code></pre></div>
-<h2 id="test-it">Test&nbsp;it!</h2>
+
+<h6 id="build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new&nbsp;plugin</h6>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/MITK-build <span class="c">#Clean directory</span>
+<span class="nv">$ </span>ccmake ../MITK
+<span class="c"># Build with the option MITK_USE_PYTHON enabled.</span>
+<span class="c"># Configure and enable the option MITK_USE_SYSTEM_PYTHON</span>
+<span class="c"># Configure and toggle the advance view.</span>
+<span class="c"># Modify the Python path, library path and debug path, to use Python2.7 instead of Python3.4 or Python3.4m.</span>
+<span class="c"># Configure again and generate.</span>
+<span class="nv">$ </span>make
+
+<span class="c"># The last command will take several hours.</span>
+</pre></div>
+
+
+<h4 id="test-it">Test&nbsp;it!</h4>
 <ul>
 <li>Open the <code>MitkWorkbench</code>:</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">/path/to/MITK-build/bin/MitkWorkbench</span></code></pre></div>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/bin/MitkWorkbench
+</pre></div>
+
+
 <ul>
 <li>Open your plugin&nbsp;view:</li>
 </ul>
-<figure>
-<img src="images/MITK_plugin_001.png" alt="Mitk Plugin" /><figcaption>Mitk Plugin</figcaption>
-</figure>
+<p><img alt="Mitk Plugin" src="images/MITK_plugin_001.png" /></p>
 <ul>
 <li>Open a new image to be able to press the button <code>Do something</code>:</li>
 </ul>
-<figure>
-<img src="images/MITK_plugin_002.png" alt="Mitk Plugin" /><figcaption>Mitk Plugin</figcaption>
-</figure>
+<p><img alt="Mitk Plugin" src="images/MITK_plugin_002.png" /></p>
 <ul>
 <li>You should see this when pressing the button <code>Do something</code>:</li>
 </ul>
-<figure>
-<img src="images/MITK_plugin_003.png" alt="Mitk Plugin" /><figcaption>Mitk Plugin</figcaption>
-</figure>
-
+<p><img alt="Mitk Plugin" src="images/MITK_plugin_003.png" /></p>
             <section>
     <p id="post-share-links">
     Like this post? Share on:
@@ -280,11 +331,8 @@ $ <span class="kw">make</span>
             </aside>
         </div>
         <section>
-        <div class="span2" style="float:right;font-size:0.9em;">
-
-
-<h4>Author</h4>
-<div class="last-updated">Luis Javier Salvatierra</div>            <h4>Published</h4>
+        <div class="col-md-2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
             <time pubdate="pubdate" datetime="2015-08-20T00:00:00+02:00">Aug 20, 2015</time>
 
 <h4>Last Updated</h4>
@@ -312,27 +360,31 @@ $ <span class="kw">make</span>
         </section>
 </div>
 </article>
-                </div>
-                <div class="span1"></div>
             </div>
         </div>
-        <div id="push"></div>
     </div>
 <footer>
-<div id="footer">
-    <ul class="footer-content">
-        <li class="elegant-license"><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This blog</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neurita.com" property="cc:attributionName" rel="cc:attributionURL">Neurita developers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.</li>
-        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
-    </ul>
-</div>
-</footer>            <script src="http://code.jquery.com/jquery.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
-        <script>
-            function validateForm(query)
-            {
-                return (query.length > 0);
-            }
-        </script>
+    <div class="container">
+    
+
+
+        <div class=col-md-6>
+            <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">This blog</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neurita.com" property="cc:attributionName" rel="cc:attributionURL">Neurita developers</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/deed.en_US">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+        </div>
+
+        <div class=col-md-6>
+            Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a>
+        </div>
+
+    </div>
+</footer>    <script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<script>
+function validateForm(query)
+{
+    return (query.length > 0);
+}
+</script>
 
             <script type="text/javascript">
 var disqus_shortname = 'neurita';
@@ -373,7 +425,7 @@ $('#disqus_thread').on('shown', function () {
 </script>
 
 
-    </body>
-    <!-- Theme: Elegant built for Pelican
+</body>
+<!-- Theme: Elegant built for Pelican
     License : http://oncrashreboot.com/pelican-elegant -->
 </html>
