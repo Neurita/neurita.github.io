@@ -70,22 +70,34 @@ TAG_SAVE_AS      = ''
 AUTHOR_SAVE_AS   = ''
 CATEGORY_SAVE_AS = ''
 
-STATIC_PATHS     = ['theme/images', 'images', 'extra/*']
-FEATURED_IMAGE   = './theme/images/neurita_logo.png'
+STATIC_PATHS     = ['theme/images', 'images']
+FEATURED_IMAGE   = './theme/images/logo_neurita.png'
 # EXTRA_PATH_METADATA = {
 #      'extra/robots.txt': {'path': 'robots.txt'},
 #      'extra/favicon.ico': {'path': 'favicon.ico'},
 #      'extra/htaccess': {'path': '.htaccess'}
 # }
 
+
+MD_EXTENSIONS    = [
+                    'toc(baselevel=3)',
+                    'codehilite(css_class=highlight)',
+                    'extra',
+                    'smarty',
+                    'headerid',
+                    'fenced_code',
+                    ]
+
+MARKUP = ('rst', 'md', 'ipynb')
+
 PLUGIN_PATHS     = [op.join(op.dirname(op.realpath(__file__)), 'pelican-plugins')]
-PLUGINS          = ['optimize_images',
+PLUGINS          = [
                     'thumbnailer',
                     'sitemap',
-                    'extract_toc',
+                    #'extract_toc',
                     'tipue_search',
                     'neighbors',
-                    'assets',
+                    #'assets',
                     'gravatar',
                     'github_activity',
                     'share_post',
@@ -97,28 +109,18 @@ PLUGINS          = ['optimize_images',
                     'render_math',
                     ]
 
-# from markdown.extensions.codehilite import CodeHiliteExtension
-# from markdown.extensions.toc import TocExtension
-# MD_EXTENSIONS = [
-#     CodeHiliteExtension(css_class='highlight'),
-#     TocExtension(permalink=True),
-#     'markdown.extensions.extra',
-#     'headerid'
-# ]
-MD_EXTENSIONS    = ['codehilite(css_class=highlight)',
-                    'extra',
-                    'smarty',
-                    'headerid',
-                    'toc(permalink=true)']
+if not DEBUG:
+    PLUGINS.append('optimize_images')
 
-MARKUP = ('rst', 'md', 'ipynb')
+DIRECT_TEMPLATES = (('index', 'tags', 'categories',
+                     'archives', 'search', '404',
+                     'sitemap'
+                    ))
 
-DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404', 'sitemap'))
-
-OUTPUT_SOURCES = 'True'
+OUTPUT_SOURCES = True
 OUTPUT_SOURCES_EXTENSION = '.txt'
 
-# Elegant Labels
+# # Elegant Labels
 DISQUS_SITENAME      = 'neurita'
 ABOUT_ME_LABEL       = u'About us' #u'We are <span itemprop="name"> Neurita</span>.'
 MY_PROJECTS_LABEL    = u'Projects'
@@ -138,10 +140,11 @@ SOCIAL = (
         ('Email', 'mailto:info@neurita.com'),
           )
 
+
 # Social widget
 # SOCIAL = (('Twitter', 'twitter-square', 'https://twitter.com/neuritabcc'),
 #           ('GitHub', 'github', 'https://github.com/neurita'))
-#
+
 TWITTER_USERNAME = 'neuritabcc'
 GITHUB_URL = 'https://github.com/neurita'
 GITHUB_ACTIVITY_FEED = 'https://github.com/neurita.atom'
@@ -168,6 +171,7 @@ SITEMAP = {
         'pages': 'monthly'
     }
 }
+
 
 # Landing Page
 PROJECTS = [
