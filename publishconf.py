@@ -13,8 +13,13 @@ from pelicanconf import *
 SITEURL = 'https://neurita.github.io'
 RELATIVE_URLS = False
 
-FEED_ALL_ATOM = 'feeds/all.atom.xml'
-CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
+# Feed generation is usually not desired when developing
+FEED_ALL_ATOM = u'feeds/all.atom.xml'
+CATEGORY_FEED_ATOM = u'feeds/%s.atom.xml'
+#TRANSLATION_FEED_ATOM = None
+
+FEED_ALL_RSS = u'feeds/all.rss.xml'
+CATEGORY_FEED_RSS = u'feeds/%s.rss.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
@@ -23,4 +28,6 @@ DELETE_OUTPUT_DIRECTORY = True
 #DISQUS_SITENAME = ""
 #GOOGLE_ANALYTICS = ""
 
-PLUGINS = ['pelican_albums']
+PLUGINS.extend([
+                'optimize_images',
+               ])

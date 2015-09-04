@@ -2,8 +2,6 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-DEBUG = False
-
 SITEURL = 'https://neurita.github.io'
 AUTHOR = u'Neurita developers'
 SITENAME = u'<span style="color:blue;">Neurita</span>'
@@ -25,21 +23,12 @@ DEFAULT_LANG = u'en'
 DEFAULT_DATE_FORMAT = '%b %d, %Y' #'%Y/%m/%d'
 
 # Feed generation is usually not desired when developing
-if DEBUG:
-    SITEURL = 'http://localhost:8000'
-    FEED_ALL_ATOM = None
-    CATEGORY_FEED_ATOM = None
-    TRANSLATION_FEED_ATOM = None
-    AUTHOR_FEED_ATOM = None
-    AUTHOR_FEED_RSS = None
-else:
-    # Feed generation is usually not desired when developing
-    FEED_ALL_ATOM = u'feeds/all.atom.xml'
-    CATEGORY_FEED_ATOM = u'feeds/%s.atom.xml'
-    #TRANSLATION_FEED_ATOM = None
-
-    FEED_ALL_RSS = u'feeds/all.rss.xml'
-    CATEGORY_FEED_RSS = u'feeds/%s.rss.xml'
+SITEURL = 'http://localhost:8000'
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+AUTHOR_FEED_ATOM = None
+AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS =  (('Neurita', 'http://www.neurita.com/'),
@@ -79,8 +68,7 @@ FEATURED_IMAGE   = './theme/images/neurita_logo.png'
 # }
 
 PLUGIN_PATHS     = [op.join(op.dirname(op.realpath(__file__)), 'pelican-plugins')]
-PLUGINS          = ['optimize_images',
-                    'thumbnailer',
+PLUGINS          = ['thumbnailer',
                     'sitemap',
                     'extract_toc',
                     'tipue_search',
