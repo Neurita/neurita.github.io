@@ -1,7 +1,9 @@
 blinker
+BeautifulSoup4
 docopt
 docutils
 feedgenerator
+feedparser
 Flask
 ghp-import
 grip
@@ -21,7 +23,9 @@ setuptools
 six
 Unidecode
 Werkzeug
+Webassets
 wheel
 nbconvert
 traitlets
 ipython
+typogrify

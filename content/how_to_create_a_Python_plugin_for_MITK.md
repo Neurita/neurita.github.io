@@ -15,7 +15,7 @@ Summary: A manual on how to create a simple Python plugin for MITK.
 - <a target="_blank" href="https://github.com/ljsalvatierra/mitk-projects">MITK projects</a>.
 
 
-## Creating a MITK plugin with MitkPluginGenerator
+## Creating a MITK plugin
 
 * For more information, go to <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">`MitkPluginGenerator`</a>.
 
@@ -204,7 +204,7 @@ $ vim /path/to/MyProject/Plugins/org.mycompany.myplugin/CMakeLists.txt
 project(org_mycompany_myplugin)
 
 mitk_create_plugin(
-  EXPORT_DIRECTIVE EXAMPLE_PYTHON_EXPORT
+  EXPORT_DIRECTIVE MYPLUGIN_EXPORT
   EXPORTED_INCLUDE_SUFFIXES src
   MODULE_DEPENDS MitkQtWidgetsExt MitkPython
 )
@@ -238,6 +238,12 @@ $ ccmake ..
 
 ```bash
 $ /path/to/MITK-build/bin/MitkWorkbench
+```
+
+* Or open your Project Launcher:
+
+```bash
+$ /path/to/MyProject/build/MyProject-build/bin/MyApp
 ```
 
 * Open your plugin view:
