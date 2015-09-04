@@ -11,12 +11,33 @@ Summary: A manual on how to create a simple Python plugin for MITK.
 
 ## Plugins examples
 
-You can find some examples of MITK plugins in <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">my Github repository</a>.
+- <a target="_blank" href="https://github.com/ljsalvatierra/mitk-plugins">MITK plugins</a>.
+- <a target="_blank" href="https://github.com/ljsalvatierra/mitk-projects">MITK projects</a>.
 
 
-## Create a MITK plugin
+## Creating a MITK plugin
 
-* First, we use the <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">`MitkPluginGenerator`</a>.:
+* For more information, go to <a target="_blank" href="http://docs.mitk.org/2015.05/NewPluginPage.html">`MitkPluginGenerator`</a>.
+
+* There are two ways of accomplish the same result.:
+
+- [Creating a MITK plugin](#creating-a-mitk-plugin).:
+```bash
+$ ./MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin --view-name "My View"
+```
+
+- [Creating a MITK project](#creating-a-mitk-project) (recommended).:
+```bash
+$ ./MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin --view-name "My View" \
+  --project-name "MyProject" --project-app-name "MyApp"
+```
+
+It is recommended to take the second approach because you only have to build MITK once.
+With the first approach you would have to rebuild MITK every time you make a change to
+your plugin/s, instead, with the second approach, each time you make a change to your plugin,
+you only have to compile your project.
+
+## Creating a MITK plugin
 
 ```bash
 $ /path/to/MITK-build/bin/MitkPluginGenerator -h
@@ -71,7 +92,7 @@ $ vim CMakeLists.txt
     `set(re_ctkplugin_`**`mycompany "^org_mycompany_[a-zA-Z0-9_]+$"`**`)`
     `ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE ${varname})`
 
-## Modify your plugin
+### Modify your plugin
 
 * Add Python module dependency to the plugin `CMakeLists.txt`.
 
@@ -84,7 +105,7 @@ mitk_create_plugin(
 
 ```
 
-### Embed Python in the new plugin:
+### Embed Python in the new plugin
 
 #### Interact with <a target="_blank" href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html">Mitk Python Service</a>.
 
@@ -123,6 +144,9 @@ void MyView::DoImageProcessing()
 * Add this two line example to the end of the function `DoImageProcessing()`.:
 
 ```cpp
+      ...
+      message << ".";
+      //MITK_INFO << message.str();
 
       // Each time we press that button will print `Hello World!` in the console/terminal
       // First we interact with mitkPythonService and execute a simple Python function.
@@ -136,7 +160,7 @@ void MyView::DoImageProcessing()
 ...
 ```
 
-#### Build MITK with your new plugin
+### Build MITK with your new plugin
 
 ```bash
 $ cd /path/to/MITK-build #Clean directory
@@ -151,12 +175,75 @@ $ make
 # The last command will take several hours.
 ```
 
+## Creating a MITK project
+
+```bash
+$ mkdir MITK-projects && cd MITK-projects
+$ /path/to/MitkPluginGenerator -h
+$ /path/to/MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin \
+  --view-name "My View" --project-name "MyProject" --project-app-name "MyApp"
+$ cd MyProject && ls
+Apps  build  CMake  CMakeExternals  CMakeLists.txt  LICENSE.txt  Plugins  SuperBuild.cmake
+```
+
+### Modify your project/plugin
+
+```bash
+$ cd Plugins/org.mycompany.myplugin/src/internal && ls
+org_mycompany_myplugin_Activator.cpp  org_mycompany_myplugin_Activator.h MyViewControls.ui MyView.cpp MyView.h
+$ vim MyView.cpp
+```
+* [Embed Python in the new plugin](#embed-python-in-the-new-plugin). This part is shared between the two approaches.
+
+* Add Python module dependency to the plugin `CMakeLists.txt`.
+
+```bash
+$ vim /path/to/MyProject/Plugins/org.mycompany.myplugin/CMakeLists.txt
+```
+```cmake
+project(org_mycompany_myplugin)
+
+mitk_create_plugin(
+  EXPORT_DIRECTIVE MYPLUGIN_EXPORT
+  EXPORTED_INCLUDE_SUFFIXES src
+  MODULE_DEPENDS MitkQtWidgetsExt MitkPython
+)
+```
+
+### Build your new project
+
+```bash
+$ cd /path/to/MyProject
+$ mkdir build && cd build
+$ ccmake ..
+``` 
+
+![Mitk Project](images/MITK_project_001.png)
+
+`Press 't' to toggle advanced mode and specify the EXTERNAL_MITK_DIR`
+
+![Mitk Project](images/MITK_project_002.png)
+
+`Configure and look if there are any modules left`
+
+* For example.:
+    - MITK_BUILD_ALL_PLUGINS	ON
+    - MITK_VTK_DIR		/path/to/MITK-build/ep/share/vtk-6.2
+    - MITK_OpenCV_DIR		/path/to/MITK-build/ep/src/OpenCV-build
+    - ...
+
 ## Test it!
 
 * Open the `MitkWorkbench`:
 
 ```bash
 $ /path/to/MITK-build/bin/MitkWorkbench
+```
+
+* Or open your Project Launcher:
+
+```bash
+$ /path/to/MyProject/build/MyProject-build/bin/MyApp
 ```
 
 * Open your plugin view:

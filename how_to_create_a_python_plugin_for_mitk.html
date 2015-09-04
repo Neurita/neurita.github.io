@@ -31,10 +31,10 @@
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="./theme/webassets-external/5e7810e354cf6b24dc655912ee97234a_pygments.css">
-<link rel="stylesheet" href="./theme/webassets-external/db629c7bcb0ce9f928df0c03b5e70004_tipuesearch.css">
-<link rel="stylesheet" href="./theme/webassets-external/81b9dd4fc2ddc8a2759606d9a6c57700_elegant.css">
-<link rel="stylesheet" href="./theme/webassets-external/0982fbba3d7ada5e4c3c516ed6ef7424_custom.css">
+<link rel="stylesheet" href="./theme/webassets-external/feed9ead995d3073869212c6b9e5f620_pygments.css">
+<link rel="stylesheet" href="./theme/webassets-external/60f68487ed220a8b8aee4e1fb31a359e_tipuesearch.css">
+<link rel="stylesheet" href="./theme/webassets-external/6b25fdd397e41ff752604f9a33fa53bb_elegant.css">
+<link rel="stylesheet" href="./theme/webassets-external/6649887490e48a9394659fc23856575c_custom.css">
         <link rel="shortcut icon" href="./theme/images/favicon.ico" type="image/x-icon" type="image/png" />
         <link rel="icon" href="./theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="./theme/images/apple-touch-icon.png"  type="image/png" />
@@ -89,13 +89,19 @@
         <div class="toc">
 <ul>
 <li><a href="#plugins-examples">Plugins examples</a></li>
-<li><a href="#create-a-mitk-plugin">Create a <span class="caps">MITK</span> plugin</a></li>
-<li><a href="#modify-your-plugin">Modify your plugin</a><ul>
-<li><a href="#embed-python-in-the-new-plugin">Embed Python in the new plugin:</a><ul>
+<li><a href="#creating-a-mitk-plugin">Creating a <span class="caps">MITK</span> plugin</a></li>
+<li><a href="#creating-a-mitk-plugin_1">Creating a <span class="caps">MITK</span> plugin</a><ul>
+<li><a href="#modify-your-plugin">Modify your plugin</a></li>
+<li><a href="#embed-python-in-the-new-plugin">Embed Python in the new plugin</a><ul>
 <li><a href="#interact-with-mitk-python-service">Interact with <a href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html" target="_blank">Mitk Python Service</a>.</a></li>
+</ul>
+</li>
 <li><a href="#build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new plugin</a></li>
 </ul>
 </li>
+<li><a href="#creating-a-mitk-project">Creating a <span class="caps">MITK</span> project</a><ul>
+<li><a href="#modify-your-projectplugin">Modify your project/plugin</a></li>
+<li><a href="#build-your-new-project">Build your new project</a></li>
 </ul>
 </li>
 <li><a href="#test-it">Test it!</a></li>
@@ -108,11 +114,35 @@
             
             
 <h2 id="plugins-examples">Plugins examples<a class="headerlink" href="#plugins-examples" title="Permanent link">¶</a></h2>
-<p>You can find some examples of <span class="caps">MITK</span> plugins in <a href="https://github.com/ljsalvatierra/mitk-plugins" target="_blank">my Github repository</a>.</p>
-<h2 id="create-a-mitk-plugin">Create a <span class="caps">MITK</span> plugin<a class="headerlink" href="#create-a-mitk-plugin" title="Permanent link">¶</a></h2>
 <ul>
-<li>First, we use the <a href="http://docs.mitk.org/2015.05/NewPluginPage.html" target="_blank"><code>MitkPluginGenerator</code></a>.:</li>
+<li><a href="https://github.com/ljsalvatierra/mitk-plugins" target="_blank"><span class="caps">MITK</span> plugins</a>.</li>
+<li><a href="https://github.com/ljsalvatierra/mitk-projects" target="_blank"><span class="caps">MITK</span> projects</a>.</li>
 </ul>
+<h2 id="creating-a-mitk-plugin">Creating a <span class="caps">MITK</span> plugin<a class="headerlink" href="#creating-a-mitk-plugin" title="Permanent link">¶</a></h2>
+<ul>
+<li>
+<p>For more information, go to <a href="http://docs.mitk.org/2015.05/NewPluginPage.html" target="_blank"><code>MitkPluginGenerator</code></a>.</p>
+</li>
+<li>
+<p>There are two ways of accomplish the same result.:</p>
+</li>
+<li>
+<p><a href="#creating-a-mitk-plugin">Creating a <span class="caps">MITK</span> plugin</a>.:</p>
+</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>./MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin --view-name <span class="s2">"My View"</span>
+</pre></div>
+<ul>
+<li><a href="#creating-a-mitk-project">Creating a <span class="caps">MITK</span> project</a> (recommended).:</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>./MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin --view-name <span class="s2">"My View"</span> <span class="se">\</span>
+  --project-name <span class="s2">"MyProject"</span> --project-app-name <span class="s2">"MyApp"</span>
+</pre></div>
+<p>It is recommended to take the second approach because you only have to build <span class="caps">MITK</span> once.
+With the first approach you would have to rebuild <span class="caps">MITK</span> every time you make a change to
+your plugin/s, instead, with the second approach, each time you make a change to your plugin,
+you only have to compile your project.</p>
+<h2 id="creating-a-mitk-plugin_1">Creating a <span class="caps">MITK</span> plugin<a class="headerlink" href="#creating-a-mitk-plugin_1" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator -h
 <span class="nv">$ </span>/path/to/MITK-build/bin/MitkPluginGenerator --out-dir /output/directory <span class="se">\</span>
   --vendor Plugin_vendor_name --view-name <span class="s2">"My View"</span> --plugin-symbolic-name org.mycompany.myplugin
@@ -160,7 +190,7 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 <div class="highlight"><pre>`set(re_ctkplugin_`**`mycompany "^org_mycompany_[a-zA-Z0-9_]+$"`**`)`
 `ctkMacroListFilter(_tmp_list re_ctkplugin_mitk re_ctkplugin_bb `**`re_ctkplugin_mycompany`**` OUTPUT_VARIABLE <span class="cp">${</span><span class="n">varname</span><span class="cp">}</span>)`
 </pre></div>
-<h2 id="modify-your-plugin">Modify your plugin<a class="headerlink" href="#modify-your-plugin" title="Permanent link">¶</a></h2>
+<h3 id="modify-your-plugin">Modify your plugin<a class="headerlink" href="#modify-your-plugin" title="Permanent link">¶</a></h3>
 <ul>
 <li>Add Python module dependency to the plugin <code>CMakeLists.txt</code>.</li>
 </ul>
@@ -170,7 +200,7 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
   <span class="s">MODULE_DEPENDS</span> <span class="s">MitkQtWidgetsExt</span> <span class="s">MitkPython</span>
 <span class="p">)</span>
 </pre></div>
-<h3 id="embed-python-in-the-new-plugin">Embed Python in the new plugin:<a class="headerlink" href="#embed-python-in-the-new-plugin" title="Permanent link">¶</a></h3>
+<h3 id="embed-python-in-the-new-plugin">Embed Python in the new plugin<a class="headerlink" href="#embed-python-in-the-new-plugin" title="Permanent link">¶</a></h3>
 <h4 id="interact-with-mitk-python-service">Interact with <a href="http://docs.mitk.org/2015.05/classmitk_1_1PythonService.html" target="_blank">Mitk Python Service</a>.<a class="headerlink" href="#interact-with-mitk-python-service" title="Permanent link">¶</a></h4>
 <p>When we create a plugin with <code>MitkPluginGenerator</code> the default view contains a button <code>Do something</code>. Each time we press that button, it calls the function <code>DoImageProcessing()</code> that prints a message in the console/terminal.</p>
 <div class="highlight"><pre><span class="c1">// MyView.cpp</span>
@@ -204,7 +234,11 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 <ul>
 <li>Add this two line example to the end of the function <code>DoImageProcessing()</code>.:</li>
 </ul>
-<div class="highlight"><pre>      <span class="c1">// Each time we press that button will print `Hello World!` in the console/terminal</span>
+<div class="highlight"><pre>      <span class="p">...</span>
+      <span class="n">message</span> <span class="o">&lt;&lt;</span> <span class="s">"."</span><span class="p">;</span>
+      <span class="c1">//MITK_INFO &lt;&lt; message.str();</span>
+
+      <span class="c1">// Each time we press that button will print `Hello World!` in the console/terminal</span>
       <span class="c1">// First we interact with mitkPythonService and execute a simple Python function.</span>
       <span class="n">itk</span><span class="o">::</span><span class="n">SmartPointer</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="o">&gt;</span> <span class="n">_PythonService</span><span class="p">(</span><span class="k">new</span> <span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="p">());</span>
       <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_PythonService</span><span class="o">-&gt;</span><span class="n">Execute</span><span class="p">(</span> <span class="s">"print ('Hello World!')"</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">IPythonService</span><span class="o">::</span><span class="n">SINGLE_LINE_COMMAND</span> <span class="p">);</span>
@@ -215,7 +249,7 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
 <span class="p">...</span>
 </pre></div>
-<h4 id="build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new plugin<a class="headerlink" href="#build-mitk-with-your-new-plugin" title="Permanent link">¶</a></h4>
+<h3 id="build-mitk-with-your-new-plugin">Build <span class="caps">MITK</span> with your new plugin<a class="headerlink" href="#build-mitk-with-your-new-plugin" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/MITK-build <span class="c">#Clean directory</span>
 <span class="nv">$ </span>ccmake ../MITK
 <span class="c"># Build with the option MITK_USE_PYTHON enabled.</span>
@@ -227,11 +261,65 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
 <span class="c"># The last command will take several hours.</span>
 </pre></div>
+<h2 id="creating-a-mitk-project">Creating a <span class="caps">MITK</span> project<a class="headerlink" href="#creating-a-mitk-project" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span class="nv">$ </span>mkdir MITK-projects <span class="o">&amp;&amp;</span> <span class="nb">cd </span>MITK-projects
+<span class="nv">$ </span>/path/to/MitkPluginGenerator -h
+<span class="nv">$ </span>/path/to/MitkPluginGenerator --plugin-symbolic-name org.mycompany.myplugin <span class="se">\</span>
+  --view-name <span class="s2">"My View"</span> --project-name <span class="s2">"MyProject"</span> --project-app-name <span class="s2">"MyApp"</span>
+<span class="nv">$ </span><span class="nb">cd </span>MyProject <span class="o">&amp;&amp;</span> ls
+Apps  build  CMake  CMakeExternals  CMakeLists.txt  LICENSE.txt  Plugins  SuperBuild.cmake
+</pre></div>
+<h3 id="modify-your-projectplugin">Modify your project/plugin<a class="headerlink" href="#modify-your-projectplugin" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd </span>Plugins/org.mycompany.myplugin/src/internal <span class="o">&amp;&amp;</span> ls
+org_mycompany_myplugin_Activator.cpp  org_mycompany_myplugin_Activator.h MyViewControls.ui MyView.cpp MyView.h
+<span class="nv">$ </span>vim MyView.cpp
+</pre></div>
+<ul>
+<li>
+<p><a href="#embed-python-in-the-new-plugin">Embed Python in the new plugin</a>. This part is shared between the two approaches.</p>
+</li>
+<li>
+<p>Add Python module dependency to the plugin <code>CMakeLists.txt</code>.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>vim /path/to/MyProject/Plugins/org.mycompany.myplugin/CMakeLists.txt
+</pre></div>
+<div class="highlight"><pre><span class="nb">project</span><span class="p">(</span><span class="s">org_mycompany_myplugin</span><span class="p">)</span>
+
+<span class="nb">mitk_create_plugin</span><span class="p">(</span>
+  <span class="s">EXPORT_DIRECTIVE</span> <span class="s">MYPLUGIN_EXPORT</span>
+  <span class="s">EXPORTED_INCLUDE_SUFFIXES</span> <span class="s">src</span>
+  <span class="s">MODULE_DEPENDS</span> <span class="s">MitkQtWidgetsExt</span> <span class="s">MitkPython</span>
+<span class="p">)</span>
+</pre></div>
+<h3 id="build-your-new-project">Build your new project<a class="headerlink" href="#build-your-new-project" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> /path/to/MyProject
+<span class="nv">$ </span>mkdir build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>build
+<span class="nv">$ </span>ccmake ..
+</pre></div>
+<p><img alt="Mitk Project" src="images/MITK_project_001.png"/></p>
+<p><code>Press 't' to toggle advanced mode and specify the EXTERNAL_MITK_DIR</code></p>
+<p><img alt="Mitk Project" src="images/MITK_project_002.png"/></p>
+<p><code>Configure and look if there are any modules left</code></p>
+<ul>
+<li>For example.:<ul>
+<li>MITK_BUILD_ALL_PLUGINS    <span class="caps">ON</span></li>
+<li>MITK_VTK_DIR      /path/to/<span class="caps">MITK</span>-build/ep/share/vtk-6.2</li>
+<li>MITK_OpenCV_DIR       /path/to/<span class="caps">MITK</span>-build/ep/src/OpenCV-build</li>
+<li>…</li>
+</ul>
+</li>
+</ul>
 <h2 id="test-it">Test it!<a class="headerlink" href="#test-it" title="Permanent link">¶</a></h2>
 <ul>
 <li>Open the <code>MitkWorkbench</code>:</li>
 </ul>
 <div class="highlight"><pre><span class="nv">$ </span>/path/to/MITK-build/bin/MitkWorkbench
+</pre></div>
+<ul>
+<li>Or open your Project Launcher:</li>
+</ul>
+<div class="highlight"><pre><span class="nv">$ </span>/path/to/MyProject/build/MyProject-build/bin/MyApp
 </pre></div>
 <ul>
 <li>Open your plugin view:</li>
@@ -308,10 +396,10 @@ CMakeLists.txt  documentation  files.cmake  manifest_headers.cmake  plugin.xml  
 
 <h4>Author</h4>
 <div class="last-updated">Luis Javier Salvatierra</div>            <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-08-20T00:00:00+02:00">Aug 20, 2015</time>
+            <time pubdate="pubdate" datetime="2015-08-20T00:00:00+02:00">ago 20, 2015</time>
 
 <h4>Last Updated</h4>
-<time datetime="2015-09-02T00:00:00+02:00">Sep 2, 2015</time>
+<time datetime="2015-09-02T00:00:00+02:00">sep 2, 2015</time>
 
             <h4>Category</h4>
             <a class="category-link" href="./categories.html#mitk-python-ref">MITK, python</a>
