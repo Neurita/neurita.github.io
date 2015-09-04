@@ -1,6 +1,7 @@
 [submodule "pelican-plugins"]
 	path = pelican-plugins
 	url = https://github.com/neurita/pelican-plugins.git
+	branch = neurita
 [submodule "pelican-themes/pelican-elegant"]
 	path = pelican-themes/pelican-elegant
     url = https://github.com/neurita/pelican-elegant.git
