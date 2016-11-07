@@ -59,7 +59,7 @@ TAG_SAVE_AS      = ''
 AUTHOR_SAVE_AS   = ''
 CATEGORY_SAVE_AS = ''
 
-STATIC_PATHS     = ['theme/images', 'images', 'extra/*']
+STATIC_PATHS     = ['theme/images', 'images', 'extra/*', 'content']
 FEATURED_IMAGE   = './theme/images/neurita_logo.png'
 # EXTRA_PATH_METADATA = {
 #      'extra/robots.txt': {'path': 'robots.txt'},
@@ -101,6 +101,8 @@ MD_EXTENSIONS    = ['codehilite(css_class=highlight)',
                     ]
 
 MARKUP = ('rst', 'md', 'ipynb')
+
+INDEX_SAVE_AS = 'blog.html'
 
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search', '404', 'sitemap'))
 
