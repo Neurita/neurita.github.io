@@ -201,8 +201,8 @@ LANDING_PAGE_ABOUT = {'title': 'We develop medical research and data analytics t
        We work on software solutions for
        medical imaging, clinical data and data analytics. We collaborate with
        local and European research medical groups to offer solutions to help in
-       their research. We program mostly on Python and C++11, but sometimes we
-       also use R.</p>
+       their research. We program mostly in Python and C++11, but sometimes we
+       also use R. We create graphical interfaces to make arduous tasks easier for you.</p>
        <p>We try to improve the research collaboration in our area
        and leverage the free software movement. We develop and contribute to open source projects.
        We believe that software still has many slots to fill in the medical field
