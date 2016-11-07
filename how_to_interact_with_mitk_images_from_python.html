@@ -31,10 +31,10 @@
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/feed9ead995d3073869212c6b9e5f620_pygments.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/60f68487ed220a8b8aee4e1fb31a359e_tipuesearch.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/6b25fdd397e41ff752604f9a33fa53bb_elegant.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/6649887490e48a9394659fc23856575c_custom.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/c4691ff2412e3e4a3e2905a3cd54d29d_pygments.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/537ed18c24387a34b4028fb051b3ee7c_tipuesearch.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/dce14d39c12bd8c36875e686907cf0a6_elegant.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/1bf0b805e60393cbb326e80cf8efc4f4_custom.css">
         <link rel="shortcut icon" href="https://neurita.github.io/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
         <link rel="icon" href="https://neurita.github.io/theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="https://neurita.github.io/theme/images/apple-touch-icon.png"  type="image/png" />
@@ -110,7 +110,7 @@
 <p>Following the previous recommendation, you will need to modify your plugin <code>CMakeLists.txt</code>.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span class="nb">project</span><span class="p">(</span><span class="s">com_company_example_python</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="nb">project</span><span class="p">(</span><span class="s">com_company_example_python</span><span class="p">)</span>
 
 <span class="nb">mitk_create_plugin</span><span class="p">(</span>
   <span class="s">EXPORT_DIRECTIVE</span> <span class="s">EXAMPLE_PYTHON_EXPORT</span>
@@ -122,8 +122,8 @@
 <ul>
 <li>Boost in your plugin view file <code>MyView.cpp</code>.</li>
 </ul>
-<div class="highlight"><pre><span class="c1">// Boost</span>
-<span class="cp">#include &lt;boost/filesystem.hpp&gt;</span>
+<div class="highlight"><pre><span></span><span class="c1">// Boost</span>
+<span class="cp">#include</span> <span class="cpf">&lt;boost/filesystem.hpp&gt;</span><span class="cp"></span>
 
 <span class="k">namespace</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">boost</span><span class="o">::</span><span class="n">filesystem</span><span class="p">;</span>
 <span class="k">using</span> <span class="n">fs</span><span class="o">::</span><span class="n">path</span><span class="p">;</span>
@@ -141,7 +141,7 @@
 <ul>
 <li>Process a SimpleItk image and load it in the <span class="caps">MITK</span> Viewer.</li>
 </ul>
-<div class="highlight"><pre><span class="c1">//DoImageProcessing()</span>
+<div class="highlight"><pre><span></span><span class="c1">//DoImageProcessing()</span>
 <span class="n">mitk</span><span class="o">::</span><span class="n">Image</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">postProcessedImage</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">ProcessSimpleItkImageInPython</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
 <span class="k">this</span><span class="o">-&gt;</span><span class="n">LoadImage</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">postProcessedImage</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
 </pre></div>
@@ -154,7 +154,7 @@
 <ul>
 <li>Import the module.</li>
 </ul>
-<div class="highlight"><pre><span class="n">StringList</span> <span class="n">code</span> <span class="o">=</span> <span class="n">QStringList</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">StringList</span> <span class="n">code</span> <span class="o">=</span> <span class="n">QStringList</span><span class="p">()</span>
     <span class="o">&lt;&lt;</span> <span class="s">"import sys"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"try:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"    sys.path.append('"</span> <span class="o">+</span> <span class="n">pythonScriptsPath</span> <span class="o">+</span> <span class="s">"')"</span>
@@ -167,7 +167,7 @@
 <ul>
 <li>If we successfully import the module, call an example function.</li>
 </ul>
-<div class="highlight"><pre>    <span class="o">&lt;&lt;</span> <span class="s">"if plugin_available:"</span>
+<div class="highlight"><pre><span></span>    <span class="o">&lt;&lt;</span> <span class="s">"if plugin_available:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"    try:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"        "</span> <span class="o">+</span> <span class="n">pythonOutputImage</span> <span class="o">+</span> <span class="s">" = "</span>
                          <span class="o">+</span> <span class="n">pythonPluginNameAlias</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">pythonPluginFunction</span>
@@ -178,14 +178,14 @@
 <ul>
 <li>Run the script.</li>
 </ul>
-<div class="highlight"><pre><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">command</span> <span class="o">=</span> <span class="n">code</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">).</span><span class="n">toStdString</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">command</span> <span class="o">=</span> <span class="n">code</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">).</span><span class="n">toStdString</span><span class="p">();</span>
 <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">Execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="o">::</span><span class="n">MULTI_LINE_COMMAND</span><span class="p">);</span>
 </pre></div>
 <p>Ok, but where is <code>pythonOutputImage</code>?</p>
 <ul>
 <li>Thanks to <code>PythonService</code> we can get all the variables saved in the stack.</li>
 </ul>
-<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonVariable</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">GetVariableStack</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonVariable</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">GetVariableStack</span><span class="p">();</span>
 <span class="n">mitk</span><span class="o">::</span><span class="n">Image</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">outputImage</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span> <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">DoesVariableExist</span><span class="p">(</span><span class="n">pythonOutputImage</span><span class="p">.</span><span class="n">toStdString</span><span class="p">())</span> <span class="p">)</span>
 <span class="p">{</span>
@@ -196,19 +196,19 @@
 <ul>
 <li>Create a new node and populate it.</li>
 </ul>
-<div class="highlight"><pre><span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">New</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">New</span><span class="p">();</span>
 <span class="n">ds</span><span class="o">-&gt;</span><span class="n">SetData</span><span class="p">(</span><span class="n">image</span><span class="p">);</span>
 <span class="n">ds</span><span class="o">-&gt;</span><span class="n">SetProperty</span><span class="p">(</span><span class="s">"name"</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">StringProperty</span><span class="o">::</span><span class="n">New</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">"_postProcessedImage"</span><span class="p">));</span>
 </pre></div>
 <ul>
 <li>Add the new node to the <code>DataStorage</code> with the original image as <code>Parent node</code>.</li>
 </ul>
-<div class="highlight"><pre><span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataStorage</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span><span class="n">originalImageNode</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataStorage</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span><span class="n">originalImageNode</span><span class="p">);</span>
 </pre></div>
 <ul>
 <li>Update the <code>RenderingManager</code>.</li>
 </ul>
-<div class="highlight"><pre><span class="n">mitk</span><span class="o">::</span><span class="n">RenderingManager</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">RequestUpdateAll</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">mitk</span><span class="o">::</span><span class="n">RenderingManager</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">RequestUpdateAll</span><span class="p">();</span>
 </pre></div>
 <p>And that’s it, you should see the processed image like this.</p>
 <p><img alt="Mitk Processed image" src="images/MITK_processed_image_001.png"/></p>
@@ -217,7 +217,7 @@
 <ul>
 <li>Process an image from path.</li>
 </ul>
-<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">imagePath</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataPath</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">imagePath</span> <span class="o">=</span> <span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataPath</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
 <span class="n">path</span> <span class="n">p</span> <span class="o">=</span> <span class="n">path</span><span class="p">(</span><span class="n">imagePath</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">filename</span> <span class="o">=</span> <span class="n">p</span><span class="p">.</span><span class="n">filename</span><span class="p">().</span><span class="n">string</span><span class="p">();</span>
 <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">postProcessedImagePath</span> <span class="o">=</span> <span class="s">"/tmp/postProcessed_"</span> <span class="o">+</span> <span class="n">filename</span><span class="p">;</span>
@@ -225,13 +225,13 @@
 <span class="k">this</span><span class="o">-&gt;</span><span class="n">LoadImageFromPath</span><span class="p">(</span><span class="n">node</span><span class="p">,</span> <span class="n">postProcessedImagePath</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
 </pre></div>
 <p>Where <code>GetDataPath()</code> is a function to get the image path inside <code>mitk::BaseData</code>.</p>
-<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">imagePath</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">GetProperty</span><span class="p">(</span><span class="s">"path"</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">GetValueAsString</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">imagePath</span> <span class="o">=</span> <span class="p">(</span><span class="n">data</span><span class="o">-&gt;</span><span class="n">GetProperty</span><span class="p">(</span><span class="s">"path"</span><span class="p">))</span><span class="o">-&gt;</span><span class="n">GetValueAsString</span><span class="p">();</span>
 </pre></div>
 <p>How do we send the image path to our Python module?</p>
 <ul>
 <li>Import the module, as in the first method (SimpleITK).</li>
 </ul>
-<div class="highlight"><pre><span class="n">QStringList</span> <span class="n">code</span> <span class="o">=</span> <span class="n">QStringList</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><span class="n">QStringList</span> <span class="n">code</span> <span class="o">=</span> <span class="n">QStringList</span><span class="p">()</span>
     <span class="o">&lt;&lt;</span> <span class="s">"import sys"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"try:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"    sys.path.append('"</span> <span class="o">+</span> <span class="n">pythonScriptsPath</span> <span class="o">+</span> <span class="s">"')"</span>
@@ -244,7 +244,7 @@
 <ul>
 <li>If we successfully import the module, call and example function.</li>
 </ul>
-<div class="highlight"><pre>    <span class="o">&lt;&lt;</span> <span class="s">"if plugin_available:"</span>
+<div class="highlight"><pre><span></span>    <span class="o">&lt;&lt;</span> <span class="s">"if plugin_available:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"    try:"</span>
     <span class="o">&lt;&lt;</span> <span class="s">"        "</span> <span class="o">+</span> <span class="n">pythonPluginNameAlias</span> <span class="o">+</span> <span class="s">"."</span> <span class="o">+</span> <span class="n">pythonPluginFunction</span>
                          <span class="o">+</span> <span class="s">"('"</span> <span class="o">+</span> <span class="n">pythonInputImage</span> <span class="o">+</span> <span class="s">"','"</span> <span class="o">+</span> <span class="n">pythonOutputImage</span> <span class="o">+</span> <span class="s">"')"</span>
@@ -254,14 +254,14 @@
 <ul>
 <li>Run the script.</li>
 </ul>
-<div class="highlight"><pre><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">command</span> <span class="o">=</span> <span class="n">code</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">).</span><span class="n">toStdString</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">command</span> <span class="o">=</span> <span class="n">code</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">).</span><span class="n">toStdString</span><span class="p">();</span>
 <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">Execute</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">mitk</span><span class="o">::</span><span class="n">PythonService</span><span class="o">::</span><span class="n">MULTI_LINE_COMMAND</span><span class="p">);</span>
 </pre></div>
 <p>Now we need to get the output image path.</p>
 <ul>
 <li>Get the path from the variable stack.</li>
 </ul>
-<div class="highlight"><pre><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">outputImage</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">outputImage</span><span class="p">;</span>
 <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">mitk</span><span class="o">::</span><span class="n">PythonVariable</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">m_PythonService</span><span class="o">-&gt;</span><span class="n">GetVariableStack</span><span class="p">();</span>
 
 <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="o">&amp;</span><span class="nl">i</span> <span class="p">:</span> <span class="n">list</span><span class="p">){</span>
@@ -276,7 +276,7 @@
 <ul>
 <li>Create a new node and load the image from path.</li>
 </ul>
-<div class="highlight"><pre><span class="n">mitk</span><span class="o">::</span><span class="n">StandaloneDataStorage</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mitk</span><span class="o">::</span><span class="n">StandaloneDataStorage</span><span class="o">::</span><span class="n">New</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">mitk</span><span class="o">::</span><span class="n">StandaloneDataStorage</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">mitk</span><span class="o">::</span><span class="n">StandaloneDataStorage</span><span class="o">::</span><span class="n">New</span><span class="p">();</span>
 <span class="n">mitk</span><span class="o">::</span><span class="n">StandaloneDataStorage</span><span class="o">::</span><span class="n">SetOfObjects</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">dataNodes</span> <span class="o">=</span> <span class="n">mitk</span><span class="o">::</span><span class="n">IOUtil</span><span class="o">::</span><span class="n">Load</span><span class="p">(</span><span class="n">processedImage</span><span class="p">,</span> <span class="o">*</span><span class="n">ds</span><span class="p">);</span>
 
 <span class="n">mitk</span><span class="o">::</span><span class="n">DataNode</span><span class="o">::</span><span class="n">Pointer</span> <span class="n">node</span> <span class="o">=</span> <span class="n">dataNodes</span><span class="o">-&gt;</span><span class="n">at</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -284,12 +284,12 @@
 <ul>
 <li>Add the new node to the <code>DataStorage</code> with the original image as <code>Parent node</code>.</li>
 </ul>
-<div class="highlight"><pre><span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataStorage</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">originalImageNode</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="k">this</span><span class="o">-&gt;</span><span class="n">GetDataStorage</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">Add</span><span class="p">(</span><span class="n">node</span><span class="p">,</span><span class="n">originalImageNode</span><span class="p">);</span>
 </pre></div>
 <ul>
 <li>Update the <code>RenderingManager</code>.</li>
 </ul>
-<div class="highlight"><pre><span class="n">mitk</span><span class="o">::</span><span class="n">RenderingManager</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">RequestUpdateAll</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="n">mitk</span><span class="o">::</span><span class="n">RenderingManager</span><span class="o">::</span><span class="n">GetInstance</span><span class="p">()</span><span class="o">-&gt;</span><span class="n">RequestUpdateAll</span><span class="p">();</span>
 </pre></div>
 <p>The result, as before, should look like this.</p>
 <p><img alt="Mitk Processed image" src="images/MITK_processed_image_002.png"/></p>
@@ -356,10 +356,10 @@
 
 <h4>Author</h4>
 <div class="last-updated">Luis Javier Salvatierra</div>            <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-10-09T00:00:00+02:00">oct 9, 2015</time>
+            <time pubdate="pubdate" datetime="2015-10-09T00:00:00+02:00">Oct 9, 2015</time>
 
 <h4>Last Updated</h4>
-<time datetime="2015-10-09T00:00:00+02:00">oct 9, 2015</time>
+<time datetime="2015-10-09T00:00:00+02:00">Oct 9, 2015</time>
 
             <h4>Category</h4>
             <a class="category-link" href="https://neurita.github.io/categories.html#mitk-python-ref">MITK, python</a>

@@ -31,10 +31,10 @@
 </title>
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/feed9ead995d3073869212c6b9e5f620_pygments.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/60f68487ed220a8b8aee4e1fb31a359e_tipuesearch.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/6b25fdd397e41ff752604f9a33fa53bb_elegant.css">
-<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/6649887490e48a9394659fc23856575c_custom.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/c4691ff2412e3e4a3e2905a3cd54d29d_pygments.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/537ed18c24387a34b4028fb051b3ee7c_tipuesearch.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/dce14d39c12bd8c36875e686907cf0a6_elegant.css">
+<link rel="stylesheet" href="https://neurita.github.io/theme/webassets-external/1bf0b805e60393cbb326e80cf8efc4f4_custom.css">
         <link rel="shortcut icon" href="https://neurita.github.io/theme/images/favicon.ico" type="image/x-icon" type="image/png" />
         <link rel="icon" href="https://neurita.github.io/theme/images/apple-touch-icon-152x152.png" type="image/png" />
         <link rel="apple-touch-icon" href="https://neurita.github.io/theme/images/apple-touch-icon.png"  type="image/png" />
@@ -122,7 +122,7 @@
 <ul>
 <li><strong>Option 1:</strong> Ubuntu 14.04</li>
 </ul>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
     software-properties-common <span class="se">\</span>
     <span class="o">&amp;&amp;</span> sudo apt-add-repository multiverse <span class="se">\</span>
     <span class="o">&amp;&amp;</span> sudo apt-get update <span class="se">\</span>
@@ -136,7 +136,7 @@
 <ul>
 <li><strong>Option 2:</strong> Ubuntu 15.04</li>
 </ul>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ sudo apt-get update <span class="o">&amp;&amp;</span> sudo apt-get install -y <span class="se">\</span>
     software-properties-common <span class="se">\</span>
     <span class="o">&amp;&amp;</span> sudo apt-add-repository multiverse <span class="se">\</span>
     <span class="o">&amp;&amp;</span> sudo apt-get update <span class="se">\</span>
@@ -149,33 +149,33 @@
 </pre></div>
 <h1 id="other-dependencies">Other dependencies<a class="headerlink" href="#other-dependencies" title="Permanent link">¶</a></h1>
 <h2 id="install-opencl">Install OpenCL<a class="headerlink" href="#install-opencl" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="c"># OpenCL for Intel/AMD:</span>
-    <span class="nv">$ </span>sudo apt-get install ocl-icd-opencl-dev
+<div class="highlight"><pre><span></span><span class="c1"># OpenCL for Intel/AMD:</span>
+    $ sudo apt-get install ocl-icd-opencl-dev
 
-<span class="c"># OpenCL for Nvidia:</span>
-    <span class="nv">$ </span>sudo apt-get install nvidia-opencl-icd-XXX
-    <span class="c"># Where XXX is the version. Current 346</span>
+<span class="c1"># OpenCL for Nvidia:</span>
+    $ sudo apt-get install nvidia-opencl-icd-XXX
+    <span class="c1"># Where XXX is the version. Current 346</span>
 </pre></div>
 <h2 id="build-cmake-330">Build Cmake 3.3.0<a class="headerlink" href="#build-cmake-330" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
-<span class="nv">$ </span>tar xvzf cmake-3.3.0.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">cd </span>cmake-3.3.0
-<span class="nv">$ </span>./bootstrap --prefix<span class="o">=</span>/usr --system-libs --mandir<span class="o">=</span>/share/man --no-system-jsoncpp <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ wget -c http://www.cmake.org/files/v3.3/cmake-3.3.0.tar.gz
+$ tar xvzf cmake-3.3.0.tar.gz <span class="o">&amp;&amp;</span> <span class="nb">cd</span> cmake-3.3.0
+$ ./bootstrap --prefix<span class="o">=</span>/usr --system-libs --mandir<span class="o">=</span>/share/man --no-system-jsoncpp <span class="se">\</span>
   --docdir<span class="o">=</span>/share/doc/cmake-3.3.0 --qt-gui
-<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> sudo make install
+$ make <span class="o">&amp;&amp;</span> sudo make install
 </pre></div>
 <h2 id="build-ffmpeg">Build FFmpeg<a class="headerlink" href="#build-ffmpeg" title="Permanent link">¶</a></h2>
 <p>FFmpeg is required for OpenCV.</p>
-<div class="highlight"><pre><span class="nv">$ </span>git clone https://github.com/FFmpeg/FFmpeg.git
-<span class="nv">$ </span><span class="nb">cd </span>FFmpeg
-<span class="nv">$ </span>./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/FFmpeg/FFmpeg.git
+$ <span class="nb">cd</span> FFmpeg
+$ ./configure --enable-gpl --enable-libfaac --enable-libmp3lame --enable-libopencore-amrnb <span class="se">\</span>
     --enable-libopencore-amrwb --enable-libtheora --enable-libvorbis --enable-libvpx <span class="se">\</span>
     --enable-nonfree --enable-version3 --enable-x11grab --enable-shared --enable-pic
-<span class="nv">$ </span>make <span class="o">&amp;&amp;</span> sudo make install
+$ make <span class="o">&amp;&amp;</span> sudo make install
 </pre></div>
 <h2 id="build-mitk">Build <span class="caps">MITK</span><a class="headerlink" href="#build-mitk" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>git clone http://git.mitk.org/MITK.git
-<span class="nv">$ </span>mkdir MITK-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>MITK-build
-<span class="nv">$ </span>ccmake ../MITK
+<div class="highlight"><pre><span></span>$ git clone http://git.mitk.org/MITK.git
+$ mkdir MITK-build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> MITK-build
+$ ccmake ../MITK
 </pre></div>
 <p><img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_001.png"/></p>
 <p><img alt="MITK ccmake image" src="images/Docker_Ubuntu_15.04_ccmake_MITK_002.png"/></p>
@@ -187,77 +187,77 @@
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span class="c"># Press 'c' to configure and 'g' to generate and exit.</span>
+<div class="highlight"><pre><span></span><span class="c1"># Press 'c' to configure and 'g' to generate and exit.</span>
 
-<span class="nv">$ </span>make
-<span class="c"># I do NOT recommend running `make` with the option `-j4`. You'll get dependency related errors during the build.</span>
-<span class="c"># This last command will take several hours, so go and take a walk (in another city) :)</span>
+$ make
+<span class="c1"># I do NOT recommend running `make` with the option `-j4`. You'll get dependency related errors during the build.</span>
+<span class="c1"># This last command will take several hours, so go and take a walk (in another city) :)</span>
 </pre></div>
 <p>If you encounter any problems building <span class="caps">MITK</span>, try building your self some of Its dependencies.:</p>
 <h2 id="build-boost-if-needed">Build Boost if needed<a class="headerlink" href="#build-boost-if-needed" title="Permanent link">¶</a></h2>
 <ul>
 <li>Download Boost from the official webpage <a href="http://www.boost.org/" target="_blank">Boost C++ Libraries</a>.</li>
 </ul>
-<div class="highlight"><pre><span class="nv">$ </span>tar --bzip2 -xf /path/to/boost_1_XX_X.tar.bz2 <span class="o">&amp;&amp;</span> <span class="nb">cd </span>boost_1_XX_X <span class="c">#Current `boost_1_58_0`</span>
-<span class="nv">$ </span>./bootstrap.sh --prefix<span class="o">=</span>/usr/local --with-python<span class="o">=</span>/usr/bin/python2 <span class="c">#It doesn't work with Python3</span>
-<span class="nv">$ </span>mkdir ../boost-build
-<span class="nv">$ </span>sudo ./b2 -q --build-dir<span class="o">=</span>../boost-build <span class="nv">variant</span><span class="o">=</span>release install
+<div class="highlight"><pre><span></span>$ tar --bzip2 -xf /path/to/boost_1_XX_X.tar.bz2 <span class="o">&amp;&amp;</span> <span class="nb">cd</span> boost_1_XX_X <span class="c1">#Current `boost_1_58_0`</span>
+$ ./bootstrap.sh --prefix<span class="o">=</span>/usr/local --with-python<span class="o">=</span>/usr/bin/python2 <span class="c1">#It doesn't work with Python3</span>
+$ mkdir ../boost-build
+$ sudo ./b2 -q --build-dir<span class="o">=</span>../boost-build <span class="nv">variant</span><span class="o">=</span>release install
 </pre></div>
 <h2 id="build-opencv-if-needed">Build OpenCV if needed<a class="headerlink" href="#build-opencv-if-needed" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ sudo apt-get install build-essential libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev <span class="se">\</span>
   libswscale-dev python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev <span class="se">\</span>
   libjasper-dev libdc1394-22-dev
-<span class="nv">$ </span>git clone git@github.com:Itseez/opencv.git
-<span class="nv">$ </span>mkdir opencv-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>opencv-build
-<span class="nv">$ </span>ccmake ../opencv
-<span class="c"># Press 'c' to configure and 'g' to generate and exit.</span>
+$ git clone git@github.com:Itseez/opencv.git
+$ mkdir opencv-build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> opencv-build
+$ ccmake ../opencv
+<span class="c1"># Press 'c' to configure and 'g' to generate and exit.</span>
 
-<span class="nv">$ </span>make -j4
+$ make -j4
 
-<span class="c"># Where *4 is the number of CPU Threads.</span>
-<span class="c"># The last command will take several minutes to complete.</span>
+<span class="c1"># Where *4 is the number of CPU Threads.</span>
+<span class="c1"># The last command will take several minutes to complete.</span>
 
-<span class="nv">$ </span>sudo make install
+$ sudo make install
 </pre></div>
 <h2 id="build-vtk-if-needed">Build <span class="caps">VTK</span> if needed<a class="headerlink" href="#build-vtk-if-needed" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install tk-dev
-<span class="nv">$ </span>git clone git://vtk.org/VTK.git
-<span class="nv">$ </span>mkdir VTK-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>VTK-build
-<span class="nv">$ </span>ccmake ../VTK
-<span class="c"># Press 'c' to configure and 'e' to continue.</span>
-<span class="c"># Select desired options.</span>
-<span class="c"># VTK_WRAP_PYTHON ON</span>
-<span class="c"># VTK_QT_VERSION 5</span>
-<span class="c"># ...</span>
-<span class="c"># Press again 'c' to configure and 'e' to continue.</span>
-<span class="c"># Press 'g' to generate and exit.</span>
+<div class="highlight"><pre><span></span>$ sudo apt-get install tk-dev
+$ git clone git://vtk.org/VTK.git
+$ mkdir VTK-build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> VTK-build
+$ ccmake ../VTK
+<span class="c1"># Press 'c' to configure and 'e' to continue.</span>
+<span class="c1"># Select desired options.</span>
+<span class="c1"># VTK_WRAP_PYTHON ON</span>
+<span class="c1"># VTK_QT_VERSION 5</span>
+<span class="c1"># ...</span>
+<span class="c1"># Press again 'c' to configure and 'e' to continue.</span>
+<span class="c1"># Press 'g' to generate and exit.</span>
 
-<span class="nv">$ </span>make -j4
-<span class="nv">$ </span>sudo make install
+$ make -j4
+$ sudo make install
 </pre></div>
 <h2 id="build-sofa-if-needed">Build <span class="caps">SOFA</span> if needed<a class="headerlink" href="#build-sofa-if-needed" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>git clone git://scm.gforge.inria.fr/sofa/sofa.git
-<span class="nv">$ </span>sudo apt-get install build-essential libqt4-dev libqt4-opengl-dev libglew-dev freeglut3-dev <span class="se">\</span>
+<div class="highlight"><pre><span></span>$ git clone git://scm.gforge.inria.fr/sofa/sofa.git
+$ sudo apt-get install build-essential libqt4-dev libqt4-opengl-dev libglew-dev freeglut3-dev <span class="se">\</span>
   libpng-dev ccache zlib1g-dev python2.7-dev libxml2-dev libcgal-dev libblas-dev liblapack-dev <span class="se">\</span>
   libsuitesparse-dev libboost-all-dev libassimp-dev liboce-foundation-dev
-<span class="nv">$ </span>mkdir sofa-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>sofa-build
-<span class="nv">$ CC</span><span class="o">=</span><span class="s2">"gcc"</span> <span class="nv">CXX</span><span class="o">=</span><span class="s2">"g++"</span> cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Release  ../sofa
-<span class="nv">$ </span>cmake .
-<span class="nv">$ </span>make -j4
+$ mkdir sofa-build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> sofa-build
+$ <span class="nv">CC</span><span class="o">=</span><span class="s2">"gcc"</span> <span class="nv">CXX</span><span class="o">=</span><span class="s2">"g++"</span> cmake -DCMAKE_BUILD_TYPE<span class="o">=</span>Release  ../sofa
+$ cmake .
+$ make -j4
 </pre></div>
 <h2 id="build-gdcm-if-needed">Build <span class="caps">GDCM</span> if needed<a class="headerlink" href="#build-gdcm-if-needed" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install swig
-<span class="nv">$ </span>git clone --branch release git://git.code.sf.net/p/gdcm/gdcm
-<span class="nv">$ </span>mdkir gdcm-build <span class="o">&amp;&amp;</span> <span class="nb">cd </span>gdcm-build
-<span class="nv">$ </span>ccmake ../gdcm
-<span class="c"># Press 'c' to configure and 'g' to generate and exit.</span>
+<div class="highlight"><pre><span></span>$ sudo apt-get install swig
+$ git clone --branch release git://git.code.sf.net/p/gdcm/gdcm
+$ mdkir gdcm-build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> gdcm-build
+$ ccmake ../gdcm
+<span class="c1"># Press 'c' to configure and 'g' to generate and exit.</span>
 
-<span class="nv">$ </span>make
-<span class="nv">$ </span>sudo make install
+$ make
+$ sudo make install
 </pre></div>
 <h1 id="run-mitk">Run <span class="caps">MITK</span><a class="headerlink" href="#run-mitk" title="Permanent link">¶</a></h1>
-<div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/Downloads <span class="o">&amp;&amp;</span> wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd
-<span class="nv">$ </span>/path/to/MITK-build/bin/MitkWorkbench
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Downloads <span class="o">&amp;&amp;</span> wget -c http://mitk.org/download/tutorial-data/Pic3D.nrrd
+$ /path/to/MITK-build/bin/MitkWorkbench
 </pre></div>
 <p><img alt="MITK load image" src="images/MitkWorkbench_001.png"/></p>
 <ul>
@@ -327,10 +327,10 @@
 
 <h4>Author</h4>
 <div class="last-updated">Luis Javier Salvatierra</div>            <h4>Published</h4>
-            <time pubdate="pubdate" datetime="2015-08-13T00:00:00+02:00">ago 13, 2015</time>
+            <time pubdate="pubdate" datetime="2015-08-13T00:00:00+02:00">Aug 13, 2015</time>
 
 <h4>Last Updated</h4>
-<time datetime="2015-09-02T00:00:00+02:00">sep 2, 2015</time>
+<time datetime="2015-09-02T00:00:00+02:00">Sep 2, 2015</time>
 
             <h4>Category</h4>
             <a class="category-link" href="https://neurita.github.io/categories.html#mitk-build-ref">MITK, build</a>
